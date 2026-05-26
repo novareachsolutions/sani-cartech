@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dash Cam &amp; Accessory Installation Geelong | LED &amp; UHF</title>
-    <meta name="description" content="Professional dash cam, reverse camera and parking sensor installation in Geelong. UHF radios, LED lighting and aftermarket accessory wiring with a factory finish.">
+    <title>Car Repair Services in Geelong | Sanicar</title>
+    <meta name="description" content="Reliable car repair services in Geelong for mechanical faults, brakes, suspension, batteries, cooling, AC and electrical issues. Experienced local mechanics and mobile breakdown support.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Dash Cam & Accessory Installation Geelong | Sanicar Tech">
-    <meta property="og:description" content="On-site car electrical diagnostics and repairs across Geelong & surrounds. We come to you.">
+    <meta property="og:title" content="Car Repair Services in Geelong | Sanicar">
+    <meta property="og:description" content="Complete car repair services in Geelong — mechanical, brakes, suspension, battery, AC, cooling and electrical repairs.">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://geelongautoelectrician.com.au/services/mobile-auto-electrician">
+    <link rel="canonical" href="https://geelongautoelectrician.com.au/services/car-repair">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,255 +166,213 @@
         .back-link i { width: 18px; height: 18px; }
 
         /* ===== SERVICE HERO ===== */
-        .svc-hero {
-            padding: 48px 0 0;
-        }
+        .svc-hero { padding: 48px 0 0; }
         .svc-hero h1 {
             font-family: var(--font-display); font-weight: 800;
             font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             color: var(--navy); line-height: 1.1;
-            margin-bottom: 20px; max-width: 700px;
+            margin-bottom: 20px; max-width: 780px;
         }
         .svc-hero-desc {
             font-size: 1.05rem; color: var(--gray);
-            line-height: 1.7; max-width: 700px; margin-bottom: 48px;
+            line-height: 1.7; max-width: 720px; margin-bottom: 32px;
         }
+        .svc-hero-ctas {
+            display: inline-flex; align-items: center; gap: 14px;
+            flex-wrap: wrap; margin-bottom: 48px;
+        }
+        .hero-btn-primary, .hero-btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 30px; border-radius: 100px;
+            font-size: 0.95rem; font-weight: 700;
+            transition: var(--transition); border: none; cursor: pointer;
+        }
+        .hero-btn-primary {
+            background: var(--accent-bg); color: var(--white);
+            box-shadow: 0 6px 18px rgba(30,58,138,0.25);
+        }
+        .hero-btn-primary:hover { background: #3b5bdb; transform: translateY(-2px); }
+        .hero-btn-secondary {
+            background: var(--white); color: var(--navy);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .hero-btn-secondary:hover { background: var(--cream-dark); transform: translateY(-2px); }
+        .hero-btn-primary i, .hero-btn-secondary i { width: 16px; height: 16px; }
         .svc-hero-img {
             border-radius: var(--radius-lg); overflow: hidden;
             margin-bottom: 80px;
         }
-        .svc-hero-img img {
-            width: 100%; height: 480px; object-fit: cover;
-        }
+        .svc-hero-img img { width: 100%; height: 480px; object-fit: cover; }
 
-        /* ===== SERVICE OVERVIEW ===== */
-        .svc-overview {
-            padding: 0 0 80px;
+        /* ===== PROBLEM INTRO ===== */
+        .problem-intro { padding: 0 0 80px; }
+        .problem-intro-grid {
+            display: grid; grid-template-columns: 1.1fr 0.9fr;
+            gap: 56px; align-items: start;
         }
-        .svc-overview h2 {
+        .problem-intro-text h2 {
             font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 16px; line-height: 1.1;
+            font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+            color: var(--navy); margin-bottom: 22px; line-height: 1.15;
         }
-        .svc-overview-text {
+        .problem-intro-text p {
             font-size: 1rem; color: var(--gray);
-            line-height: 1.8; max-width: 700px; margin-bottom: 48px;
+            line-height: 1.75; margin-bottom: 18px;
         }
-        .svc-overview-img {
-            border-radius: var(--radius-lg); overflow: hidden;
+        .problem-intro-list {
+            background: var(--cream-dark);
+            border-radius: var(--radius-lg); padding: 36px;
         }
-        .svc-overview-img img {
-            width: 100%; height: 440px; object-fit: cover;
+        .problem-intro-list h3 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1.2rem; color: var(--navy); margin-bottom: 20px;
+        }
+        .problem-intro-list ul {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4px 20px;
+        }
+        .problem-intro-list ul li {
+            font-size: 0.92rem; color: var(--navy);
+            padding: 8px 0;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .problem-intro-list ul li::before {
+            content: ''; width: 6px; height: 6px;
+            border-radius: 50%; background: var(--accent);
+            flex-shrink: 0;
         }
 
-        /* ===== WHAT WE OFFER ===== */
-        .svc-offers {
-            padding: 0 0 80px;
-        }
-        .svc-offers h2 {
+        /* ===== REPAIR SERVICES GRID ===== */
+        .repair-services { padding: 80px 0; background: var(--cream-dark); }
+        .repair-services-header { max-width: 820px; margin-bottom: 56px; }
+        .repair-services-header h2 {
             font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 40px; line-height: 1.1;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            color: var(--navy); margin-bottom: 16px; line-height: 1.15;
         }
-        .offers-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 20px 48px; margin-bottom: 48px;
+        .repair-services-header p {
+            font-size: 1.05rem; color: var(--gray); line-height: 1.7;
         }
-        .offer-item {
-            display: flex; align-items: center; gap: 14px;
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+        .repair-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
         }
-        .offer-check {
-            width: 28px; height: 28px; flex-shrink: 0;
-            border: 2px solid var(--green, #4ade80); border-radius: 50%;
-            background: var(--green-bg, #ecfdf5);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.08);
-        }
-        .offer-check i { width: 14px; height: 14px; color: var(--green, #4ade80); stroke-width: 3.5; }
-        .offer-item span {
-            font-size: 0.95rem; font-weight: 600; color: var(--navy);
-        }
-        .svc-offers-img {
-            border-radius: var(--radius-lg); overflow: hidden;
-        }
-        .svc-offers-img img {
-            width: 100%; height: 440px; object-fit: cover;
-        }
-
-        /* ===== WHY CHOOSE ===== */
-        .svc-why {
-            padding: 80px 0;
-        }
-        .svc-why h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 12px; line-height: 1.1;
-            max-width: 500px;
-        }
-        .svc-why > .container > p {
-            font-size: 1rem; color: var(--gray);
-            line-height: 1.7; max-width: 700px; margin-bottom: 40px;
-        }
-        .why-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .why-card {
-            background: var(--green-bg);
-            border: 1px solid rgba(0,0,0,0.05);
+        .repair-card {
+            background: var(--white);
             border-radius: var(--radius-lg);
             padding: 36px;
             transition: var(--transition);
-        }
-        .why-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-        .why-card h4 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: 1.15rem; color: var(--navy); margin-bottom: 12px;
-        }
-        .why-card p {
-            font-size: 0.9rem; color: var(--gray); line-height: 1.7;
-        }
-
-        /* ===== PROCESS / TIMELINE ===== */
-        .svc-process {
-            background: var(--navy); padding: 80px 0;
-            color: var(--white); position: relative;
-        }
-        .process-grid {
-            display: grid; grid-template-columns: 1fr 1.4fr;
-            gap: 60px; align-items: start;
-        }
-        .process-left {
-            position: sticky; top: 120px;
-        }
-        .process-label {
-            font-size: 0.82rem; color: var(--gray-light);
-            margin-bottom: 12px;
-        }
-        .process-left h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            color: var(--white); margin-bottom: 16px; line-height: 1.1;
-        }
-        .process-left p {
-            font-size: 1rem; color: rgba(255,255,255,0.5);
-            line-height: 1.7; max-width: 360px;
-        }
-        .process-steps {
             display: flex; flex-direction: column;
-            position: relative;
-            gap: 32px;
         }
-        /* Timeline line (dim base track) */
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            left: 24px; top: 0; bottom: 0;
-            width: 2px;
-            background: rgba(0, 229, 146, 0.18);
+        .repair-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
         }
-        /* Timeline line (animated progress) */
-        .process-steps-progress {
-            position: absolute;
-            left: 24px; top: 0;
-            width: 2px;
-            height: 0;
-            background: var(--green);
-            box-shadow: 0 0 8px rgba(0, 229, 146, 0.5);
-            pointer-events: none;
-            z-index: 0;
-            will-change: height;
-        }
-        .process-step {
-            display: flex; gap: 24px;
-            position: relative;
-        }
-        .step-marker {
-            flex-shrink: 0;
-            width: 48px; height: 48px;
-            background: var(--green);
-            border-radius: 50%;
+        .repair-card-icon {
+            width: 52px; height: 52px;
+            background: var(--accent-bg); border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 800; font-size: 1rem;
-            color: var(--navy);
-            position: relative; z-index: 1;
+            margin-bottom: 20px;
         }
-        .step-content {
-            background: #1e2235;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            flex: 1;
-        }
-        .step-content:hover {
-            border-color: rgba(255,255,255,0.18);
-        }
-        .step-icon {
-            color: var(--green); margin-bottom: 16px;
-        }
-        .step-icon i { width: 28px; height: 28px; }
-        .step-content h4 {
+        .repair-card-icon i, .repair-card-icon svg { width: 24px; height: 24px; color: var(--white); }
+        .repair-card h3 {
             font-family: var(--font-display); font-weight: 800;
-            font-size: 1.3rem; color: var(--white); margin-bottom: 8px;
+            font-size: 1.2rem; color: var(--navy); margin-bottom: 12px;
+            line-height: 1.25;
         }
-        .step-content p {
-            font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.7;
+        .repair-card p {
+            font-size: 0.95rem; color: var(--gray); line-height: 1.7;
         }
-        .step-content-img {
-            border-radius: var(--radius); overflow: hidden;
-            margin-top: 0;
-            max-height: 0;
-            opacity: 0;
-            will-change: max-height, opacity, margin-top;
-            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+        .repair-card p a {
+            color: var(--accent); text-decoration: underline;
+            text-underline-offset: 3px; font-weight: 600;
         }
-        .process-step.is-active .step-content-img {
-            margin-top: 20px;
-            max-height: 260px;
-            opacity: 1;
+        .repair-card .includes-label {
+            margin-top: 18px;
+            font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--gray-light); margin-bottom: 10px;
         }
-        .step-content-img img {
-            width: 100%; height: 220px; object-fit: cover;
-            display: block;
+        .repair-card ul.includes-list {
+            display: flex; flex-direction: column; gap: 6px;
+        }
+        .repair-card ul.includes-list li {
+            font-size: 0.9rem; color: var(--navy);
+            display: flex; align-items: center; gap: 10px;
+            padding: 4px 0;
+        }
+        .repair-card ul.includes-list li::before {
+            content: ''; width: 5px; height: 5px;
+            border-radius: 50%; background: var(--accent);
+            flex-shrink: 0;
         }
 
-        /* ===== STATS ===== */
-        .svc-stats {
-            padding: 80px 0; text-align: center;
-        }
-        .stats-label {
-            font-size: 0.82rem; color: var(--gray-light);
-            margin-bottom: 12px;
-        }
-        .svc-stats h2 {
+        /* ===== WHY REPAIRS MATTER ===== */
+        .why-matter { padding: 80px 0; }
+        .why-matter-inner { max-width: 820px; margin: 0 auto; }
+        .why-matter h2 {
             font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 12px;
+            font-size: clamp(2rem, 3.5vw, 2.6rem);
+            color: var(--navy); margin-bottom: 24px;
+            line-height: 1.15;
         }
-        .svc-stats > .container > p {
-            font-size: 1rem; color: var(--gray);
-            max-width: 520px; margin: 0 auto 40px;
+        .why-matter p {
+            font-size: 1.02rem; color: var(--gray);
+            line-height: 1.8; margin-bottom: 20px;
         }
-        .stats-row {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
+        .why-matter p a {
+            color: var(--accent); text-decoration: underline;
+            text-underline-offset: 3px; font-weight: 600;
         }
-        .stat-cell {
-            padding: 32px;
-            border-right: 1px solid rgba(0,0,0,0.08);
+
+        /* ===== WHY CHOOSE SANICAR ===== */
+        .why-choose-section { padding: 0 0 80px; }
+        .why-choose-inner {
+            background: var(--navy); color: var(--white);
+            border-radius: var(--radius-lg); padding: 56px;
         }
-        .stat-cell:last-child { border-right: none; }
-        .stat-cell h3 {
+        .why-choose-inner h2 {
             font-family: var(--font-display); font-weight: 800;
-            font-size: 2rem; color: var(--navy); margin-bottom: 8px;
+            font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+            color: var(--white); margin-bottom: 20px;
+            line-height: 1.15;
         }
-        .stat-cell p {
-            font-size: 0.85rem; color: var(--gray); line-height: 1.5;
+        .why-choose-inner > p {
+            font-size: 1rem; color: rgba(255,255,255,0.7);
+            line-height: 1.75; margin-bottom: 28px;
+            max-width: 760px;
+        }
+        .why-choose-subhead {
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 18px;
+        }
+        .why-choose-list {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 12px 32px;
+            margin-bottom: 32px;
+        }
+        .why-choose-list li {
+            font-size: 1rem; color: var(--white);
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-weight: 500;
+        }
+        .why-choose-list li i {
+            width: 20px; height: 20px;
+            color: var(--green); flex-shrink: 0;
+        }
+        .why-choose-footnote {
+            font-size: 0.98rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.75;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .why-choose-footnote a {
+            color: #b6c5ff; text-decoration: underline;
+            text-underline-offset: 3px; font-weight: 600;
         }
 
         /* ===== FAQ ===== */
@@ -456,7 +414,7 @@
         }
         .faq-item.active .faq-plus { background: var(--navy); border-color: var(--navy); }
         .faq-item.active .faq-plus i { color: var(--white); transform: rotate(45deg); }
-        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-item.active .faq-answer { max-height: 360px; }
 
         /* ===== CTA BOTTOM ===== */
         .svc-cta {
@@ -476,7 +434,7 @@
             color: var(--white); margin-bottom: 16px; line-height: 1.15;
         }
         .svc-cta-text p {
-            font-size: 1rem; color: rgba(255,255,255,0.5);
+            font-size: 1rem; color: rgba(255,255,255,0.6);
             line-height: 1.7; margin-bottom: 28px;
         }
         .svc-cta-btn {
@@ -498,9 +456,7 @@
         .svc-cta-img {
             border-radius: var(--radius-lg); overflow: hidden;
         }
-        .svc-cta-img img {
-            width: 100%; height: 380px; object-fit: cover;
-        }
+        .svc-cta-img img { width: 100%; height: 380px; object-fit: cover; }
 
         /* ===== FOOTER ===== */
         .footer {
@@ -633,12 +589,9 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .offers-grid { grid-template-columns: 1fr; }
-            .why-grid { grid-template-columns: 1fr; }
-            .stats-row { grid-template-columns: repeat(2, 1fr); }
-            .stat-cell:nth-child(2) { border-right: none; }
-            .stat-cell:nth-child(3) { border-top: 1px solid rgba(0,0,0,0.08); }
-            .stat-cell:nth-child(4) { border-top: 1px solid rgba(0,0,0,0.08); }
+            .problem-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .repair-grid { grid-template-columns: 1fr; }
+            .why-choose-list { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links, .nav-cta { display: none; }
@@ -648,21 +601,17 @@
             .nav-logo { margin: 0; }
             .nav-logo .logo-img { height: 56px; }
             .svc-hero-img img { height: 300px; }
-            .svc-overview-img img { height: 300px; }
-            .svc-offers-img img { height: 300px; }
-            .offers-grid { grid-template-columns: 1fr; }
-            .why-grid { grid-template-columns: 1fr; }
-            .process-grid { grid-template-columns: 1fr; gap: 40px; }
-            .process-left { position: static; }
-            .process-step { position: relative !important; top: auto !important; }
-            .process-steps-progress { display: none; }
-            .step-content-img { max-height: none !important; opacity: 1 !important; margin-top: 20px !important; }
-            .stats-row { grid-template-columns: 1fr; }
-            .stat-cell { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
-            .stat-cell:last-child { border-bottom: none; }
             .svc-cta { grid-template-columns: 1fr; margin: 0 16px 40px; padding: 48px 28px; }
             .svc-cta-img { display: none; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .problem-intro { padding: 0 0 56px; }
+            .problem-intro-list { padding: 28px 24px; }
+            .problem-intro-list ul { grid-template-columns: 1fr; }
+            .repair-services { padding: 56px 0; }
+            .repair-card { padding: 28px 24px; }
+            .why-matter { padding: 56px 0; }
+            .why-choose-section { padding: 0 0 56px; }
+            .why-choose-inner { padding: 36px 24px; }
         }
     </style>
 </head>
@@ -670,7 +619,7 @@
 
     <!-- Top Banner -->
     <div class="top-banner">
-        Mobile auto electrician — we come to you across Geelong &amp; surrounds.
+        Mobile auto electrician &mdash; we come to you across Geelong &amp; surrounds.
         <a href="tel:+61406642600">Call now</a>
     </div>
 
@@ -680,7 +629,7 @@
             <a href="/" class="nav-logo">
                 <img src="assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
             </a>
-                        <div class="nav-links">
+            <div class="nav-links">
                 <a href="index.html">Home</a>
                 <div class="nav-item-dropdown">
                     <a href="services.html" class="active">
@@ -753,7 +702,7 @@
                 <i data-lucide="x"></i>
             </button>
         </div>
-                <div class="mobile-menu-links">
+        <div class="mobile-menu-links">
             <a href="index.html" onclick="toggleMobileMenu()">Home</a>
             <a href="services.html" class="active" onclick="toggleMobileMenu()">Services</a>
             <a href="mbcod.html" onclick="toggleMobileMenu()">European</a>
@@ -771,161 +720,222 @@
     <!-- Service Hero -->
     <section class="svc-hero">
         <div class="container">
-            <a href="/services.html" class="back-link">
+            <a href="services.html" class="back-link">
                 <i data-lucide="chevron-left"></i> Back to Services
             </a>
-            <h1>Dash Cam &amp; Accessory Installation in Geelong</h1>
-            <p class="svc-hero-desc">Dash cam, reverse camera, parking sensor installation. Plus UHF radios, LED lighting and aftermarket accessory wiring to a factory finish — no visible cables, no fuss.</p>
+            <h1>Car Repair Services in Geelong</h1>
+            <p class="svc-hero-desc">Reliable car repair services in Geelong by Sani Car for mechanical faults, battery problems, suspension repairs, electrical issues, and breakdown support from experienced local mechanics.</p>
+            <div class="svc-hero-ctas">
+                <a href="tel:+61406642600" class="hero-btn-primary">
+                    <i data-lucide="wrench"></i> Book Repair Service
+                </a>
+                <a href="tel:+61406642600" class="hero-btn-secondary">
+                    <i data-lucide="phone"></i> Call Now
+                </a>
+            </div>
             <div class="svc-hero-img fade-up">
-                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=1200&q=80" alt="Professional dash cam and reverse camera installation" loading="eager">
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&q=80" alt="Mechanic performing car repair work in Geelong workshop" loading="eager">
             </div>
         </div>
     </section>
 
-    <!-- Service Overview -->
-    <section class="svc-overview">
+    <!-- Problem Intro -->
+    <section class="problem-intro">
         <div class="container">
-            <h2 class="fade-up">Service overview</h2>
-            <p class="svc-overview-text fade-up">A great accessory fit isn't just about plugging it in — it's about hiding the wiring, tapping power cleanly, and making it look like the car came that way from the factory. We hardwire dash cams to fuse-tap kits with proper voltage protection, route reverse camera cables through the headliner and trim, install UHF antennas without drilling visible holes, and wire LED light bars to dedicated relays and switches.</p>
-            <div class="svc-overview-img fade-up">
-                <img src="https://images.unsplash.com/photo-1583267746897-2cf66319ef97?w=1200&q=80" alt="Dash cam mounted on windscreen" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- What We Offer -->
-    <section class="svc-offers">
-        <div class="container">
-            <h2 class="fade-up">What we offer for this service</h2>
-            <div class="offers-grid fade-up">
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Dash cam hardwire installation</span>
+            <div class="problem-intro-grid">
+                <div class="problem-intro-text fade-up">
+                    <h2>Vehicle Problems or Mechanical Issues?</h2>
+                    <p>Modern vehicles are built with advanced mechanical and electrical systems that work together to deliver safe performance, reliability, and efficient fuel use. When one component begins to fail, it can lead to overheating, poor performance, warning lights, unusual noises, reduced drivability, or complete breakdowns.</p>
+                    <p>At Sanicar, we provide complete automotive repair services in Geelong with a focus on identifying the root cause of the issue and delivering reliable long-term repairs.</p>
                 </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Reverse &amp; front camera fitting</span>
-                </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Parking sensor installation</span>
-                </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>UHF radio &amp; antenna fitting</span>
-                </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>LED light bars &amp; spotlight wiring</span>
-                </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Aftermarket accessory wiring</span>
-                </div>
-            </div>
-            <div class="svc-offers-img fade-up">
-                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&q=80" alt="Auto electrician fitting dash cam wiring" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="svc-why">
-        <div class="container">
-            <h2 class="fade-up">Why choose us for accessory installs?</h2>
-            <p class="fade-up">We bring extensive experience and the right tools to every job, delivering reliable solutions tailored to your vehicle.</p>
-            <div class="why-grid">
-                <div class="why-card fade-up">
-                    <h4>Experienced Specialists</h4>
-                    <p>Qualified auto electricians with years of hands-on experience across all makes and models. We don't guess — we diagnose properly and fix it right the first time.</p>
-                </div>
-                <div class="why-card fade-up">
-                    <h4>Upfront Pricing</h4>
-                    <p>Honest quotes with no hidden charges. We'll explain the issue and the cost before we start any work, so you always know exactly what you're paying for.</p>
-                </div>
-                <div class="why-card fade-up">
-                    <h4>Quality Parts</h4>
-                    <p>We use quality replacement parts and OEM-grade wiring supplies. Every repair is built to last, not just to get you through the week.</p>
-                </div>
-                <div class="why-card fade-up">
-                    <h4>Customer Guarantee</h4>
-                    <p>We stand behind our work. If a repair doesn't hold up, we'll come back and make it right — no questions asked, no extra charges.</p>
+                <div class="problem-intro-list fade-up">
+                    <h3>Common Problems We Repair</h3>
+                    <ul>
+                        <li>Engine performance issues</li>
+                        <li>Brake problems</li>
+                        <li>Suspension noise &amp; steering issues</li>
+                        <li>Battery and charging problems</li>
+                        <li>Cooling system faults</li>
+                        <li>Air conditioning issues</li>
+                        <li>Vehicle overheating</li>
+                        <li>Electrical system failures</li>
+                        <li>Starting problems</li>
+                        <li>General wear and tear repairs</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Working Process -->
-    <section class="svc-process">
+    <!-- Complete Car Repair Services -->
+    <section class="repair-services">
         <div class="container">
-            <div class="process-grid">
-                <div class="process-left">
-                    <div class="process-label">/Process</div>
-                    <h2>Our Working Process</h2>
-                    <p>From start to finish, our process is designed to make your auto electrical experience simple, stress-free, and guaranteed to get you back on the road.</p>
+            <div class="repair-services-header fade-up">
+                <h2>Complete Car Repair Services</h2>
+                <p>We provide comprehensive car repair and maintenance services in Geelong for everyday vehicles, commercial vehicles, and modern electronically controlled systems.</p>
+            </div>
+
+            <div class="repair-grid">
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="wrench"></i></div>
+                    <h3>Mechanical Repairs</h3>
+                    <p>Our experienced team delivers professional mechanical repairs for engine issues, cooling systems, drivability problems, and overall vehicle performance, making Sanicar a trusted choice for anyone searching for the best car mechanic in Geelong.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Engine-related repairs</li>
+                        <li>Cooling system repairs</li>
+                        <li>Radiator leak repairs</li>
+                        <li>Thermostat replacement</li>
+                        <li>Drive belt inspections</li>
+                        <li>General mechanical servicing</li>
+                    </ul>
                 </div>
-                <div class="process-steps">
-                    <div class="process-steps-progress" aria-hidden="true"></div>
-                    <div class="process-step fade-up">
-                        <div class="step-marker">1</div>
-                        <div class="step-content">
-                            <div class="step-icon"><i data-lucide="calendar"></i></div>
-                            <h4>Schedule Your Service</h4>
-                            <p>No long wait times, no confusion. Call us or send a message and we'll book a time that fits your schedule — often same-day.</p>
-                            <div class="step-content-img">
-                                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Scheduling auto electrical service appointment" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="process-step fade-up">
-                        <div class="step-marker">2</div>
-                        <div class="step-content">
-                            <div class="step-icon"><i data-lucide="users"></i></div>
-                            <h4>On-Site Inspection</h4>
-                            <p>We believe in transparency — no hidden fees, no surprises. We arrive at your location, inspect the issue, and explain the problem and cost before we start.</p>
-                            <div class="step-content-img">
-                                <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&q=80" alt="Auto electrician inspecting vehicle on-site" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="process-step fade-up">
-                        <div class="step-marker">3</div>
-                        <div class="step-content">
-                            <div class="step-icon"><i data-lucide="wrench"></i></div>
-                            <h4>Professional Repair</h4>
-                            <p>Fast, reliable, and professional service that gets your vehicle's electrics working properly again — most jobs completed on the first visit.</p>
-                            <div class="step-content-img">
-                                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80" alt="Professional auto electrical repair in progress" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="disc-3"></i></div>
+                    <h3>Brake &amp; Suspension Repairs</h3>
+                    <p>Vehicle safety systems require regular inspection and proper maintenance to ensure safe braking, handling, and ride comfort. We provide professional car brake repairs along with suspension and steering repairs to help keep your vehicle safe and stable on the road.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Brake pad replacement</li>
+                        <li>Brake system inspections</li>
+                        <li>Suspension repairs</li>
+                        <li>Shock absorber replacement</li>
+                        <li>Steering component repairs</li>
+                        <li>Wheel and suspension checks</li>
+                    </ul>
+                </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="snowflake"></i></div>
+                    <h3>Car Air Conditioning Repairs</h3>
+                    <p>Vehicle air conditioning systems can lose cooling performance due to gas leaks, compressor faults, or worn components. Our team provides reliable car AC repair services in Geelong to restore proper cooling and cabin comfort.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Air conditioning diagnostics</li>
+                        <li>AC regas services</li>
+                        <li>Cooling performance testing</li>
+                        <li>Compressor inspections</li>
+                        <li>Leak detection</li>
+                        <li>Cabin airflow system repairs</li>
+                    </ul>
+                </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="battery-charging"></i></div>
+                    <h3>Battery &amp; Starting System Repairs</h3>
+                    <p>Starting and charging issues can be caused by battery failure, starter motor problems, or charging system faults. We provide reliable car battery replacement services along with complete starting and charging system repairs.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Battery testing</li>
+                        <li>Battery replacement</li>
+                        <li>Starter motor inspections</li>
+                        <li>Charging system testing</li>
+                        <li>Alternator checks</li>
+                        <li>Starting fault repairs</li>
+                    </ul>
+                </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="thermometer"></i></div>
+                    <h3>Cooling System &amp; Overheating Repairs</h3>
+                    <p>Cooling system problems can quickly lead to engine damage if left unresolved. We inspect and repair radiator leaks, coolant faults, and overheating issues to help maintain proper engine temperature and reliable vehicle performance.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Radiator inspections</li>
+                        <li>Coolant leak repairs</li>
+                        <li>Cooling fan testing</li>
+                        <li>Water pump inspections</li>
+                        <li>Overheating diagnosis</li>
+                        <li>Coolant system servicing</li>
+                    </ul>
+                </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="caravan"></i></div>
+                    <h3>Trailer Wiring &amp; Towbar Electrics</h3>
+                    <p>Professional trailer wiring and towbar electrical installations for safe towing, reliable trailer lighting performance, brake controller integration, and secure electrical connections.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>7/12 pin installations</li>
+                        <li>Trailer lighting systems</li>
+                        <li>Electric brake controllers</li>
+                        <li>Towbar wiring setups</li>
+                    </ul>
+                </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="camera"></i></div>
+                    <h3>Car Accessories Installation</h3>
+                    <p>Professional vehicle accessory installations for improved safety, convenience, and everyday driving performance from a trusted car accessories installation shop near you.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Car dash cam installation</li>
+                        <li>Reverse camera setup</li>
+                        <li>Parking sensors</li>
+                        <li>UHF radios</li>
+                    </ul>
+                </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="car-front"></i></div>
+                    <h3>Car Dent Repairs</h3>
+                    <p>We repair small dents, panel damage, and minor impact marks to help restore your vehicle&rsquo;s appearance with professional car dent repair services in Geelong.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Paintless dent repairs</li>
+                        <li>Panel damage repairs</li>
+                        <li>Minor body damage restoration</li>
+                        <li>Exterior panel alignment</li>
+                    </ul>
+                </div>
+
+                <div class="repair-card fade-up">
+                    <div class="repair-card-icon"><i data-lucide="zap"></i></div>
+                    <h3>General Electrical Repairs</h3>
+                    <p>Vehicle electrical repair services for wiring faults, damaged circuits, lighting problems, fuse failures, switch issues, and other common electrical system faults.</p>
+                    <div class="includes-label">Includes</div>
+                    <ul class="includes-list">
+                        <li>Lights &amp; indicators</li>
+                        <li>Fuse &amp; relay issues</li>
+                        <li>Switch &amp; control faults</li>
+                        <li>Interior electrical repairs</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <section class="svc-stats">
+    <!-- Why Proper Vehicle Repairs Matter -->
+    <section class="why-matter">
         <div class="container">
-            <div class="stats-label">By the numbers</div>
-            <h2>Proven Results</h2>
-            <p>Our track record speaks for itself — trusted by Geelong drivers for reliable, on-site auto electrical services.</p>
-            <div class="stats-row fade-up">
-                <div class="stat-cell">
-                    <h3>2,500+</h3>
-                    <p>Vehicles serviced across Geelong &amp; surrounds.</p>
-                </div>
-                <div class="stat-cell">
-                    <h3>98%</h3>
-                    <p>Customers rate us 5 stars for transparent pricing &amp; fast response.</p>
-                </div>
-                <div class="stat-cell">
-                    <h3>10+</h3>
-                    <p>Years of experience in auto electrical diagnostics &amp; repair.</p>
-                </div>
-                <div class="stat-cell">
-                    <h3>Same Day</h3>
-                    <p>Average response time for emergency &amp; breakdown callouts.</p>
+            <div class="why-matter-inner fade-up">
+                <h2>Why Proper Vehicle Repairs Matter</h2>
+                <p>Ignoring small mechanical or electrical issues can lead to more expensive repairs, breakdowns, and long-term vehicle damage.</p>
+                <p>Proper vehicle repairs and preventative maintenance help improve safety, fuel efficiency, reliability, and overall vehicle lifespan. Using quality replacement parts, professional testing equipment, <a href="service-car-electrical-diagnostics.html">vehicle diagnostic testing</a>, and experienced repair methods helps ensure faults are repaired correctly the first time.</p>
+                <p>For vehicles experiencing electrical warning lights or complex electronic faults, we also provide <a href="service-car-electrical-diagnostics.html">car electrical diagnostics in Geelong</a> for advanced fault detection and system testing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Sanicar -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="why-choose-inner fade-up">
+                <h2>Why Choose Sanicar</h2>
+                <p>We provide reliable automotive repair services with a focus on accurate inspections, quality workmanship, and honest customer support.</p>
+                <div class="why-choose-subhead">Why customers choose us</div>
+                <ul class="why-choose-list">
+                    <li><i data-lucide="check-circle"></i> Experienced mechanics &amp; repair technicians</li>
+                    <li><i data-lucide="check-circle"></i> Quality replacement parts</li>
+                    <li><i data-lucide="check-circle"></i> Complete mechanical &amp; electrical repairs</li>
+                    <li><i data-lucide="check-circle"></i> Mobile mechanic support across Geelong</li>
+                    <li><i data-lucide="check-circle"></i> Transparent repair recommendations</li>
+                    <li><i data-lucide="check-circle"></i> Modern workshop equipment &amp; testing tools</li>
+                    <li><i data-lucide="check-circle"></i> Fast turnaround on common repairs</li>
+                </ul>
+                <div class="why-choose-footnote">
+                    As a trusted <a href="mbcod.html">European car diagnostics specialist in Geelong</a>, we also provide manufacturer-specific testing, electrical fault analysis, and advanced system diagnostics for modern European vehicles.
                 </div>
             </div>
         </div>
@@ -935,42 +945,56 @@
     <section class="faq">
         <div class="container">
             <span class="section-label">Need help?</span>
-            <h2>Frequently asked questions</h2>
+            <h2>Frequently Asked Questions</h2>
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What areas does your mobile service cover?
+                        What types of car repairs do you provide?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We service all of Geelong and surrounds including Ocean Grove, Torquay, Armstrong Creek, Charlemont, Waurn Ponds, Belmont, Highton, Newtown and neighbouring suburbs. If you're unsure, give us a call.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">We provide mechanical repairs, brake and suspension repairs, battery replacement, cooling system repairs, electrical repairs, air conditioning servicing, and general vehicle maintenance.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How quickly can you come out for a breakdown?
+                        Do you offer mobile car repair services?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We offer same-day callouts for breakdowns and no-start situations. Call us as early as possible and we'll work to fit you in — often within a couple of hours depending on our schedule and your location.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We offer mobile car repair and roadside breakdown assistance across Geelong for starting problems, battery issues, and other urgent vehicle faults.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Do I need to tow my car to a workshop?
+                        Can you repair overheating vehicles?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">No — that's the whole point of our mobile service. We come to you with a fully equipped van, whether you're at home, work, or on the roadside. Most repairs are completed on-site in a single visit.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We repair cooling system faults including radiator leaks, coolant loss, fan issues, thermostat failures, and overheating problems.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How much does a mobile callout cost?
+                        Do you provide car bumper repair services in Geelong?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Pricing varies depending on the job. We always provide an upfront quote before starting any work so there are no surprises. Call us to discuss your situation and we'll give you an honest estimate.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We repair damaged, cracked, scratched, and loose bumpers to help restore your vehicle&rsquo;s appearance, alignment, and overall safety after minor impacts or everyday damage.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What vehicles do you work on?
+                        How do I know if my car needs immediate repair?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We work on all makes and models — from everyday cars to European vehicles, 4WDs, utes and light commercial vehicles. We carry dealer-level diagnostic tools for all major brands.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Signs such as warning lights, unusual noises, overheating, vibration, poor braking, starting problems, or fluid leaks should be inspected as soon as possible to avoid further damage.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Do you provide battery replacement services?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We provide battery testing, replacement, charging system inspections, and mobile battery support for vehicles with starting or charging issues.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Do you provide air conditioning car repair services in Geelong?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We repair vehicle air conditioning systems affected by poor cooling, gas leaks, compressor faults, airflow issues, and other common AC problems to help keep your cabin comfortable while driving.</div></div>
                 </div>
             </div>
         </div>
@@ -979,19 +1003,19 @@
     <!-- CTA Bottom -->
     <div class="svc-cta">
         <div class="svc-cta-text">
-            <h2>Factory-Finish Accessory Installs.</h2>
-            <p>Hardwired dash cams, hidden cable runs, clean switch panels — accessories fitted the way they should be. Get a quote today.</p>
+            <h2>Book Reliable Car Repair Services in Geelong</h2>
+            <p>From minor faults to major repairs, our experienced team is ready to get your vehicle back on the road safely and reliably.</p>
             <a href="tel:+61406642600" class="svc-cta-btn">
-                Book a Free Call <i data-lucide="arrow-right"></i>
+                Book Repair Service <i data-lucide="arrow-right"></i>
             </a>
             <div class="svc-cta-checks">
-                <div class="check-item"><i data-lucide="circle-check"></i> On-site diagnostics &amp; repair</div>
-                <div class="check-item"><i data-lucide="circle-check"></i> Same-day emergency callouts</div>
-                <div class="check-item"><i data-lucide="circle-check"></i> Upfront pricing, no surprises</div>
+                <div class="check-item"><i data-lucide="circle-check"></i> Mechanical &amp; electrical repairs</div>
+                <div class="check-item"><i data-lucide="circle-check"></i> Mobile mechanic across Geelong</div>
+                <div class="check-item"><i data-lucide="circle-check"></i> Quality parts &amp; transparent pricing</div>
             </div>
         </div>
         <div class="svc-cta-img">
-            <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80" alt="Auto electrician testing car battery" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&q=80" alt="Mechanic repairing vehicle engine in Geelong" loading="lazy">
         </div>
     </div>
 
@@ -1073,52 +1097,6 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
-
-        // Process timeline:
-        //   - Green progress line grows down the track as the section scrolls.
-        //   - Whichever card sits at the line's current tip gets .is-active,
-        //     which expands its image. All others stay collapsed (title+text only).
-        (function() {
-            var stepsContainer = document.querySelector('.process-steps');
-            var steps = document.querySelectorAll('.process-step');
-            var progressLine = document.querySelector('.process-steps-progress');
-            if (!stepsContainer || !progressLine || !steps.length) return;
-
-            function update() {
-                var rect = stepsContainer.getBoundingClientRect();
-                var viewportRef = window.innerHeight * 0.5;
-                var scrolled = viewportRef - rect.top;
-                var lineHeight = Math.max(0, Math.min(scrolled, rect.height));
-                progressLine.style.height = lineHeight + 'px';
-
-                // Active card = closest to the viewport reference line.
-                var activeIdx = 0;
-                var minDist = Infinity;
-                for (var i = 0; i < steps.length; i++) {
-                    var stepRect = steps[i].getBoundingClientRect();
-                    var markerCenter = stepRect.top + 24; // marker is 48px, centered 24px from top
-                    var dist = Math.abs(markerCenter - viewportRef);
-                    if (dist < minDist) { minDist = dist; activeIdx = i; }
-                }
-                for (var j = 0; j < steps.length; j++) {
-                    steps[j].classList.toggle('is-active', j === activeIdx);
-                }
-
-                ticking = false;
-            }
-
-            var ticking = false;
-            function onScroll() {
-                if (!ticking) {
-                    requestAnimationFrame(update);
-                    ticking = true;
-                }
-            }
-
-            update();
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', update);
-        })();
     </script>
 </body>
 </html>

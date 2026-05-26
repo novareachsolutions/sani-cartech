@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Electrical Services Geelong | Sanicar Tech</title>
-    <meta name="description" content="Full range of auto electrical services in Geelong. Mobile diagnostics, European vehicle specialist, battery & charging, trailer wiring, dash cam installation, car aircon & ECU coding.">
-    <meta name="keywords" content="auto electrical services geelong, car diagnostics geelong, european vehicle electrician, trailer wiring, dash cam installation, car aircon regas geelong, ECU coding geelong">
+    <title>Specialist Automotive Electrical Solutions Geelong | Sanicar Tech</title>
+    <meta name="description" content="Precision diagnostics and advanced electrical solutions for European, hybrid, EV and modern vehicles in Geelong. Dealer-level diagnostic technology and root-cause fault finding.">
+    <meta name="keywords" content="car diagnostics geelong, european vehicle diagnostics, hybrid diagnostics geelong, EV diagnostics, ECU diagnostics geelong, automotive electrical solutions">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Auto Electrical Services | Sanicar Tech">
-    <meta property="og:description" content="Full range of mobile auto electrical services across Geelong & surrounds.">
+    <meta property="og:title" content="Specialist Automotive Electrical Solutions | Sanicar Tech">
+    <meta property="og:description" content="Advanced diagnostics and electrical fault detection for European, hybrid, EV and modern vehicles across Geelong.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
     <link rel="canonical" href="https://geelongautoelectrician.com.au/services">
@@ -229,13 +229,355 @@
             color: var(--navy);
             margin-bottom: 16px;
             line-height: 1.1;
+            max-width: 880px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .page-hero p {
             font-size: 1.05rem;
             color: var(--gray);
-            max-width: 580px;
-            margin: 0 auto 28px;
+            max-width: 720px;
+            margin: 0 auto 32px;
             line-height: 1.7;
+        }
+        .page-hero-ctas {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .hero-btn-primary, .hero-btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 30px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none; cursor: pointer;
+        }
+        .hero-btn-primary {
+            background: var(--accent-bg);
+            color: var(--white);
+            box-shadow: 0 6px 18px rgba(30,58,138,0.25);
+        }
+        .hero-btn-primary:hover { background: #3b5bdb; transform: translateY(-2px); }
+        .hero-btn-secondary {
+            background: var(--white);
+            color: var(--navy);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .hero-btn-secondary:hover { background: var(--cream-dark); transform: translateY(-2px); }
+        .hero-btn-primary i, .hero-btn-secondary i { width: 16px; height: 16px; }
+
+        /* ===== PROBLEM INTRO ===== */
+        .problem-intro { padding: 40px 0 80px; }
+        .problem-intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 56px;
+            align-items: start;
+        }
+        .problem-intro-text h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+            color: var(--navy);
+            margin-bottom: 22px;
+            line-height: 1.15;
+        }
+        .problem-intro-text p {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+        .problem-intro-list {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+        }
+        .problem-intro-list h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        .problem-intro-list ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 20px;
+        }
+        .problem-intro-list ul li {
+            font-size: 0.92rem;
+            color: var(--navy);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .problem-intro-list ul li::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+        .problem-mini-cta {
+            margin-top: 48px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 28px 36px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* ===== SERVICES OVERVIEW (Alternating image rows) ===== */
+        .svc-overview { padding: 80px 0; background: var(--cream-dark); }
+        .svc-overview-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 60px;
+        }
+        .svc-overview-header h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+        .svc-overview-header p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        .svc-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 72px;
+        }
+        .svc-row:last-child { margin-bottom: 0; }
+        .svc-row-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .svc-row-img img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .svc-row-img:hover img { transform: scale(1.04); }
+        .svc-row-content h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(1.4rem, 2vw, 1.8rem);
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .svc-row-content p {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+        .svc-row-content a.svc-inline {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 600;
+        }
+        .svc-row-content a.svc-inline:hover { opacity: 0.8; }
+        .brand-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 20px;
+            margin: 18px 0;
+        }
+        .brand-grid li {
+            font-size: 0.95rem;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .brand-grid li::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+        .svc-row-reverse .svc-row-img { order: 2; }
+        .svc-row-reverse .svc-row-content { order: 1; }
+
+        /* ===== COMMON ISSUES ===== */
+        .issues { padding: 80px 0; }
+        .issues-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 48px;
+        }
+        .issues-header h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            line-height: 1.15;
+        }
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .issues-col {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            transition: var(--transition);
+        }
+        .issues-col:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+        }
+        .issues-col h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--accent);
+        }
+        .issues-col ul li {
+            font-size: 0.92rem;
+            color: var(--navy);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .issues-col ul li:last-child { border-bottom: none; }
+        .issues-col ul li::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ===== WHY CHOOSE ===== */
+        .why-choose { padding: 80px 0; background: var(--cream-dark); }
+        .why-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 48px;
+        }
+        .why-header h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            line-height: 1.15;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .why-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: var(--transition);
+        }
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+        .why-icon {
+            width: 52px; height: 52px;
+            background: var(--accent-bg);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        .why-card:hover .why-icon { transform: translateY(-3px) rotate(-6deg); }
+        .why-icon i, .why-icon svg { width: 24px; height: 24px; color: var(--white); }
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .why-card p {
+            font-size: 0.92rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ===== PROCESS ===== */
+        .process { padding: 80px 0; }
+        .process-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 48px;
+        }
+        .process-header h2 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            line-height: 1.15;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .process-step {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            position: relative;
+            transition: var(--transition);
+        }
+        .process-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+        }
+        .process-step .step-num {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 2.4rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 14px;
+        }
+        .process-step h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
         }
         .premium-cta {
             display: inline-flex; align-items: center; gap: 10px;
@@ -720,10 +1062,103 @@
         .svc-card.fade-up:nth-child(8) { transition-delay: 0.1s; }
         .svc-card.fade-up:nth-child(9) { transition-delay: 0.2s; }
 
+        /* ===== SERVICES MEGA MENU DROPDOWN ===== */
+        .nav-item-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .nav-item-dropdown > a {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--navy);
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-item-dropdown > a:hover { opacity: 0.6; }
+        .nav-item-dropdown > a.active { font-weight: 600; }
+        .nav-item-dropdown > a.active::after {
+            content: '';
+            position: absolute; bottom: -4px; left: 0; right: 0;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 2px;
+        }
+        .nav-item-dropdown > a .nav-caret {
+            width: 14px; height: 14px;
+            transition: transform 0.2s ease;
+        }
+        .nav-item-dropdown:hover > a .nav-caret { transform: rotate(180deg); }
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            margin-top: 12px;
+            min-width: 1080px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+            padding: 32px 36px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 32px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            z-index: 1002;
+        }
+        .nav-item-dropdown:hover .mega-menu,
+        .nav-item-dropdown:focus-within .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-item-dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%; left: 0; right: 0;
+            height: 16px;
+        }
+        .mega-menu-col h4 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .mega-menu-col h4 a { color: inherit; }
+        .mega-menu-col ul {
+            list-style: none; padding: 0; margin: 0;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .mega-menu-col a {
+            font-size: 0.88rem;
+            color: var(--gray);
+            transition: color 0.15s ease;
+        }
+        .mega-menu-col a:hover { color: var(--accent); }
+        .mega-menu-col.is-mbcod {
+            border-left: 1px solid rgba(0,0,0,0.06);
+            padding-left: 24px;
+        }
+        @media (max-width: 1200px) {
+            .mega-menu { min-width: 920px; padding: 28px; gap: 20px; }
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .problem-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .issues-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .svc-row { gap: 40px; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -738,6 +1173,21 @@
             .cta-banner { margin: 0 16px 40px; min-height: 360px; }
             .cta-banner h2 { font-size: 1.8rem; }
             .page-hero { padding: 48px 0 40px; }
+            .problem-intro { padding: 24px 0 56px; }
+            .problem-intro-list { padding: 28px 24px; }
+            .problem-intro-list ul { grid-template-columns: 1fr; }
+            .problem-mini-cta { padding: 24px; font-size: 0.95rem; }
+            .svc-overview { padding: 56px 0; }
+            .svc-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+            .svc-row-reverse .svc-row-img { order: 1; }
+            .svc-row-reverse .svc-row-content { order: 2; }
+            .svc-row-img img { height: 260px; }
+            .brand-grid { grid-template-columns: 1fr 1fr; }
+            .issues { padding: 56px 0; }
+            .why-choose { padding: 56px 0; }
+            .why-grid { grid-template-columns: 1fr; }
+            .process { padding: 56px 0; }
+            .process-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -757,8 +1207,55 @@
             </a>
                         <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="mbcod.html" class="nav-mbcod-link">MBCOD <span class="nav-mbcod-tag">Premium</span></a>
+                <div class="nav-item-dropdown">
+                    <a href="services.html" class="active">
+                        Services
+                        <i data-lucide="chevron-down" class="nav-caret"></i>
+                    </a>
+                    <div class="mega-menu" role="menu">
+                        <div class="mega-menu-col">
+                            <h4>Everyday Auto Electrical</h4>
+                            <ul>
+                                <li><a href="service-mobile-auto-electrician.html">Mobile Auto Electrician</a></li>
+                                <li><a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a></li>
+                                <li><a href="service-car-repair.html">Car Repair Services</a></li>
+                                <li><a href="service-general-electrical-repairs.html">General Electrical Repairs</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Power &amp; Charging</h4>
+                            <ul>
+                                <li><a href="service-battery-charging-systems.html">Battery &amp; Charging Systems</a></li>
+                                <li><a href="service-car-air-conditioning.html">Car Air Conditioning</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Accessories &amp; Wiring</h4>
+                            <ul>
+                                <li><a href="service-dash-cam-accessories.html">Dash Cam &amp; Accessory Installation</a></li>
+                                <li><a href="service-trailer-wiring.html">Trailer Wiring &amp; Towbar</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h4>Modern Vehicles</h4>
+                            <ul>
+                                <li><a href="service-ecu-coding-programming.html">ECU Coding &amp; Programming</a></li>
+                                <li><a href="service-ev-hybrid.html">EV &amp; Hybrid</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-col is-mbcod">
+                            <h4><a href="mbcod.html">European Diagnostics</a></h4>
+                            <ul>
+                                <li><a href="mbcod.html#brands">BMW &amp; MINI</a></li>
+                                <li><a href="mbcod.html#brands">Mercedes-Benz</a></li>
+                                <li><a href="mbcod.html#brands">Audi &amp; Volkswagen</a></li>
+                                <li><a href="mbcod.html#brands">Land Rover &amp; Jaguar</a></li>
+                                <li><a href="mbcod.html#brands">Porsche &amp; Performance</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="mbcod.html">European</a>
                 <a href="areas.html">Areas</a>
                 <a href="blog.html">Blog</a>
                 <a href="index.html#why-us">About</a>
@@ -786,7 +1283,7 @@
                 <div class="mobile-menu-links">
             <a href="index.html" onclick="toggleMobileMenu()">Home</a>
             <a href="services.html" class="active" onclick="toggleMobileMenu()">Services</a>
-            <a href="mbcod.html" onclick="toggleMobileMenu()">MBCOD</a>
+            <a href="mbcod.html" onclick="toggleMobileMenu()">European</a>
             <a href="areas.html" onclick="toggleMobileMenu()">Areas</a>
             <a href="blog.html" onclick="toggleMobileMenu()">Blog</a>
             <a href="index.html#why-us" onclick="toggleMobileMenu()">About</a>
@@ -805,119 +1302,236 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Our services</h1>
-            <p>We offer a full range of auto electrical solutions designed to keep your vehicle running safely, reliably, and efficiently.</p>
-            <a href="mbcod.html" class="premium-cta">
-                Check premium service <i data-lucide="sparkles"></i>
-            </a>
+            <h1>Specialist Automotive Electrical Solutions</h1>
+            <p>Precision diagnostics and advanced electrical solutions for modern vehicles, specialising in European, hybrid, EV, and complex electronic systems using dealer-level diagnostic technology.</p>
+            <div class="page-hero-ctas">
+                <a href="tel:+61406642600" class="hero-btn-primary">
+                    <i data-lucide="calendar-check"></i> Book Diagnostic
+                </a>
+                <a href="tel:+61406642600" class="hero-btn-secondary">
+                    <i data-lucide="phone"></i> Call Now
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Services Grid -->
-    <section class="services-section">
+    <!-- Problem-Focused Intro -->
+    <section class="problem-intro">
         <div class="container">
-            <div class="services-grid" id="servicesGrid">
+            <div class="problem-intro-grid">
+                <div class="problem-intro-text">
+                    <h2>Warning Lights, Electrical Faults, or Starting Problems?</h2>
+                    <p>Modern vehicles use advanced electronic systems that work together to control performance, safety, and everyday driving functions. When one component fails, the symptoms can appear confusing, intermittent, or completely unrelated.</p>
+                    <p>At Sanicar, we specialise in identifying the real cause of electrical and communication faults instead of guessing or replacing unnecessary parts.</p>
+                </div>
+                <div class="problem-intro-list">
+                    <h3>Common Problems We Diagnose</h3>
+                    <ul>
+                        <li>Engine warning lights</li>
+                        <li>Vehicle stuck in limp mode</li>
+                        <li>Car not starting</li>
+                        <li>Intermittent electrical failures</li>
+                        <li>Battery drain problems</li>
+                        <li>Airbag and ABS warnings</li>
+                        <li>ECU communication faults</li>
+                        <li>Hybrid system errors</li>
+                        <li>Sensor and module failures</li>
+                        <li>Charging system issues</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="problem-mini-cta">
+                Get the problem diagnosed properly before spending money on unnecessary repairs.
+            </div>
+        </div>
+    </section>
 
-                <!-- 1. Mobile Auto Electrician -->
-                <a id="mobile" href="service-mobile-auto-electrician.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80" alt="Mobile auto electrician servicing vehicle on-site in Geelong" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>Mobile Auto Electrician</h3>
-                    <p>On-site diagnostics, breakdown repairs and no-start fault diagnosis. We come to your home, office or roadside across Geelong and surrounds.</p>
-                </a>
-
-                <!-- 2. Car Electrical Diagnostics -->
-                <a id="diagnostics" href="service-car-electrical-diagnostics.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" alt="Advanced car electrical diagnostics with OBD scan tool" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>Car Electrical Diagnostics</h3>
-                    <p>Advanced fault finding with CANBUS, ECU and BCM diagnostics. We trace wiring faults and solve intermittent electrical issues.</p>
-                </a>
-
-                <!-- 3. Battery & Charging Systems -->
-                <a id="battery" href="service-battery-charging-systems.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=600&q=80" alt="Car battery testing and replacement service Geelong" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>Battery &amp; Charging Systems</h3>
-                    <p>Battery testing and replacement, alternator and starter motor diagnostics, and charging system fault repairs across Geelong.</p>
-                </a>
-
-                <!-- 4. Trailer Wiring & Towbar Electrics -->
-                <a id="trailer" href="service-trailer-wiring.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Trailer wiring and towbar electrics installation" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>Trailer Wiring &amp; Towbar Electrics</h3>
-                    <p>7-pin and 12-pin trailer plug installation, trailer light wiring, electric brake controllers and complete towbar wiring solutions.</p>
-                </a>
-
-                <!-- 5. Dash Cam & Accessory Installation -->
-                <a id="dashcam" href="service-dash-cam-accessories.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&q=80" alt="Professional dash cam and reverse camera installation" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>Dash Cam &amp; Accessory Installation</h3>
-                    <p>Dash cam, reverse camera, parking sensor installation. Plus UHF radios, LED lighting and aftermarket accessory wiring to a factory finish.</p>
-                </a>
-
-                <!-- 6. Car Air Conditioning -->
-                <a id="aircon" href="service-car-air-conditioning.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=600&q=80" alt="Car air conditioning regas and compressor diagnostics" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>Car Air Conditioning</h3>
-                    <p>Air conditioning regas, leak detection, compressor diagnostics and climate control electrical repairs to keep you cool on the road.</p>
-                </a>
-
-                <!-- 7. ECU Coding & Programming -->
-                <a id="ecu" href="service-ecu-coding-programming.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="ECU coding and key programming service" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>ECU Coding &amp; Programming</h3>
-                    <p>Module coding, key programming, ECU and BCM replacement and setup, plus software updates. Dealer-level capability at a fraction of the cost.</p>
-                </a>
-
-                <!-- 8. General Electrical Repairs -->
-                <a id="general-repairs" href="service-general-electrical-repairs.html" class="svc-card fade-up">
-                    <div class="svc-card-img">
-                        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="General car electrical repairs headlights fuses relays" loading="lazy">
-                        <div class="svc-card-arrow"><i data-lucide="arrow-up-right"></i></div>
-                    </div>
-                    <h3>General Electrical Repairs</h3>
-                    <p>Headlight and taillight faults, indicator issues, interior electrical problems, fuse and relay diagnostics. No job too small.</p>
-                </a>
-
+    <!-- Main Services Overview -->
+    <section class="svc-overview">
+        <div class="container">
+            <div class="svc-overview-header">
+                <h2>Complete Vehicle Electrical &amp; Diagnostic Solutions</h2>
+                <p>We provide advanced diagnostics and electrical fault detection for European, hybrid, EV, and modern petrol or diesel vehicles.</p>
             </div>
 
-            <div class="mbcod-promo fade-up">
-                <div class="mbcod-promo-text">
-                    <span class="mbcod-tag">Premium Specialist Division</span>
-                    <h3>MBCOD &mdash; European Coding &amp; Diagnostics</h3>
-                    <p>Mercedes-Benz, BMW, Audi, VW and Land Rover. Dealer-level diagnostics, ECU coding and module programming by Sanicar Tech.</p>
-                    <a href="mbcod.html" class="mbcod-promo-cta">Explore MBCOD <i data-lucide="arrow-up-right"></i></a>
+            <!-- Row 1: Image left, content right -->
+            <div class="svc-row">
+                <div class="svc-row-img">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900&q=80" alt="Car electrical diagnostics with advanced scan tools in Geelong" loading="lazy">
                 </div>
-                <div class="mbcod-sparkles" aria-hidden="true">
-                    <span class="spark s1"></span>
-                    <span class="spark s2"></span>
-                    <span class="spark s3"></span>
-                    <span class="spark s4"></span>
-                    <span class="spark s5"></span>
-                    <span class="spark s6"></span>
-                    <span class="spark s7"></span>
-                    <span class="spark s8"></span>
-                    <span class="spark s9"></span>
-                    <span class="spark s10"></span>
+                <div class="svc-row-content">
+                    <h3>Car Electrical Diagnostics</h3>
+                    <p>Having warning lights, battery problems, or electrical issues? We diagnose starting faults, charging problems, wiring issues, and electronic system faults for drivers across Geelong using <a href="service-car-electrical-diagnostics.html" class="svc-inline">advanced automotive diagnostic tools</a> and equipment.</p>
+                </div>
+            </div>
+
+            <!-- Row 2: Content left, image right -->
+            <div class="svc-row svc-row-reverse">
+                <div class="svc-row-img">
+                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=900&q=80" alt="Car repair and installation services" loading="lazy">
+                </div>
+                <div class="svc-row-content">
+                    <h3>Car Repair and Installations</h3>
+                    <p>Professional car repair services and expert installation solutions for mechanical, electrical, and performance-related issues. At Sanicar, our <a href="service-car-repair.html" class="svc-inline">car auto repair services</a> focus on accurate fault diagnosis, quality repairs, and reliable solutions using advanced tools and experienced technicians to keep your vehicle performing at its best.</p>
+                </div>
+            </div>
+
+            <!-- Row 3: Image left, content right -->
+            <div class="svc-row">
+                <div class="svc-row-img">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&q=80" alt="European vehicle diagnostics BMW Mercedes-Benz Audi Volkswagen" loading="lazy">
+                </div>
+                <div class="svc-row-content">
+                    <h3>European Vehicle Diagnostics</h3>
+                    <p><a href="mbcod.html" class="svc-inline">Specialist European vehicle diagnostics</a> and fault detection using advanced dealer-level diagnostic equipment for accurate system analysis and problem identification.</p>
+                    <ul class="brand-grid">
+                        <li>BMW</li>
+                        <li>Mercedes-Benz</li>
+                        <li>Audi</li>
+                        <li>Volkswagen</li>
+                        <li>MINI</li>
+                        <li>Skoda</li>
+                        <li>Porsche</li>
+                        <li>Land Rover</li>
+                    </ul>
+                    <p>We diagnose warning lights, engine faults, ECU issues, coding problems, and electrical system faults for European vehicles.</p>
+                </div>
+            </div>
+
+            <!-- Row 4: Content left, image right -->
+            <div class="svc-row svc-row-reverse">
+                <div class="svc-row-img">
+                    <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=900&q=80" alt="Hybrid and EV battery and high-voltage system diagnostics" loading="lazy">
+                </div>
+                <div class="svc-row-content">
+                    <h3>Hybrid &amp; EV Diagnostics</h3>
+                    <p>Having hybrid warning lights, charging issues, or battery problems? We help identify hybrid battery faults, inverter issues, high-voltage system faults, and EV charging problems, including <a href="service-ev-hybrid.html" class="svc-inline">hybrid battery repair and replacement services</a>, using advanced diagnostic equipment.</p>
+                </div>
+            </div>
+
+            <!-- Row 5: Image left, content right -->
+            <div class="svc-row">
+                <div class="svc-row-img">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80" alt="ECU and module diagnostics for modern vehicles" loading="lazy">
+                </div>
+                <div class="svc-row-content">
+                    <h3>ECU &amp; Module Diagnostics</h3>
+                    <p>Dealing with ECU faults, immobiliser problems, or airbag warning lights? We identify module communication issues, BCM faults, coding problems, and electronic system errors, including car ECU programming in Geelong support, using dealer-level diagnostic tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Vehicle Issues -->
+    <section class="issues">
+        <div class="container">
+            <div class="issues-header">
+                <h2>Frequent Problems We Diagnose Every Day</h2>
+            </div>
+            <div class="issues-grid">
+                <div class="issues-col">
+                    <h3>Electrical &amp; Starting Issues</h3>
+                    <ul>
+                        <li>No-start conditions</li>
+                        <li>Crank-no-start problems</li>
+                        <li>Flat battery issues</li>
+                        <li>Battery drain faults</li>
+                        <li>Alternator charging problems</li>
+                        <li>Wiring faults</li>
+                    </ul>
+                </div>
+                <div class="issues-col">
+                    <h3>Warning Lights &amp; Module Faults</h3>
+                    <ul>
+                        <li>Check engine light</li>
+                        <li>Airbag warning light</li>
+                        <li>ABS system faults</li>
+                        <li>Transmission communication errors</li>
+                        <li>ECU module failures</li>
+                        <li>Sensor faults</li>
+                    </ul>
+                </div>
+                <div class="issues-col">
+                    <h3>Hybrid &amp; EV Problems</h3>
+                    <ul>
+                        <li>Hybrid warning lights</li>
+                        <li>Battery cooling issues</li>
+                        <li>Charging faults</li>
+                        <li>Inverter communication problems</li>
+                        <li>High-voltage system errors</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Sanicar -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="why-header">
+                <h2>Accurate Diagnostics Without Guesswork</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="scan-line"></i></div>
+                    <h3>Advanced Diagnostic Tools</h3>
+                    <p>Dealer-level systems for accurate fault identification.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="car"></i></div>
+                    <h3>European Vehicle Experience</h3>
+                    <p>Specialised knowledge across major European vehicle brands.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="battery-charging"></i></div>
+                    <h3>Hybrid &amp; EV Knowledge</h3>
+                    <p>Safe and accurate high-voltage diagnostic capability.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="message-square-text"></i></div>
+                    <h3>Transparent Advice</h3>
+                    <p>Clear explanations before any repair recommendations.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="search-check"></i></div>
+                    <h3>Root Cause Focus</h3>
+                    <p>We identify the actual problem instead of replacing parts blindly.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="map-pin"></i></div>
+                    <h3>Mobile Diagnostic Support</h3>
+                    <p>On-site diagnostic services available across Geelong and surrounding areas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Our Process Works -->
+    <section class="process">
+        <div class="container">
+            <div class="process-header">
+                <h2>Simple, Structured &amp; Transparent Diagnostic Process</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <h3>Vehicle System Scan</h3>
+                    <p>Complete diagnostic scan across all major vehicle systems and modules.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">02</div>
+                    <h3>Fault Analysis</h3>
+                    <p>We interpret live data, fault history, and system behaviour to narrow down the cause.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <h3>Testing &amp; Verification</h3>
+                    <p>Electrical and component-level testing to confirm the exact issue.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">04</div>
+                    <h3>Diagnosis Report</h3>
+                    <p>Clear explanation of the fault, repair recommendations, and next steps.</p>
                 </div>
             </div>
         </div>
@@ -927,42 +1541,49 @@
     <section class="faq">
         <div class="container">
             <span class="section-label">Need help?</span>
-            <h2>Frequently asked questions</h2>
+            <h2>Frequently Asked Questions</h2>
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What areas do you service?
+                        What does a vehicle diagnostic include?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We service all of Geelong and surrounds including Ocean Grove, Torquay, Armstrong Creek, Charlemont, Waurn Ponds, Belmont, Highton, Newtown and neighbouring suburbs.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">A complete system scan, fault code analysis, live data testing, and electrical system inspection.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How quickly can you come out?
+                        Can you diagnose European vehicles?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We offer same-day service for most jobs, especially breakdowns and no-start situations. Call us as early as possible and we'll work to fit you in the same day.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We specialise in diagnostics for BMW, Mercedes-Benz, Audi, Volkswagen, MINI, and other European brands.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Do you work on all vehicle makes and models?
+                        Do you diagnose hybrid and EV systems?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We work on all makes and models including European vehicles like Mercedes-Benz, BMW, Audi, VW, Land Rover and Range Rover. We carry dealer-level diagnostic tools for all major brands.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We perform hybrid battery testing, inverter diagnostics, charging system checks, and electrical fault analysis.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How much does a diagnostic cost?
+                        Why is my warning light on?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Diagnostic fees vary depending on the complexity of the issue. We always provide upfront pricing before starting any work so there are no surprises. Call for a quote specific to your situation.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Warning lights indicate faults within vehicle systems. Proper fault diagnosis helps identify the issue before repairs begin.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Can you supply and fit parts?
+                        Do you offer mobile diagnostics?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Yes, we can source and supply quality parts for most common repairs. Our mobile workshop carries a range of batteries, relays, fuses, wiring components and other parts to complete jobs on the spot.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes. We provide mobile diagnostic services across Geelong and nearby suburbs.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Do diagnostics include repairs?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Diagnostics focus on identifying the fault first. Repairs are recommended only after proper testing.</div></div>
                 </div>
             </div>
         </div>
@@ -974,14 +1595,15 @@
             <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&q=80" alt="Auto electrician working on vehicle electrical system" loading="lazy">
         </div>
         <div class="cta-banner-content">
-            <span class="section-label">Start your journey</span>
-            <h2>Let's get your electrical issue sorted — hassle-free.</h2>
+            <span class="section-label">Book your diagnostic</span>
+            <h2>Book Accurate Vehicle Diagnostics in Geelong</h2>
+            <p style="color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.7;">Don&rsquo;t waste money on replacing parts unnecessarily. Get the real issue diagnosed properly by experienced vehicle diagnostic specialists.</p>
             <div class="cta-buttons">
                 <a href="tel:+61406642600" class="cta-btn-primary">
-                    Book your service now
+                    <i data-lucide="phone" style="width:16px;height:16px;"></i> Book Diagnostic
                 </a>
                 <a href="tel:+61406642600" class="cta-btn-link">
-                    Get a free quote <i data-lucide="arrow-right"></i>
+                    Call 0406 642 600 <i data-lucide="arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -1023,13 +1645,15 @@
                     <ul>
                         <li><a href="service-mobile-auto-electrician.html">Mobile Auto Electrician</a></li>
                         <li><a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a></li>
+                        <li><a href="service-car-repair.html">Car Repair Services</a></li>
+                        <li><a href="service-ev-hybrid.html">EV &amp; Hybrid</a></li>
                         <li><a href="service-battery-charging-systems.html">Battery &amp; Charging</a></li>
                         <li><a href="service-trailer-wiring.html">Trailer Wiring</a></li>
                         <li><a href="service-dash-cam-accessories.html">Dash Cam Installation</a></li>
                         <li><a href="service-car-air-conditioning.html">Car Air Conditioning</a></li>
                         <li><a href="service-ecu-coding-programming.html">ECU Coding</a></li>
                         <li><a href="service-general-electrical-repairs.html">General Electrical Repairs</a></li>
-                        <li><a href="mbcod.html"><strong>MBCOD &mdash; European</strong></a></li>
+                        <li><a href="mbcod.html"><strong>European Diagnostics</strong></a></li>
                     </ul>
                 </div>
             </div>

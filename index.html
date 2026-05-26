@@ -647,11 +647,11 @@
         }
 
         .service-card {
-            flex: 0 0 300px;
+            flex: 0 0 340px;
             border-radius: var(--radius-lg);
             overflow: hidden;
             position: relative;
-            height: 400px;
+            height: 440px;
             cursor: pointer;
             transition: var(--transition);
         }
@@ -665,18 +665,24 @@
         .service-card-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-            padding: 120px 24px 28px;
+            background: linear-gradient(to top, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0) 100%);
+            padding: 140px 24px 28px;
         }
         .service-card-overlay h3 {
             font-family: var(--font-display);
             font-weight: 900;
 
             text-transform: uppercase;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--white);
-            line-height: 1;
+            line-height: 1.05;
             letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .service-card-overlay p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.5;
         }
 
         /* ===== WHY US (Bento Grid) ===== */
@@ -1332,7 +1338,10 @@
             .services { padding: 16px 0 24px; }
             .services-header h2 { font-size: 2.2rem; }
             .services-desc { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
-            .service-card { flex: 0 0 240px; height: 320px; }
+            .service-card { flex: 0 0 280px; height: 380px; }
+            .service-card-overlay { padding: 110px 20px 22px; }
+            .service-card-overlay h3 { font-size: 1.15rem; }
+            .service-card-overlay p { font-size: 0.8rem; }
             .services-scroll-track { padding: 0 20px; gap: 14px; }
             .why-us { padding: 48px 0; }
             .bento-grid { grid-template-columns: 1fr; }
@@ -1445,6 +1454,7 @@
                             <ul>
                                 <li><a href="service-mobile-auto-electrician.html">Mobile Auto Electrician</a></li>
                                 <li><a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a></li>
+                                <li><a href="service-car-repair.html">Car Repair Services</a></li>
                                 <li><a href="service-general-electrical-repairs.html">General Electrical Repairs</a></li>
                             </ul>
                         </div>
@@ -1463,26 +1473,25 @@
                             </ul>
                         </div>
                         <div class="mega-menu-col">
-                            <h4>Programming</h4>
+                            <h4>Modern Vehicles</h4>
                             <ul>
                                 <li><a href="service-ecu-coding-programming.html">ECU Coding &amp; Programming</a></li>
+                                <li><a href="service-ev-hybrid.html">EV &amp; Hybrid</a></li>
                             </ul>
                         </div>
                         <div class="mega-menu-col is-mbcod">
-                            <h4><a href="mbcod.html">MBCOD</a> <span class="nav-mbcod-tag">Premium</span></h4>
+                            <h4><a href="mbcod.html">European Diagnostics</a></h4>
                             <ul>
-                                <li><a href="mbcod.html#brands">Mercedes-Benz</a></li>
                                 <li><a href="mbcod.html#brands">BMW &amp; MINI</a></li>
-                                <li><a href="mbcod.html#brands">Audi</a></li>
-                                <li><a href="mbcod.html#brands">Volkswagen</a></li>
-                                <li><a href="mbcod.html#brands">Land Rover &amp; Range Rover</a></li>
+                                <li><a href="mbcod.html#brands">Mercedes-Benz</a></li>
+                                <li><a href="mbcod.html#brands">Audi &amp; Volkswagen</a></li>
+                                <li><a href="mbcod.html#brands">Land Rover &amp; Jaguar</a></li>
+                                <li><a href="mbcod.html#brands">Porsche &amp; Performance</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <a href="mbcod.html" class="nav-mbcod-link">
-                    MBCOD <span class="nav-mbcod-tag">Premium</span>
-                </a>
+                <a href="mbcod.html">European</a>
                 <a href="areas.html">Areas</a>
                 <a href="blog.html">Blog</a>
                 <a href="#why-us">About</a>
@@ -1509,7 +1518,7 @@
         </div>
         <div class="mobile-menu-links">
             <a href="services.html" onclick="toggleMobileMenu()">Services</a>
-            <a href="mbcod.html" onclick="toggleMobileMenu()">MBCOD</a>
+            <a href="mbcod.html" onclick="toggleMobileMenu()">European</a>
             <a href="areas.html" onclick="toggleMobileMenu()">Areas</a>
             <a href="blog.html" onclick="toggleMobileMenu()">Blog</a>
             <a href="#why-us" onclick="toggleMobileMenu()">About</a>
@@ -1534,10 +1543,10 @@
                     Trusted auto electrical services, Geelong &amp; Surrounds
                 </div>
                 <h1>
-                    Expert auto electrical in <span class="hero-location-wrap"><span class="hero-location" id="heroLocation">Geelong</span></span>
+                    Car Diagnostics &amp; European Specialists &ndash; <span class="hero-location-wrap"><span class="hero-location" id="heroLocation">Geelong</span></span>
                 </h1>
                 <p class="hero-desc">
-                    Experience hassle-free, mobile auto electrical services with expert diagnostics and repairs tailored to your vehicle — at your door.
+                    Advanced diagnostic services for electrical, ECU, and warning light issues in European and modern vehicles across Geelong.
                 </p>
                 <div class="hero-buttons">
                     <a href="tel:+61406642600" class="hero-btn hero-btn-primary">
@@ -1624,122 +1633,70 @@
         <div class="container">
             <div class="services-header">
                 <span class="section-label">Our Services</span>
-                <h2>What we fix</h2>
+                <h2>Complete Vehicle Electrical &amp; Diagnostic Solutions</h2>
             </div>
             <div class="services-desc">
-                <p>From complex European vehicle diagnostics to simple battery replacements. These are our core auto electrical services — if your car has an electrical issue, we've got you covered.</p>
+                <p>We specialise in advanced fault detection and system-level diagnostics across modern vehicles.</p>
                 <a href="#services">Explore all services <i data-lucide="chevron-right"></i></a>
             </div>
         </div>
         <div class="services-scroll">
             <div class="services-scroll-track">
                 <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80" alt="Mobile auto electrician van servicing vehicle in Geelong" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>Mobile Auto Electrician</h3>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" alt="Advanced car electrical diagnostics with OBD scan tool" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" alt="Car electrical diagnostics using advanced scan tools in Geelong" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>Car Electrical Diagnostics</h3>
+                        <p>Car diagnostic services using advanced scan tools, live data analysis, and system testing for accurate fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&q=80" alt="European vehicle Mercedes-Benz BMW electrical specialist Geelong" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&q=80" alt="European vehicle diagnostics for BMW, Mercedes-Benz, Audi and Volkswagen in Geelong" loading="lazy">
                     <div class="service-card-overlay">
-                        <h3>European Vehicle Specialist</h3>
+                        <h3>European Vehicle Diagnostics</h3>
+                        <p>European car repair specialist providing diagnostics for BMW, Mercedes-Benz, Audi, Volkswagen, MINI, and other European vehicles.</p>
                     </div>
                 </article>
                 <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?w=600&q=80" alt="Car battery testing and replacement service Geelong" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=600&q=80" alt="Hybrid and electric vehicle high-voltage battery diagnostics" loading="lazy">
                     <div class="service-card-overlay">
-                        <h3>Battery &amp; Charging Systems</h3>
+                        <h3>Hybrid &amp; EV Diagnostics</h3>
+                        <p>Electrical vehicle repair and diagnostics including high-voltage checks, hybrid battery testing, EV charging and inverter fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Trailer wiring and towbar electrics installation" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="ECU programming, BCM and module coding for modern vehicles" loading="lazy">
                     <div class="service-card-overlay">
-                        <h3>Trailer Wiring &amp; Towbar Electrics</h3>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&q=80" alt="Dash cam and reverse camera professional installation" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>Dash Cam &amp; Accessories</h3>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=600&q=80" alt="Car air conditioning regas and compressor repair" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>Car Air Conditioning</h3>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="ECU coding and key programming service" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>ECU Coding &amp; Programming</h3>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="General car electrical repairs headlights fuses relays" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>General Electrical Repairs</h3>
+                        <h3>ECU &amp; Module Systems</h3>
+                        <p>Car ECU programming tools and diagnostics for BCM issues, immobiliser faults, airbag module resets, and coding support.</p>
                     </div>
                 </article>
                 <!-- Duplicate set for seamless marquee loop -->
                 <article class="service-card" aria-hidden="true">
-                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80" alt="" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>Mobile Auto Electrician</h3>
-                    </div>
-                </article>
-                <article class="service-card" aria-hidden="true">
                     <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>Car Electrical Diagnostics</h3>
+                        <p>Car diagnostic services using advanced scan tools, live data analysis, and system testing for accurate fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card" aria-hidden="true">
                     <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
-                        <h3>European Vehicle Specialist</h3>
+                        <h3>European Vehicle Diagnostics</h3>
+                        <p>European car repair specialist providing diagnostics for BMW, Mercedes-Benz, Audi, Volkswagen, MINI, and other European vehicles.</p>
                     </div>
                 </article>
                 <article class="service-card" aria-hidden="true">
-                    <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?w=600&q=80" alt="" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
-                        <h3>Battery &amp; Charging Systems</h3>
-                    </div>
-                </article>
-                <article class="service-card" aria-hidden="true">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>Trailer Wiring &amp; Towbar Electrics</h3>
-                    </div>
-                </article>
-                <article class="service-card" aria-hidden="true">
-                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&q=80" alt="" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>Dash Cam &amp; Accessories</h3>
-                    </div>
-                </article>
-                <article class="service-card" aria-hidden="true">
-                    <img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=600&q=80" alt="" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>Car Air Conditioning</h3>
+                        <h3>Hybrid &amp; EV Diagnostics</h3>
+                        <p>Electrical vehicle repair and diagnostics including high-voltage checks, hybrid battery testing, EV charging and inverter fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card" aria-hidden="true">
                     <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
-                        <h3>ECU Coding &amp; Programming</h3>
-                    </div>
-                </article>
-                <article class="service-card" aria-hidden="true">
-                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="" loading="lazy">
-                    <div class="service-card-overlay">
-                        <h3>General Electrical Repairs</h3>
+                        <h3>ECU &amp; Module Systems</h3>
+                        <p>Car ECU programming tools and diagnostics for BCM issues, immobiliser faults, airbag module resets, and coding support.</p>
                     </div>
                 </article>
             </div>
@@ -2078,13 +2035,15 @@
                     <ul>
                         <li><a href="service-mobile-auto-electrician.html">Mobile Auto Electrician</a></li>
                         <li><a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a></li>
+                        <li><a href="service-car-repair.html">Car Repair Services</a></li>
+                        <li><a href="service-ev-hybrid.html">EV &amp; Hybrid</a></li>
                         <li><a href="service-battery-charging-systems.html">Battery &amp; Charging</a></li>
                         <li><a href="service-trailer-wiring.html">Trailer Wiring</a></li>
                         <li><a href="service-dash-cam-accessories.html">Dash Cam Installation</a></li>
                         <li><a href="service-car-air-conditioning.html">Car Air Conditioning</a></li>
                         <li><a href="service-ecu-coding-programming.html">ECU Coding</a></li>
                         <li><a href="service-general-electrical-repairs.html">General Electrical Repairs</a></li>
-                        <li><a href="mbcod.html"><strong>MBCOD &mdash; European</strong></a></li>
+                        <li><a href="mbcod.html"><strong>European Diagnostics</strong></a></li>
                     </ul>
                 </div>
             </div>

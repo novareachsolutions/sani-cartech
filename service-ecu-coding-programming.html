@@ -3,924 +3,1178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECU Coding &amp; Programming Geelong | Key Coding &amp; Module Setup</title>
-    <meta name="description" content="ECU coding, key programming and module setup in Geelong. ECU and BCM replacement, software updates and adaptation. Dealer-level capability at independent prices.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ECU Coding & Programming Geelong | Sanicar Tech">
-    <meta property="og:description" content="On-site car electrical diagnostics and repairs across Geelong & surrounds. We come to you.">
+    <title>ECU Coding &amp; Advanced Electronics Repairs in Geelong | Sanicar</title>
+    <meta name="description" content="Specialist car ECU coding, immobiliser programming, BCM repairs, CAN bus repairs and airbag module work in Geelong. Dealer-level programming for premium European vehicles.">
+    <meta property="og:title" content="ECU Coding & Advanced Electronics Repairs in Geelong | Sanicar">
+    <meta property="og:description" content="Specialist ECU programming, immobiliser, BCM and airbag module work for European vehicles in Geelong.">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://geelongautoelectrician.com.au/services/mobile-auto-electrician">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://geelongautoelectrician.com.au/services/ecu-coding-programming">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        :root {
+            --bg: #07070d;
+            --bg-elev: #0f0f18;
+            --bg-card: #14141f;
+            --border: rgba(255,255,255,0.08);
+            --border-strong: rgba(255,255,255,0.16);
+            --text: #f5f5f7;
+            --text-muted: rgba(245,245,247,0.65);
+            --text-dim: rgba(245,245,247,0.4);
+            --accent: #c9a14a;
+            --accent-light: #e0bc6a;
+            --gold-grad: linear-gradient(135deg, #c9a14a 0%, #e0bc6a 50%, #c9a14a 100%);
+            --font: 'Bricolage Grotesque', sans-serif;
+        }
         body {
-            font-family: var(--font-body);
-            background: #f5f0ea;
-            color: #1a1a2e;
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
-
-        :root {
-            --font-display: 'Bricolage Grotesque', sans-serif;
-            --font-body: 'Bricolage Grotesque', sans-serif;
-            --navy: #1a1a2e;
-            --navy-light: #2d2d44;
-            --cream: #f5f0ea;
-            --cream-dark: #ebe5dd;
-            --accent: #1e3a8a;
-            --accent-light: #1e3a8a;
-            --accent-bg: #1e3a8a;
-            --green: #4ade80;
-            --green-bg: #ecfdf5;
-            --white: #ffffff;
-            --gray: #6b6b7b;
-            --gray-light: #9b9bab;
-            --radius: 16px;
-            --radius-lg: 24px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-        /* ===== TOP BANNER ===== */
-        .top-banner {
-            background: var(--navy); color: var(--white);
-            text-align: center; padding: 12px 24px;
-            font-size: 0.88rem; font-weight: 500;
-            position: relative; z-index: 1001;
-        }
-        .top-banner a { font-weight: 700; text-decoration: underline; margin-left: 8px; }
-
-        /* ===== NAVBAR ===== */
+        /* ===== NAVBAR over hero ===== */
         .navbar {
-            position: sticky; top: 0; z-index: 1000;
-            padding: 8px 32px; background: transparent;
+            position: absolute; top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 24px 32px;
         }
         .navbar-inner {
-            max-width: 1280px; margin: 0 auto;
-            background: var(--white); border-radius: 100px;
-            padding: 6px 10px 6px 24px;
-            display: flex; align-items: center; justify-content: space-between;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-            position: relative; z-index: 1001;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 24px;
         }
+        .navbar-inner .nav-links { justify-self: center; }
         .nav-logo {
             display: flex; align-items: center; white-space: nowrap;
             margin: -60px 0;
+            color: var(--text);
         }
-        .nav-logo .logo-img { height: 200px; width: auto; display: block; object-fit: contain; }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-logo .logo-img {
+            height: 200px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        .nav-links {
+            display: flex; gap: 32px; align-items: center;
+        }
         .nav-links a {
-            font-size: 0.92rem; font-weight: 500; color: var(--navy);
-            transition: var(--transition); position: relative;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        .nav-links a:hover { opacity: 0.6; }
-        .nav-links a.active { font-weight: 600; }
-        .nav-links a.active::after {
-            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-            height: 2px; background: var(--navy); border-radius: 2px;
-        }
+        .nav-links a:hover { color: var(--accent); }
         .nav-cta {
             display: inline-flex; align-items: center; gap: 8px;
-            background: var(--accent-bg); color: var(--white);
-            padding: 14px 28px; border-radius: 100px;
-            font-size: 0.9rem; font-weight: 600;
-            transition: var(--transition); border: none;
+            background: var(--gold-grad);
+            color: #07070d;
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .nav-cta:hover { background: #3b5bdb; transform: translateY(-1px); }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(201,161,74,0.3); }
 
-        /* MBCOD nav highlight */
-        .nav-mbcod-link {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-size: 0.92rem; font-weight: 600; color: var(--navy);
-            position: relative; transition: var(--transition);
-        }
-        .nav-mbcod-link:hover { opacity: 0.7; }
-        .nav-mbcod-tag {
-            position: relative; overflow: hidden; isolation: isolate;
-            font-size: 0.65rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.8px;
-            color: var(--white);
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e2a5a 35%, #0a0a14 100%);
-            padding: 4px 10px; border-radius: 100px;
-            box-shadow: 0 2px 8px rgba(30,58,138,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
-        }
-        .nav-mbcod-tag::before {
-            content: '';
-            position: absolute; top: 0; left: -120%;
-            width: 60%; height: 100%;
-            background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0) 30%, rgba(180,200,255,0.7) 50%, rgba(255,255,255,0) 70%, transparent 100%);
-            transform: skewX(-20deg);
-            animation: navTagShine 3.2s ease-in-out infinite;
-            pointer-events: none; z-index: 1;
-        }
-        @keyframes navTagShine {
-            0%   { left: -120%; }
-            55%  { left: 130%; }
-            100% { left: 130%; }
-        }
-        @media (prefers-reduced-motion: reduce) { .nav-mbcod-tag::before { animation: none; } }
-        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-        .mobile-toggle i { width: 28px; height: 28px; color: var(--navy); }
-
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu {
-            display: none; position: fixed; inset: 0;
-            background: var(--cream); z-index: 9999;
-            padding: 24px 32px; flex-direction: column;
-        }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
-        .mobile-menu-close { background: none; border: none; cursor: pointer; padding: 8px; }
-        .mobile-menu-close i { width: 28px; height: 28px; color: var(--navy); }
-        .mobile-menu-links { display: flex; flex-direction: column; gap: 4px; }
-        .mobile-menu-links a {
-            font-family: var(--font-display); font-size: 2rem; font-weight: 900;
-            color: var(--navy); padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-        .mobile-menu-cta { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
-        .mobile-menu-cta a {
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            padding: 18px; border-radius: 100px; font-weight: 700; font-size: 1rem;
-        }
-        .mob-btn-primary { background: var(--navy); color: var(--white); }
-        .mob-btn-secondary { background: var(--accent-bg); color: var(--white); }
-
-        /* ===== BACK LINK ===== */
-        .back-link {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-size: 0.9rem; font-weight: 600; color: var(--navy);
-            margin-bottom: 32px; transition: var(--transition);
-        }
-        .back-link:hover { gap: 12px; opacity: 0.7; }
-        .back-link i { width: 18px; height: 18px; }
-
-        /* ===== SERVICE HERO ===== */
-        .svc-hero {
-            padding: 48px 0 0;
-        }
-        .svc-hero h1 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-            color: var(--navy); line-height: 1.1;
-            margin-bottom: 20px; max-width: 700px;
-        }
-        .svc-hero-desc {
-            font-size: 1.05rem; color: var(--gray);
-            line-height: 1.7; max-width: 700px; margin-bottom: 48px;
-        }
-        .svc-hero-img {
-            border-radius: var(--radius-lg); overflow: hidden;
-            margin-bottom: 80px;
-        }
-        .svc-hero-img img {
-            width: 100%; height: 480px; object-fit: cover;
-        }
-
-        /* ===== SERVICE OVERVIEW ===== */
-        .svc-overview {
-            padding: 0 0 80px;
-        }
-        .svc-overview h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 16px; line-height: 1.1;
-        }
-        .svc-overview-text {
-            font-size: 1rem; color: var(--gray);
-            line-height: 1.8; max-width: 700px; margin-bottom: 48px;
-        }
-        .svc-overview-img {
-            border-radius: var(--radius-lg); overflow: hidden;
-        }
-        .svc-overview-img img {
-            width: 100%; height: 440px; object-fit: cover;
-        }
-
-        /* ===== WHAT WE OFFER ===== */
-        .svc-offers {
-            padding: 0 0 80px;
-        }
-        .svc-offers h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 40px; line-height: 1.1;
-        }
-        .offers-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 20px 48px; margin-bottom: 48px;
-        }
-        .offer-item {
-            display: flex; align-items: center; gap: 14px;
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-        .offer-check {
-            width: 28px; height: 28px; flex-shrink: 0;
-            border: 2px solid var(--green, #4ade80); border-radius: 50%;
-            background: var(--green-bg, #ecfdf5);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.08);
-        }
-        .offer-check i { width: 14px; height: 14px; color: var(--green, #4ade80); stroke-width: 3.5; }
-        .offer-item span {
-            font-size: 0.95rem; font-weight: 600; color: var(--navy);
-        }
-        .svc-offers-img {
-            border-radius: var(--radius-lg); overflow: hidden;
-        }
-        .svc-offers-img img {
-            width: 100%; height: 440px; object-fit: cover;
-        }
-
-        /* ===== WHY CHOOSE ===== */
-        .svc-why {
-            padding: 80px 0;
-        }
-        .svc-why h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 12px; line-height: 1.1;
-            max-width: 500px;
-        }
-        .svc-why > .container > p {
-            font-size: 1rem; color: var(--gray);
-            line-height: 1.7; max-width: 700px; margin-bottom: 40px;
-        }
-        .why-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .why-card {
-            background: var(--green-bg);
-            border: 1px solid rgba(0,0,0,0.05);
-            border-radius: var(--radius-lg);
-            padding: 36px;
-            transition: var(--transition);
-        }
-        .why-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-        .why-card h4 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: 1.15rem; color: var(--navy); margin-bottom: 12px;
-        }
-        .why-card p {
-            font-size: 0.9rem; color: var(--gray); line-height: 1.7;
-        }
-
-        /* ===== PROCESS / TIMELINE ===== */
-        .svc-process {
-            background: var(--navy); padding: 80px 0;
-            color: var(--white); position: relative;
-        }
-        .process-grid {
-            display: grid; grid-template-columns: 1fr 1.4fr;
-            gap: 60px; align-items: start;
-        }
-        .process-left {
-            position: sticky; top: 120px;
-        }
-        .process-label {
-            font-size: 0.82rem; color: var(--gray-light);
-            margin-bottom: 12px;
-        }
-        .process-left h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            color: var(--white); margin-bottom: 16px; line-height: 1.1;
-        }
-        .process-left p {
-            font-size: 1rem; color: rgba(255,255,255,0.5);
-            line-height: 1.7; max-width: 360px;
-        }
-        .process-steps {
-            display: flex; flex-direction: column;
+        /* ===== HERO ===== */
+        .mbcod-hero {
             position: relative;
-            gap: 32px;
+            min-height: 86vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
         }
-        /* Timeline line (dim base track) */
-        .process-steps::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            left: 24px; top: 0; bottom: 0;
-            width: 2px;
-            background: rgba(0, 229, 146, 0.18);
-        }
-        /* Timeline line (animated progress) */
-        .process-steps-progress {
-            position: absolute;
-            left: 24px; top: 0;
-            width: 2px;
-            height: 0;
-            background: var(--green);
-            box-shadow: 0 0 8px rgba(0, 229, 146, 0.5);
-            pointer-events: none;
+            inset: 0;
             z-index: 0;
-            will-change: height;
         }
-        .process-step {
-            display: flex; gap: 24px;
+        .hero-bg img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: 75% center;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    #07070d 0%,
+                    rgba(7,7,13,0.98) 18%,
+                    rgba(7,7,13,0.88) 35%,
+                    rgba(7,7,13,0.55) 55%,
+                    rgba(7,7,13,0.18) 75%,
+                    rgba(7,7,13,0.08) 100%
+                ),
+                linear-gradient(180deg, rgba(7,7,13,0.45) 0%, transparent 25%, transparent 75%, rgba(7,7,13,0.55) 100%);
+        }
+        .hero-glow {
+            position: absolute;
+            top: -200px; left: -10%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(201,161,74,0.18) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .mbcod-hero > .container {
+            max-width: none;
+            padding-left: clamp(32px, 6vw, 88px);
+            padding-right: 32px;
+            width: 100%;
+        }
+        .hero-content {
             position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin-left: 0;
+            margin-right: auto;
+            text-align: left;
         }
-        .step-marker {
-            flex-shrink: 0;
-            width: 48px; height: 48px;
-            background: var(--green);
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            border: 1px solid rgba(201,161,74,0.35);
+            background: rgba(201,161,74,0.08);
+            padding: 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+        .hero-eyebrow .dot {
+            width: 6px; height: 6px;
+            background: var(--accent);
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 800; font-size: 1rem;
-            color: var(--navy);
-            position: relative; z-index: 1;
+            box-shadow: 0 0 12px var(--accent);
         }
-        .step-content {
-            background: #1e2235;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            flex: 1;
+        .mbcod-hero h1 {
+            font-weight: 900;
+            font-size: clamp(2.2rem, 5.2vw, 4.2rem);
+            line-height: 1.02;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
         }
-        .step-content:hover {
-            border-color: rgba(255,255,255,0.18);
+        .mbcod-hero h1 .gold {
+            background: var(--gold-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+            font-weight: 800;
         }
-        .step-icon {
-            color: var(--green); margin-bottom: 16px;
+        .mbcod-hero p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 620px;
         }
-        .step-icon i { width: 28px; height: 28px; }
-        .step-content h4 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: 1.3rem; color: var(--white); margin-bottom: 8px;
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            border: 1.5px solid transparent;
         }
-        .step-content p {
-            font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.7;
+        .btn i { width: 16px; height: 16px; }
+        .btn-outline {
+            color: var(--text);
+            border-color: var(--border-strong);
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(10px);
         }
-        .step-content-img {
-            border-radius: var(--radius); overflow: hidden;
-            margin-top: 0;
-            max-height: 0;
-            opacity: 0;
-            will-change: max-height, opacity, margin-top;
-            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); transform: translateY(-2px); }
+        .btn-gold {
+            background: var(--gold-grad);
+            color: #07070d;
+            box-shadow: 0 8px 22px rgba(201,161,74,0.35);
         }
-        .process-step.is-active .step-content-img {
-            margin-top: 20px;
-            max-height: 260px;
-            opacity: 1;
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(201,161,74,0.5); }
+
+        /* ===== SECTION SHELL ===== */
+        .section-head {
+            max-width: 760px;
+            margin: 0 auto 64px;
+            text-align: center;
         }
-        .step-content-img img {
-            width: 100%; height: 220px; object-fit: cover;
-            display: block;
+        .section-head.left { margin: 0 0 56px; text-align: left; }
+        .section-head .eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .section-head h2 {
+            font-weight: 800;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+        .section-head h2 .gold {
+            background: var(--gold-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+        }
+        .section-head p {
+            color: var(--text-muted);
+            font-size: 1rem;
         }
 
-        /* ===== STATS ===== */
-        .svc-stats {
-            padding: 80px 0; text-align: center;
+        /* ===== SERVICE BLOCKS (5 main sections) ===== */
+        .svc-blocks { padding: 110px 0 60px; border-top: 1px solid var(--border); }
+        .svc-block {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border);
         }
-        .stats-label {
-            font-size: 0.82rem; color: var(--gray-light);
-            margin-bottom: 12px;
+        .svc-block:last-child { border-bottom: none; }
+        .svc-block-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: start;
         }
-        .svc-stats h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--navy); margin-bottom: 12px;
+        .svc-block-body .eyebrow {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 18px;
         }
-        .svc-stats > .container > p {
-            font-size: 1rem; color: var(--gray);
-            max-width: 520px; margin: 0 auto 40px;
+        .svc-block-body .eyebrow .step {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px; height: 26px;
+            background: rgba(201,161,74,0.1);
+            border: 1px solid rgba(201,161,74,0.35);
+            border-radius: 50%;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--accent);
         }
-        .stats-row {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: var(--radius-lg);
+        .svc-block-body h2 {
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+            letter-spacing: -0.8px;
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+        .svc-block-body h2 .gold {
+            background: var(--gold-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+        }
+        .svc-block-body p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .svc-block-body p a {
+            color: var(--accent);
+            border-bottom: 1px solid rgba(201,161,74,0.4);
+            font-weight: 600;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .svc-block-body p a:hover { color: var(--accent-light); border-color: var(--accent); }
+        .svc-block-card {
+            background: var(--bg-elev);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .svc-block-card:hover { border-color: var(--border-strong); }
+        .svc-block-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 240px; height: 240px;
+            background: radial-gradient(circle, rgba(201,161,74,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .svc-block-card h3 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .svc-block-card ul li {
+            display: flex; align-items: center; gap: 12px;
+            padding: 11px 0;
+            color: var(--text);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .svc-block-card ul li:last-child { border-bottom: none; }
+        .svc-block-card ul li i {
+            width: 16px; height: 16px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ===== BRAND SHOWCASE ===== */
+        .brands-section { border-top: 1px solid var(--border); }
+        .brand-scroll-wrap {
+            position: relative;
+            height: 380vh;
+        }
+        .brand-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+        .brand-sticky .section-head { margin-bottom: 36px; }
+        .brand-tier-label {
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            margin-bottom: 28px;
+        }
+        .brand-tier-label::before {
+            content: '';
+            width: 40px; height: 1.5px;
+            background: var(--accent);
+        }
+        .brand-track-viewport {
+            width: 100%;
             overflow: hidden;
         }
-        .stat-cell {
-            padding: 32px;
-            border-right: 1px solid rgba(0,0,0,0.08);
+        .brand-track {
+            display: flex;
+            gap: 18px;
+            padding: 0 32px;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
         }
-        .stat-cell:last-child { border-right: none; }
-        .stat-cell h3 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: 2rem; color: var(--navy); margin-bottom: 8px;
+        .b-card {
+            position: relative;
+            background: var(--bg-elev);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+            flex: 0 0 320px;
+            min-width: 320px;
+            padding: 28px 26px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
-        .stat-cell p {
-            font-size: 0.85rem; color: var(--gray); line-height: 1.5;
+        .b-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--gold-grad);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .b-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-strong);
+            box-shadow: 0 18px 48px rgba(0,0,0,0.4);
+        }
+        .b-card:hover::before { transform: scaleX(1); }
+        .b-card-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            background: rgba(201,161,74,0.08);
+            border: 1px solid rgba(201,161,74,0.25);
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        .b-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+        .b-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .brands-static { padding: 100px 0 120px; }
+        .brands-static-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .brands-static-grid .b-card {
+            flex: initial;
+            min-width: 0;
         }
 
-        /* ===== FAQ ===== */
-        .faq { padding: 80px 0; text-align: center; }
-        .section-label {
-            display: inline-block; font-size: 0.75rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.12em; color: var(--navy);
-            background: var(--white); border: 1px solid rgba(0,0,0,0.08);
-            padding: 8px 18px; border-radius: 100px; margin-bottom: 20px;
-        }
-        .faq h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(2rem, 4vw, 3rem); color: var(--navy);
-            margin-bottom: 48px; line-height: 1.1;
-        }
-        .faq-list { max-width: 800px; margin: 0 auto; text-align: left; }
-        .faq-item {
-            background: var(--cream-dark); border-radius: var(--radius);
-            margin-bottom: 8px; overflow: hidden; transition: var(--transition);
-        }
-        .faq-item:hover { background: #e5ddd3; }
-        .faq-question {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 20px 24px; cursor: pointer;
-            font-weight: 600; font-size: 0.95rem; color: var(--navy); gap: 16px;
-        }
-        .faq-plus {
-            width: 40px; height: 40px;
-            background: var(--cream-dark); border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-            transition: var(--transition);
-        }
-        .faq-plus i { width: 16px; height: 16px; color: var(--white); transition: transform 0.3s ease; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .faq-answer-inner {
-            padding: 0 24px 20px; font-size: 0.9rem;
-            color: var(--gray); line-height: 1.7;
-        }
-        .faq-item.active .faq-plus { background: var(--navy); border-color: var(--navy); }
-        .faq-item.active .faq-plus i { color: var(--white); transform: rotate(45deg); }
-        .faq-item.active .faq-answer { max-height: 300px; }
-
-        /* ===== CTA BOTTOM ===== */
-        .svc-cta {
-            background: var(--navy);
-            border-radius: var(--radius-lg);
-            margin: 0 32px 60px;
-            padding: 80px 60px;
+        /* ===== WHY MATTER ===== */
+        .why-matter { padding: 110px 0; border-top: 1px solid var(--border); }
+        .why-matter-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
+            gap: 64px;
+            align-items: start;
+        }
+        .why-matter h2 {
+            font-weight: 800;
+            font-size: clamp(2rem, 3.8vw, 2.8rem);
+            letter-spacing: -1px;
+            line-height: 1.12;
+            margin-bottom: 22px;
+        }
+        .why-matter h2 .gold {
+            background: var(--gold-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+        }
+        .why-matter p {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .why-matter p a {
+            color: var(--accent);
+            border-bottom: 1px solid rgba(201,161,74,0.4);
+            font-weight: 600;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .why-matter p a:hover { color: var(--accent-light); border-color: var(--accent); }
+        .why-matter-card {
+            background: var(--bg-elev);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            position: relative;
             overflow: hidden;
         }
-        .svc-cta-text h2 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            color: var(--white); margin-bottom: 16px; line-height: 1.15;
+        .why-matter-card::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 260px; height: 260px;
+            background: radial-gradient(circle, rgba(201,161,74,0.12) 0%, transparent 60%);
+            pointer-events: none;
         }
-        .svc-cta-text p {
-            font-size: 1rem; color: rgba(255,255,255,0.5);
-            line-height: 1.7; margin-bottom: 28px;
+        .why-matter-card h3 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 22px;
+            position: relative;
         }
-        .svc-cta-btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--white); color: var(--navy);
-            padding: 16px 32px; border-radius: 100px;
-            font-weight: 700; font-size: 0.9rem;
-            transition: var(--transition); border: none; cursor: pointer;
+        .why-matter-card ul li {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 0;
+            color: var(--text);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
         }
-        .svc-cta-btn:hover { background: var(--accent-bg); color: var(--white); transform: translateY(-2px); }
-        .svc-cta-btn i { width: 18px; height: 18px; }
-        .svc-cta-checks { margin-top: 24px; }
-        .svc-cta-checks .check-item {
-            display: flex; align-items: center; gap: 10px;
-            margin-bottom: 12px; font-size: 0.9rem; font-weight: 500;
-            color: rgba(255,255,255,0.7);
+        .why-matter-card ul li:last-child { border-bottom: none; }
+        .why-matter-card ul li i {
+            width: 16px; height: 16px;
+            color: var(--accent);
+            flex-shrink: 0;
         }
-        .svc-cta-checks .check-item i { width: 18px; height: 18px; color: var(--green); }
-        .svc-cta-img {
-            border-radius: var(--radius-lg); overflow: hidden;
+
+        /* ===== WHY SANICAR ===== */
+        .why-sanicar { padding: 100px 0; border-top: 1px solid var(--border); background: var(--bg-elev); }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
-        .svc-cta-img img {
-            width: 100%; height: 380px; object-fit: cover;
+        .why-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 26px;
+            transition: transform 0.3s, border-color 0.3s;
         }
+        .why-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+        .why-card-icon {
+            width: 44px; height: 44px;
+            border-radius: 11px;
+            background: rgba(201,161,74,0.1);
+            border: 1px solid rgba(201,161,74,0.25);
+            color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px;
+        }
+        .why-card-icon i { width: 22px; height: 22px; }
+        .why-card h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+        .why-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+        .why-sanicar-footnote {
+            margin-top: 48px;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+        .why-sanicar-footnote a {
+            color: var(--accent);
+            border-bottom: 1px solid rgba(201,161,74,0.4);
+            font-weight: 600;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .why-sanicar-footnote a:hover { color: var(--accent-light); border-color: var(--accent); }
+
+        /* ===== FAQ ===== */
+        .faq { padding: 110px 0; border-top: 1px solid var(--border); }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--bg-elev);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: border-color 0.25s, background 0.25s;
+        }
+        .faq-item:hover { border-color: var(--border-strong); }
+        .faq-item.active { border-color: rgba(201,161,74,0.35); background: var(--bg-card); }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 22px 28px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            gap: 18px;
+        }
+        .faq-plus {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.25s, border-color 0.25s;
+        }
+        .faq-plus i {
+            width: 16px; height: 16px;
+            color: var(--text);
+            transition: transform 0.3s ease, color 0.25s;
+        }
+        .faq-item.active .faq-plus {
+            background: var(--gold-grad);
+            border-color: var(--accent);
+        }
+        .faq-item.active .faq-plus i {
+            color: #07070d;
+            transform: rotate(45deg);
+        }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-answer-inner {
+            padding: 0 28px 24px;
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            line-height: 1.75;
+        }
+        .faq-item.active .faq-answer { max-height: 360px; }
+
+        /* ===== CTA BAND ===== */
+        .cta-band {
+            padding: 130px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201,161,74,0.12) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .cta-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+        .cta-band h2 {
+            font-weight: 800;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+        .cta-band h2 .gold {
+            background: var(--gold-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+        }
+        .cta-band p {
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        .cta-actions { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
         /* ===== FOOTER ===== */
         .footer {
-            background: var(--cream-dark);
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-            padding: 64px 0 32px;
+            padding: 56px 0 32px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.88rem;
         }
-        .footer-grid {
-            display: grid; grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 60px; margin-bottom: 48px;
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
-        .footer-label {
-            font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.12em; color: var(--gray-light); margin-bottom: 16px;
+        .footer-back {
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-flex; align-items: center; gap: 6px;
         }
-        .footer-address h3 {
-            font-family: var(--font-display); font-weight: 800;
-            font-size: 1.15rem; color: var(--navy); margin-bottom: 4px;
-        }
-        .footer-address p { color: var(--navy); font-size: 0.95rem; line-height: 1.7; }
-        .footer-contact-block h4 { font-weight: 800; font-size: 1.15rem; color: var(--navy); }
-        .footer-contact-block a {
-            color: var(--navy); font-size: 0.95rem;
-            text-decoration: underline; transition: var(--transition);
-        }
-        .footer-contact-block a:hover { color: var(--accent); }
-        .footer ul li { margin-bottom: 8px; }
-        .footer ul li a { font-size: 0.92rem; color: var(--navy); transition: var(--transition); }
-        .footer ul li a:hover { color: var(--accent); }
-        .footer-bottom {
-            border-top: 1px solid rgba(0,0,0,0.08); padding-top: 24px;
-            display: flex; justify-content: space-between;
-            font-size: 0.82rem; color: var(--gray); flex-wrap: wrap; gap: 12px;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        .fade-up {
-            opacity: 0; transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .footer-back i { width: 14px; height: 14px; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .offers-grid { grid-template-columns: 1fr; }
-            .why-grid { grid-template-columns: 1fr; }
-            .stats-row { grid-template-columns: repeat(2, 1fr); }
-            .stat-cell:nth-child(2) { border-right: none; }
-            .stat-cell:nth-child(3) { border-top: 1px solid rgba(0,0,0,0.08); }
-            .stat-cell:nth-child(4) { border-top: 1px solid rgba(0,0,0,0.08); }
+        @media (max-width: 980px) {
+            .nav-links { display: none; }
+            .svc-blocks { padding: 72px 0 24px; }
+            .svc-block { padding: 40px 0; }
+            .svc-block-grid { grid-template-columns: 1fr; gap: 32px; }
+            .svc-block-card { padding: 28px 24px; }
+            .brand-scroll-wrap { height: auto; }
+            .brand-sticky {
+                position: static;
+                height: auto;
+                padding: 72px 0;
+                overflow: visible;
+            }
+            .brand-track-viewport { overflow: visible; }
+            .brand-track {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                padding: 0;
+                transform: none !important;
+            }
+            .brand-track .b-card { flex: initial; min-width: 0; }
+            .brands-static { padding: 64px 0 80px; }
+            .brands-static-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-matter { padding: 72px 0; }
+            .why-matter-grid { grid-template-columns: 1fr; gap: 32px; }
+            .why-matter-card { padding: 28px 24px; }
+            .why-sanicar { padding: 72px 0; }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .faq { padding: 72px 0; }
+            .mbcod-hero { min-height: auto; padding: 140px 0 80px; }
+            .hero-bg img { object-position: 65% center; }
         }
-        @media (max-width: 768px) {
-            .nav-links, .nav-cta { display: none; }
-            .mobile-toggle { display: block; }
-            .navbar { padding: 12px 16px; }
-            .navbar-inner { padding: 10px 10px 10px 20px; }
-            .nav-logo { margin: 0; }
-            .nav-logo .logo-img { height: 56px; }
-            .svc-hero-img img { height: 300px; }
-            .svc-overview-img img { height: 300px; }
-            .svc-offers-img img { height: 300px; }
-            .offers-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            .brand-track { grid-template-columns: 1fr; }
+            .brands-static-grid { grid-template-columns: 1fr; }
             .why-grid { grid-template-columns: 1fr; }
-            .process-grid { grid-template-columns: 1fr; gap: 40px; }
-            .process-left { position: static; }
-            .process-step { position: relative !important; top: auto !important; }
-            .process-steps-progress { display: none; }
-            .step-content-img { max-height: none !important; opacity: 1 !important; margin-top: 20px !important; }
-            .stats-row { grid-template-columns: 1fr; }
-            .stat-cell { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
-            .stat-cell:last-child { border-bottom: none; }
-            .svc-cta { grid-template-columns: 1fr; margin: 0 16px 40px; padding: 48px 28px; }
-            .svc-cta-img { display: none; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .mbcod-hero p { font-size: 0.95rem; }
+            .navbar { padding: 12px 16px; }
+            .navbar-inner { gap: 12px; }
+            .nav-logo { margin: 0; }
+            .nav-logo .logo-img { height: 44px; filter: brightness(0) invert(1); }
+            .nav-cta {
+                padding: 8px 14px;
+                font-size: 0.74rem;
+                gap: 6px;
+                white-space: nowrap;
+            }
+            .nav-cta i { width: 12px !important; height: 12px !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Banner -->
-    <div class="top-banner">
-        Mobile auto electrician — we come to you across Geelong &amp; surrounds.
-        <a href="tel:+61406642600">Call now</a>
-    </div>
-
-    <!-- Navbar -->
+    <!-- Navbar (over hero) -->
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="/" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <img src="assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
             </a>
-                        <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="mbcod.html" class="nav-mbcod-link">MBCOD <span class="nav-mbcod-tag">Premium</span></a>
+            <div class="nav-links">
+                <a href="#brands">Brands</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#why">Why Sanicar</a>
                 <a href="areas.html">Areas</a>
                 <a href="blog.html">Blog</a>
-                <a href="index.html#why-us">About</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="index.html">Sanicar Tech</a>
             </div>
-            <a href="tel:+61406642600" class="nav-cta">Get a Free Quote</a>
-            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Open menu">
-                <i data-lucide="menu"></i>
-            </button>
+            <a href="tel:+61406642600" class="nav-cta">
+                <i data-lucide="phone" style="width:14px;height:14px;"></i>
+                Book Now
+            </a>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <a href="/" class="nav-logo">
-                <img src="assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
-            </a>
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
-                <i data-lucide="x"></i>
-            </button>
+    <!-- HERO -->
+    <section class="mbcod-hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=2000&q=85" alt="ECU coding and module programming equipment">
         </div>
-                <div class="mobile-menu-links">
-            <a href="index.html" onclick="toggleMobileMenu()">Home</a>
-            <a href="services.html" class="active" onclick="toggleMobileMenu()">Services</a>
-            <a href="mbcod.html" onclick="toggleMobileMenu()">MBCOD</a>
-            <a href="areas.html" onclick="toggleMobileMenu()">Areas</a>
-            <a href="blog.html" onclick="toggleMobileMenu()">Blog</a>
-            <a href="index.html#why-us" onclick="toggleMobileMenu()">About</a>
-            <a href="index.html#contact" onclick="toggleMobileMenu()">Contact</a>
-        </div>
-        <div class="mobile-menu-cta">
-            <a href="tel:+61406642600" class="mob-btn-primary"><i data-lucide="phone" style="width:18px;height:18px;"></i> Call 0406 642 600</a>
-            <a href="/#contact" class="mob-btn-secondary"><i data-lucide="calendar" style="width:18px;height:18px;"></i> Book Online</a>
-        </div>
-    </div>
-
-    <!-- Service Hero -->
-    <section class="svc-hero">
+        <div class="hero-glow"></div>
         <div class="container">
-            <a href="/services.html" class="back-link">
-                <i data-lucide="chevron-left"></i> Back to Services
-            </a>
-            <h1>ECU Coding &amp; Programming in Geelong</h1>
-            <p class="svc-hero-desc">Module coding, key programming, ECU and BCM replacement and setup, plus software updates. Dealer-level capability at a fraction of the cost.</p>
-            <div class="svc-hero-img fade-up">
-                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80" alt="ECU coding and key programming service" loading="eager">
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="dot"></span>
+                    Specialist Electronic Services
+                </div>
+                <h1>ECU Coding &amp; <span class="gold">Advanced Electronics</span> Repairs</h1>
+                <p>Sanicar provides specialist Car ECU coding in Geelong, module programming, immobiliser setup, and advanced electronic repair services for premium European vehicles.</p>
+                <div class="hero-actions">
+                    <a href="tel:+61406642600" class="btn btn-gold">
+                        <i data-lucide="cpu"></i> Book ECU Coding &amp; Repairs
+                    </a>
+                    <a href="tel:+61406642600" class="btn btn-outline">
+                        <i data-lucide="phone"></i> Call Now
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Overview -->
-    <section class="svc-overview">
+    <!-- SERVICE BLOCKS -->
+    <section id="capabilities" class="svc-blocks">
         <div class="container">
-            <h2 class="fade-up">Service overview</h2>
-            <p class="svc-overview-text fade-up">Replace an ECU, BCM or key — and almost every modern vehicle requires coding or adaptation before it works correctly. We program transponder keys and proximity fobs, code replacement modules to your VIN, perform component adaptations after sensor replacements (steering angle, throttle body, DPF, transmission) and apply manufacturer software updates. All work is done with brand-correct tools and online subscriptions, the same way the dealer would.</p>
-            <div class="svc-overview-img fade-up">
-                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80" alt="ECU programming and coding session" loading="lazy">
+
+            <!-- 1. ECU Coding & Software Programming -->
+            <div class="svc-block">
+                <div class="svc-block-grid">
+                    <div class="svc-block-body">
+                        <span class="eyebrow"><span class="step">01</span> Capability</span>
+                        <h2>ECU Coding &amp; <span class="gold">Software Programming</span></h2>
+                        <p>Modern control modules often require coding and software configuration after ECU replacement, upgrades, or electronic component installation.</p>
+                        <p>Our workshop uses advanced programming equipment, manufacturer-specific software, and some of the best car ECU programming tools in Geelong to support accurate coding, calibration, and electronic module integration for modern European vehicles.</p>
+                    </div>
+                    <div class="svc-block-card">
+                        <h3>Our ECU programming services include</h3>
+                        <ul>
+                            <li><i data-lucide="check"></i> ECU coding &amp; programming</li>
+                            <li><i data-lucide="check"></i> Vehicle software calibration</li>
+                            <li><i data-lucide="check"></i> ECU reconfiguration after module replacement</li>
+                            <li><i data-lucide="check"></i> Software updates &amp; system calibration</li>
+                            <li><i data-lucide="check"></i> Electronic module coding</li>
+                            <li><i data-lucide="check"></i> Vehicle system synchronisation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Immobiliser Programming & Key Synchronisation -->
+            <div class="svc-block">
+                <div class="svc-block-grid">
+                    <div class="svc-block-body">
+                        <span class="eyebrow"><span class="step">02</span> Capability</span>
+                        <h2>Immobiliser Programming &amp; <span class="gold">Key Synchronisation</span></h2>
+                        <p>Modern European vehicles use encrypted immobiliser systems that require secure programming and synchronisation procedures.</p>
+                        <p>We also provide specialised car immobiliser repair services for European vehicles experiencing key synchronisation, security system, or immobiliser communication issues.</p>
+                        <p>We help restore proper communication between vehicle security systems, keys, and electronic control modules.</p>
+                    </div>
+                    <div class="svc-block-card">
+                        <h3>We provide</h3>
+                        <ul>
+                            <li><i data-lucide="check"></i> Immobiliser programming &amp; setup</li>
+                            <li><i data-lucide="check"></i> European car key replacement</li>
+                            <li><i data-lucide="check"></i> Key programming &amp; synchronisation</li>
+                            <li><i data-lucide="check"></i> ECU and immobiliser pairing</li>
+                            <li><i data-lucide="check"></i> Vehicle security system configuration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. BCM & Control Module Repairs -->
+            <div class="svc-block">
+                <div class="svc-block-grid">
+                    <div class="svc-block-body">
+                        <span class="eyebrow"><span class="step">03</span> Capability</span>
+                        <h2>BCM &amp; <span class="gold">Control Module</span> Repairs</h2>
+                        <p>Body Control Modules (BCM) and electronic control modules manage essential vehicle functions including lighting, locking systems, comfort features, and onboard electronics.</p>
+                        <p>We provide advanced BCM body repairs in Geelong for European vehicles requiring module restoration, coding, and electronic communication repair procedures.</p>
+                    </div>
+                    <div class="svc-block-card">
+                        <h3>BCM &amp; module services include</h3>
+                        <ul>
+                            <li><i data-lucide="check"></i> BCM repair &amp; programming</li>
+                            <li><i data-lucide="check"></i> BCM module repair</li>
+                            <li><i data-lucide="check"></i> Body control module coding</li>
+                            <li><i data-lucide="check"></i> Module synchronisation &amp; recalibration</li>
+                            <li><i data-lucide="check"></i> Replacement module configuration</li>
+                            <li><i data-lucide="check"></i> Electronic control module repairs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CAN Bus Communication & Module Synchronisation -->
+            <div class="svc-block">
+                <div class="svc-block-grid">
+                    <div class="svc-block-body">
+                        <span class="eyebrow"><span class="step">04</span> Capability</span>
+                        <h2>CAN Bus Communication &amp; <span class="gold">Module Synchronisation</span></h2>
+                        <p>Modern vehicles rely on interconnected communication networks that allow electronic modules to operate together correctly.</p>
+                        <p>Many modern electronic faults also require specialised <a href="mbcod.html">European car diagnostics</a> procedures to restore proper communication between vehicle systems and control modules.</p>
+                        <p>We restore communication between interconnected vehicle systems following electronic faults, repairs, or module replacement. These specialised electronic repair procedures are commonly supported by advanced <a href="service-car-electrical-diagnostics.html">car diagnostic services</a> for modern European vehicles.</p>
+                    </div>
+                    <div class="svc-block-card">
+                        <h3>Services include</h3>
+                        <ul>
+                            <li><i data-lucide="check"></i> CAN bus communication repairs</li>
+                            <li><i data-lucide="check"></i> Module synchronisation</li>
+                            <li><i data-lucide="check"></i> Electronic network restoration</li>
+                            <li><i data-lucide="check"></i> Vehicle communication system repairs</li>
+                            <li><i data-lucide="check"></i> Control module integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Airbag ECU & Safety Module Repairs -->
+            <div class="svc-block">
+                <div class="svc-block-grid">
+                    <div class="svc-block-body">
+                        <span class="eyebrow"><span class="step">05</span> Capability</span>
+                        <h2>Airbag ECU &amp; <span class="gold">Safety Module</span> Repairs</h2>
+                        <p>Airbag systems require specialist repair and recalibration procedures after deployment, component replacement, or electronic system faults.</p>
+                        <p>We provide professional airbag module reset service in Geelong using specialised airbag module reset software designed for modern European vehicle safety systems.</p>
+                    </div>
+                    <div class="svc-block-card">
+                        <h3>Airbag services include</h3>
+                        <ul>
+                            <li><i data-lucide="check"></i> Airbag ECU reset &amp; repair</li>
+                            <li><i data-lucide="check"></i> Airbag module programming</li>
+                            <li><i data-lucide="check"></i> Crash data reset</li>
+                            <li><i data-lucide="check"></i> Safety module recalibration</li>
+                            <li><i data-lucide="check"></i> Airbag control module repairs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BRAND SHOWCASE: GERMAN VEHICLES (sticky horizontal scroll) -->
+    <section id="brands" class="brands-section">
+        <div class="brand-scroll-wrap">
+            <div class="brand-sticky">
+                <div class="container">
+                    <div class="section-head">
+                        <div class="eyebrow">Brand-specific programming</div>
+                        <h2>European Vehicle Electronic <span class="gold">Programming Specialists</span></h2>
+                        <p>We specialise in advanced electronic programming and module repair solutions for premium European vehicles &mdash; with brand-correct tooling for each marque.</p>
+                    </div>
+                </div>
+                <div class="container" style="max-width:1280px;">
+                    <div class="brand-tier-label">German Vehicles</div>
+                </div>
+                <div class="brand-track-viewport">
+                    <div class="brand-track">
+                        <div class="b-card">
+                            <span class="b-card-mark">BMW</span>
+                            <h3>BMW</h3>
+                            <p>BMW ECU coding, iDrive programming, software calibration, and electronic module synchronisation for modern BMW vehicles.</p>
+                        </div>
+                        <div class="b-card">
+                            <span class="b-card-mark">MB</span>
+                            <h3>Mercedes-Benz</h3>
+                            <p>Mercedes-Benz module programming, control unit coding, software configuration, and advanced electronic system repairs.</p>
+                        </div>
+                        <div class="b-card">
+                            <span class="b-card-mark">AU</span>
+                            <h3>Audi</h3>
+                            <p>Audi virtual cockpit programming, ECU calibration, module coding, and onboard electronic system configuration.</p>
+                        </div>
+                        <div class="b-card">
+                            <span class="b-card-mark">VW</span>
+                            <h3>Volkswagen</h3>
+                            <p>Volkswagen DSG programming, ECU coding, software updates, and electronic module synchronisation services.</p>
+                        </div>
+                        <div class="b-card">
+                            <span class="b-card-mark">MN</span>
+                            <h3>MINI</h3>
+                            <p>MINI BCM coding, electronic system programming, module synchronisation, and onboard electronics repairs.</p>
+                        </div>
+                        <div class="b-card">
+                            <span class="b-card-mark">SK</span>
+                            <h3>Skoda</h3>
+                            <p>Skoda ECU programming, software calibration, module configuration, and electronic communication system setup.</p>
+                        </div>
+                        <div class="b-card">
+                            <span class="b-card-mark">PO</span>
+                            <h3>Porsche</h3>
+                            <p>Porsche performance electronics programming, suspension module calibration, ECU coding, and advanced module repairs.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- What We Offer -->
-    <section class="svc-offers">
+    <!-- BRAND SHOWCASE: LUXURY & PERFORMANCE -->
+    <section class="brands-static">
         <div class="container">
-            <h2 class="fade-up">What we offer for this service</h2>
-            <div class="offers-grid fade-up">
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Transponder &amp; smart key programming</span>
+            <div class="brand-tier-label">Luxury &amp; Performance European Vehicles</div>
+            <div class="brands-static-grid">
+                <div class="b-card">
+                    <span class="b-card-mark">LR</span>
+                    <h3>Land Rover</h3>
+                    <p>Land Rover terrain response programming, suspension electronics configuration, and module synchronisation services.</p>
                 </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>ECU/BCM coding to VIN</span>
+                <div class="b-card">
+                    <span class="b-card-mark">VO</span>
+                    <h3>Volvo</h3>
+                    <p>Volvo hybrid system programming, safety module calibration, ECU configuration, and electronic system repairs.</p>
                 </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Module adaptation &amp; learning</span>
+                <div class="b-card">
+                    <span class="b-card-mark">JA</span>
+                    <h3>Jaguar</h3>
+                    <p>Jaguar ECU coding, drivetrain software calibration, module programming, and advanced electronic system repairs.</p>
                 </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Software updates &amp; flash programming</span>
+                <div class="b-card">
+                    <span class="b-card-mark">BE</span>
+                    <h3>Bentley</h3>
+                    <p>Bentley electronic programming covering ECU coding, luxury comfort module configuration, software calibration, electronic system synchronisation, and advanced control module repairs.</p>
                 </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Steering angle &amp; throttle adaptation</span>
+                <div class="b-card">
+                    <span class="b-card-mark">MA</span>
+                    <h3>Maserati</h3>
+                    <p>Maserati ECU programming covering drivetrain module coding, electronic system calibration, software configuration, and advanced onboard electronics repairs.</p>
                 </div>
-                <div class="offer-item">
-                    <div class="offer-check"><i data-lucide="check"></i></div>
-                    <span>Lost key &amp; spare key cutting</span>
+                <div class="b-card">
+                    <span class="b-card-mark">F/L/AM</span>
+                    <h3>Ferrari / Lamborghini / Aston Martin</h3>
+                    <p>Ferrari, Lamborghini, and Aston Martin electronic programming services covering performance ECU calibration, module synchronisation, software configuration, and advanced electronic system repairs for high-performance European vehicles.</p>
                 </div>
-            </div>
-            <div class="svc-offers-img fade-up">
-                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80" alt="Diagnostic laptop coding car ECU" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="svc-why">
+    <!-- WHY ECU CODING & MODULE PROGRAMMING MATTERS -->
+    <section class="why-matter">
         <div class="container">
-            <h2 class="fade-up">Why choose us for ECU coding &amp; programming?</h2>
-            <p class="fade-up">We bring extensive experience and the right tools to every job, delivering reliable solutions tailored to your vehicle.</p>
+            <div class="why-matter-grid">
+                <div>
+                    <span style="display:inline-block; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:var(--accent); margin-bottom:16px;">Why it matters</span>
+                    <h2>Why ECU Coding &amp; <span class="gold">Module Programming</span> Matters</h2>
+                    <p>Modern European vehicles depend on multiple interconnected electronic modules. Proper coding, software calibration, and synchronisation are essential after repairs, upgrades, or component replacement.</p>
+                    <p>These procedures are especially important for modern hybrid vehicles that require specialist <a href="service-ev-hybrid.html">hybrid car mechanic</a> expertise for advanced electronic system integration and module communication.</p>
+                </div>
+                <div class="why-matter-card">
+                    <h3>Professional ECU programming helps ensure</h3>
+                    <ul>
+                        <li><i data-lucide="check"></i> Correct electronic system communication</li>
+                        <li><i data-lucide="check"></i> Proper integration of replacement modules</li>
+                        <li><i data-lucide="check"></i> Reliable vehicle operation</li>
+                        <li><i data-lucide="check"></i> Stable onboard electronic performance</li>
+                        <li><i data-lucide="check"></i> Long-term functionality of vehicle systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY EUROPEAN VEHICLE OWNERS CHOOSE SANICAR -->
+    <section id="why" class="why-sanicar">
+        <div class="container">
+            <div class="section-head">
+                <div class="eyebrow">Why drivers choose us</div>
+                <h2>Why European Vehicle Owners <span class="gold">Choose Sanicar</span></h2>
+                <p>European vehicle electronics require specialist programming equipment, manufacturer-specific software, and precise module configuration procedures.</p>
+            </div>
             <div class="why-grid">
-                <div class="why-card fade-up">
-                    <h4>Experienced Specialists</h4>
-                    <p>Qualified auto electricians with years of hands-on experience across all makes and models. We don't guess — we diagnose properly and fix it right the first time.</p>
+                <div class="why-card">
+                    <div class="why-card-icon"><i data-lucide="cpu"></i></div>
+                    <h3>Dealer-Level Programming Equipment</h3>
+                    <p>The same brand-correct hardware your dealership uses &mdash; current subscriptions.</p>
                 </div>
-                <div class="why-card fade-up">
-                    <h4>Upfront Pricing</h4>
-                    <p>Honest quotes with no hidden charges. We'll explain the issue and the cost before we start any work, so you always know exactly what you're paying for.</p>
+                <div class="why-card">
+                    <div class="why-card-icon"><i data-lucide="code-2"></i></div>
+                    <h3>Advanced ECU Coding Capabilities</h3>
+                    <p>Module coding, adaptation, retrofit activation and software calibration.</p>
                 </div>
-                <div class="why-card fade-up">
-                    <h4>Quality Parts</h4>
-                    <p>We use quality replacement parts and OEM-grade wiring supplies. Every repair is built to last, not just to get you through the week.</p>
+                <div class="why-card">
+                    <div class="why-card-icon"><i data-lucide="settings-2"></i></div>
+                    <h3>Manufacturer-Specific Software Access</h3>
+                    <p>ISTA, XENTRY, ODIS, Pathfinder &mdash; brand-correct, fully licensed.</p>
                 </div>
-                <div class="why-card fade-up">
-                    <h4>Customer Guarantee</h4>
-                    <p>We stand behind our work. If a repair doesn't hold up, we'll come back and make it right — no questions asked, no extra charges.</p>
+                <div class="why-card">
+                    <div class="why-card-icon"><i data-lucide="badge-check"></i></div>
+                    <h3>European Vehicle Electronic Specialists</h3>
+                    <p>Focused exclusively on European marques and their electronic architectures.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Working Process -->
-    <section class="svc-process">
-        <div class="container">
-            <div class="process-grid">
-                <div class="process-left">
-                    <div class="process-label">/Process</div>
-                    <h2>Our Working Process</h2>
-                    <p>From start to finish, our process is designed to make your auto electrical experience simple, stress-free, and guaranteed to get you back on the road.</p>
+                <div class="why-card">
+                    <div class="why-card-icon"><i data-lucide="network"></i></div>
+                    <h3>Professional Module Synchronisation Procedures</h3>
+                    <p>Correct sequence, correct adaptation, correct configuration.</p>
                 </div>
-                <div class="process-steps">
-                    <div class="process-steps-progress" aria-hidden="true"></div>
-                    <div class="process-step fade-up">
-                        <div class="step-marker">1</div>
-                        <div class="step-content">
-                            <div class="step-icon"><i data-lucide="calendar"></i></div>
-                            <h4>Schedule Your Service</h4>
-                            <p>No long wait times, no confusion. Call us or send a message and we'll book a time that fits your schedule — often same-day.</p>
-                            <div class="step-content-img">
-                                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Scheduling auto electrical service appointment" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="process-step fade-up">
-                        <div class="step-marker">2</div>
-                        <div class="step-content">
-                            <div class="step-icon"><i data-lucide="users"></i></div>
-                            <h4>On-Site Inspection</h4>
-                            <p>We believe in transparency — no hidden fees, no surprises. We arrive at your location, inspect the issue, and explain the problem and cost before we start.</p>
-                            <div class="step-content-img">
-                                <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&q=80" alt="Auto electrician inspecting vehicle on-site" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="process-step fade-up">
-                        <div class="step-marker">3</div>
-                        <div class="step-content">
-                            <div class="step-icon"><i data-lucide="wrench"></i></div>
-                            <h4>Professional Repair</h4>
-                            <p>Fast, reliable, and professional service that gets your vehicle's electrics working properly again — most jobs completed on the first visit.</p>
-                            <div class="step-content-img">
-                                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80" alt="Professional auto electrical repair in progress" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
+                <div class="why-card">
+                    <div class="why-card-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Experience with Complex Onboard Electronic Systems</h3>
+                    <p>Years of work across modern BMW, Mercedes-Benz, Audi, VW and beyond.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="svc-stats">
-        <div class="container">
-            <div class="stats-label">By the numbers</div>
-            <h2>Proven Results</h2>
-            <p>Our track record speaks for itself — trusted by Geelong drivers for reliable, on-site auto electrical services.</p>
-            <div class="stats-row fade-up">
-                <div class="stat-cell">
-                    <h3>2,500+</h3>
-                    <p>Vehicles serviced across Geelong &amp; surrounds.</p>
-                </div>
-                <div class="stat-cell">
-                    <h3>98%</h3>
-                    <p>Customers rate us 5 stars for transparent pricing &amp; fast response.</p>
-                </div>
-                <div class="stat-cell">
-                    <h3>10+</h3>
-                    <p>Years of experience in auto electrical diagnostics &amp; repair.</p>
-                </div>
-                <div class="stat-cell">
-                    <h3>Same Day</h3>
-                    <p>Average response time for emergency &amp; breakdown callouts.</p>
-                </div>
+            <div class="why-sanicar-footnote">
+                Our workshop combines advanced electronic programming with professional <a href="service-car-repair.html">car repairing services</a> for modern European vehicles requiring specialised electronic system support.
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section id="faq" class="faq">
         <div class="container">
-            <span class="section-label">Need help?</span>
-            <h2>Frequently asked questions</h2>
+            <div class="section-head">
+                <div class="eyebrow">Common Questions</div>
+                <h2>Frequently Asked <span class="gold">Questions</span></h2>
+            </div>
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What areas does your mobile service cover?
+                        Do you provide ECU coding for European vehicles?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We service all of Geelong and surrounds including Ocean Grove, Torquay, Armstrong Creek, Charlemont, Waurn Ponds, Belmont, Highton, Newtown and neighbouring suburbs. If you're unsure, give us a call.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes, we provide ECU coding, software programming, and module configuration for BMW, Mercedes-Benz, Audi, Volkswagen, and other European vehicles.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How quickly can you come out for a breakdown?
+                        Do you offer European car key replacement?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We offer same-day callouts for breakdowns and no-start situations. Call us as early as possible and we'll work to fit you in — often within a couple of hours depending on our schedule and your location.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes, we provide European car key replacement, immobiliser programming, and key synchronisation services.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Do I need to tow my car to a workshop?
+                        Can you program replacement control modules?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">No — that's the whole point of our mobile service. We come to you with a fully equipped van, whether you're at home, work, or on the roadside. Most repairs are completed on-site in a single visit.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes, we can configure and synchronise replacement ECUs, BCMs, and other electronic control modules.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How much does a mobile callout cost?
+                        Do you repair BCM modules?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Pricing varies depending on the job. We always provide an upfront quote before starting any work so there are no surprises. Call us to discuss your situation and we'll give you an honest estimate.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes, we provide BCM repair, coding, programming, and module synchronisation services.</div></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What vehicles do you work on?
+                        Do you repair airbag modules?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We work on all makes and models — from everyday cars to European vehicles, 4WDs, utes and light commercial vehicles. We carry dealer-level diagnostic tools for all major brands.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes, we provide airbag ECU reset, module programming, crash data reset, and safety module repairs.</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Bottom -->
-    <div class="svc-cta">
-        <div class="svc-cta-text">
-            <h2>Dealer Capability. Independent Price.</h2>
-            <p>New keys, replacement ECUs, sensor adaptations — all coded and programmed the way the manufacturer specifies, without the dealership runaround.</p>
-            <a href="tel:+61406642600" class="svc-cta-btn">
-                Book a Free Call <i data-lucide="arrow-right"></i>
-            </a>
-            <div class="svc-cta-checks">
-                <div class="check-item"><i data-lucide="circle-check"></i> On-site diagnostics &amp; repair</div>
-                <div class="check-item"><i data-lucide="circle-check"></i> Same-day emergency callouts</div>
-                <div class="check-item"><i data-lucide="circle-check"></i> Upfront pricing, no surprises</div>
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <div class="container">
+            <div class="cta-inner">
+                <h2>Book Specialist ECU Coding &amp; <span class="gold">Electronics Repairs</span></h2>
+                <p>Get accurate ECU coding, immobiliser programming, BCM repair or airbag module work for your European vehicle &mdash; with dealer-level equipment and brand-correct software.</p>
+                <div class="cta-actions">
+                    <a href="tel:+61406642600" class="btn btn-gold">
+                        <i data-lucide="cpu"></i> Book ECU Coding &amp; Repairs
+                    </a>
+                    <a href="tel:+61406642600" class="btn btn-outline">
+                        <i data-lucide="phone"></i> Call 0406 642 600
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="svc-cta-img">
-            <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80" alt="Auto electrician testing car battery" loading="lazy">
-        </div>
-    </div>
+    </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-label">Address</div>
-                    <div class="footer-address">
-                        <h3>Sanicar Tech</h3>
-                        <p>Mobile Service<br>Geelong, VIC 3220</p>
-                    </div>
-                    <div class="footer-contact-block">
-                        <div class="footer-label" style="margin-top:24px;">Phone</div>
-                        <h4><a href="tel:+61406642600">0406 642 600</a></h4>
-                    </div>
-                    <div class="footer-contact-block">
-                        <div class="footer-label" style="margin-top:24px;">Email</div>
-                        <a href="mailto:sanicar.369@gmail.com">sanicar.369@gmail.com</a>
-                    </div>
-                </div>
-                <div>
-                    <div class="footer-label">Pages</div>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#why-us">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="index.html#areas">Service Areas</a></li>
-                        <li><a href="index.html#testimonials">Reviews</a></li>
-                        <li><a href="index.html#faq">FAQ</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-label">Services</div>
-                    <ul>
-                        <li><a href="service-mobile-auto-electrician.html">Mobile Auto Electrician</a></li>
-                        <li><a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a></li>
-                        <li><a href="service-battery-charging-systems.html">Battery &amp; Charging</a></li>
-                        <li><a href="service-trailer-wiring.html">Trailer Wiring</a></li>
-                        <li><a href="service-dash-cam-accessories.html">Dash Cam Installation</a></li>
-                        <li><a href="service-car-air-conditioning.html">Car Air Conditioning</a></li>
-                        <li><a href="service-ecu-coding-programming.html">ECU Coding</a></li>
-                        <li><a href="service-general-electrical-repairs.html">General Electrical Repairs</a></li>
-                        <li><a href="mbcod.html"><strong>MBCOD &mdash; European</strong></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Sanicar Tech. All rights reserved.</span>
-                <span>ABN: XX XXX XXX XXX &nbsp;|&nbsp; Licensed Auto Electrician</span>
+            <div class="footer-row">
+                <span>&copy; 2026 Sanicar Tech &mdash; European Electronics Specialists, Geelong.</span>
+                <a href="index.html" class="footer-back">
+                    <i data-lucide="arrow-left"></i> Back to Sanicar Tech
+                </a>
             </div>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
-
-        function toggleMobileMenu() {
-            var menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-        }
 
         function toggleFaq(el) {
             var item = el.parentElement;
@@ -930,47 +1184,31 @@
             lucide.createIcons();
         }
 
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
-
-        // Process timeline:
-        //   - Green progress line grows down the track as the section scrolls.
-        //   - Whichever card sits at the line's current tip gets .is-active,
-        //     which expands its image. All others stay collapsed (title+text only).
+        // Brand cards: scroll-driven horizontal slider.
         (function() {
-            var stepsContainer = document.querySelector('.process-steps');
-            var steps = document.querySelectorAll('.process-step');
-            var progressLine = document.querySelector('.process-steps-progress');
-            if (!stepsContainer || !progressLine || !steps.length) return;
+            var wrap = document.querySelector('.brand-scroll-wrap');
+            var viewport = document.querySelector('.brand-track-viewport');
+            var track = document.querySelector('.brand-track');
+            if (!wrap || !viewport || !track) return;
+
+            var mq = window.matchMedia('(max-width: 980px)');
+            var ticking = false;
 
             function update() {
-                var rect = stepsContainer.getBoundingClientRect();
-                var viewportRef = window.innerHeight * 0.5;
-                var scrolled = viewportRef - rect.top;
-                var lineHeight = Math.max(0, Math.min(scrolled, rect.height));
-                progressLine.style.height = lineHeight + 'px';
-
-                // Active card = closest to the viewport reference line.
-                var activeIdx = 0;
-                var minDist = Infinity;
-                for (var i = 0; i < steps.length; i++) {
-                    var stepRect = steps[i].getBoundingClientRect();
-                    var markerCenter = stepRect.top + 24; // marker is 48px, centered 24px from top
-                    var dist = Math.abs(markerCenter - viewportRef);
-                    if (dist < minDist) { minDist = dist; activeIdx = i; }
-                }
-                for (var j = 0; j < steps.length; j++) {
-                    steps[j].classList.toggle('is-active', j === activeIdx);
-                }
-
                 ticking = false;
+                if (mq.matches) {
+                    track.style.transform = '';
+                    return;
+                }
+                var rect = wrap.getBoundingClientRect();
+                var scrollDistance = wrap.offsetHeight - window.innerHeight;
+                if (scrollDistance <= 0) return;
+                var scrolled = Math.min(Math.max(0, -rect.top), scrollDistance);
+                var progress = scrolled / scrollDistance;
+                var overflow = Math.max(0, track.scrollWidth - viewport.clientWidth);
+                track.style.transform = 'translate3d(' + (-progress * overflow) + 'px, 0, 0)';
             }
 
-            var ticking = false;
             function onScroll() {
                 if (!ticking) {
                     requestAnimationFrame(update);
@@ -981,6 +1219,8 @@
             update();
             window.addEventListener('scroll', onScroll, { passive: true });
             window.addEventListener('resize', update);
+            if (mq.addEventListener) mq.addEventListener('change', update);
+            else if (mq.addListener) mq.addListener(update);
         })();
     </script>
 </body>
