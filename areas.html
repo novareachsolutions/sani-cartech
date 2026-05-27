@@ -384,11 +384,46 @@
         }
         .nav-european-tag i { width: 10px; height: 10px; }
         .nav-european:hover { opacity: 0.7; }
-        .nav-links { gap: 22px !important; }
-        @media (max-width: 1180px) {
-            .nav-links { gap: 16px !important; }
-            .nav-links > a, .nav-item-dropdown > a { font-size: 0.85rem !important; }
+        .navbar-inner {
+            max-width: 1400px !important;
+            padding-right: 22px !important;
+            justify-content: flex-start !important;
+        }
+        .nav-cta {
+            white-space: nowrap !important;
+            padding: 12px 22px !important;
+            font-size: 0.85rem !important;
+            flex-shrink: 0;
+            margin-left: auto !important;
+        }
+        .nav-links {
+            gap: 24px !important;
+            flex-shrink: 1;
+            margin-left: 50px !important;
+        }
+        .nav-links > a, .nav-item-dropdown > a, .nav-european {
+            white-space: nowrap;
+        }
+        .nav-european {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 4px !important;
+            line-height: 1.1;
+        }
+        .nav-european-tag {
+            line-height: 1;
+            align-self: center;
+        }
+        @media (max-width: 1400px) {
             .nav-european-tag { display: none; }
+            .nav-links { gap: 20px !important; }
+        }
+        @media (max-width: 1260px) {
+            .nav-links, .nav-cta { display: none !important; }
+            .mobile-toggle { display: block !important; }
+            .navbar { padding: 12px 16px !important; }
+            .nav-logo { margin: 0 !important; }
+            .nav-logo .logo-img { height: 56px !important; }
         }
 
         @media (max-width: 1024px) {
@@ -432,10 +467,6 @@
                         <a href="service-ev-hybrid.html">EV / Hybrid Diagnostics</a>
                     </div>
                 </div>
-                <a href="mbcod.html" class="nav-european">
-                    European Specialist
-                    <span class="nav-european-tag"><i data-lucide="sparkles"></i> Premium</span>
-                </a>
                 <div class="nav-item-dropdown">
                     <a href="#">
                         Common Problems
@@ -448,6 +479,10 @@
                         <a href="#">Electrical Faults</a>
                     </div>
                 </div>
+                <a href="mbcod.html" class="nav-european">
+                    European Specialist
+                    <span class="nav-european-tag"><i data-lucide="sparkles"></i> Premium</span>
+                </a>
                 <div class="nav-item-dropdown">
                     <a href="areas.html" class="active">
                         Service Areas
