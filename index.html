@@ -124,7 +124,7 @@
             object-fit: contain;
         }
         .nav-links {
-            display: flex; gap: 32px; align-items: center;
+            display: flex; gap: 56px; align-items: center;
         }
         .nav-links > a,
         .nav-item-dropdown > a {
@@ -310,19 +310,17 @@
         .navbar-inner {
             max-width: 1400px !important;
             padding-right: 22px !important;
-            justify-content: flex-start !important;
+            justify-content: space-between !important;
         }
         .nav-cta {
             white-space: nowrap !important;
             padding: 12px 22px !important;
             font-size: 0.85rem !important;
             flex-shrink: 0;
-            margin-left: auto !important;
         }
         .nav-links {
-            gap: 24px !important;
+            gap: 40px !important;
             flex-shrink: 1;
-            margin-left: 50px !important;
         }
         .nav-links > a, .nav-item-dropdown > a, .nav-european {
             white-space: nowrap;
@@ -338,8 +336,6 @@
             align-self: center;
         }
         @media (max-width: 1400px) {
-            .nav-european-tag { display: none; }
-            .nav-links { gap: 20px !important; }
         }
         @media (max-width: 1260px) {
             .nav-links, .nav-cta { display: none !important; }
@@ -1325,9 +1321,27 @@
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+            gap: 48px;
             margin-bottom: 48px;
+        }
+        .footer-brand { display: flex; flex-direction: column; gap: 18px; }
+        .footer-logo-link { display: inline-block; }
+        .footer-logo { height: 56px; width: auto; }
+        .footer-intro { font-size: 0.92rem; color: var(--navy); opacity: 0.75; line-height: 1.65; max-width: 360px; }
+        .footer-socials { display: flex; gap: 10px; margin-top: 6px; }
+        .footer-socials a { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--white); display: inline-flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .footer-socials a:hover { background: var(--accent-bg); transform: translateY(-2px); }
+        .footer-socials i { width: 18px; height: 18px; }
+        .footer-hours { list-style: none; padding: 0; margin: 0; }
+        .footer-hours li { display: flex; justify-content: space-between; padding: 7px 0; font-size: 0.9rem; color: var(--navy); border-bottom: 1px solid rgba(26,26,46,0.08); }
+        .footer-hours li:last-child { border-bottom: none; }
+        .footer-hours li span:first-child { opacity: 0.7; }
+        @media (max-width: 880px) {
+            .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px; }
+        }
+        @media (max-width: 560px) {
+            .footer-grid { grid-template-columns: 1fr !important; }
         }
         .footer-label {
             font-size: 0.72rem;
@@ -1575,45 +1589,32 @@
     <nav class="navbar">
         <div class="navbar-inner">
             <a href="/" class="nav-logo">
-                <img src="assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
+                <img src="/assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
             </a>
             <div class="nav-links">
                 <a href="#home" class="active">Home</a>
                 <div class="nav-item-dropdown">
-                    <a href="services.html">
+                    <a href="/services">
                         Services
                         <i data-lucide="chevron-down" class="nav-caret"></i>
                     </a>
                     <div class="nav-dropdown" role="menu">
-                        <a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a>
-                        <a href="service-car-repair.html">Car Repair Services</a>
-                        <a href="service-ev-hybrid.html">EV / Hybrid Diagnostics</a>
-                        <a href="service-ecu-coding-programming.html">ECU Coding</a>
-                        <a href="mbcod.html">European Diagnostics</a>
+                        <a href="/services/car-diagnostics">Car Electrical Diagnostics</a>
+                        <a href="/services/car-repair">Car Repair Services</a>
+                        <a href="/electric-vehicle-repairs">EV / Hybrid Diagnostics</a>
+                        <a href="/european-car-tuning-ecu-coding">ECU Coding</a>
+                        <a href="/european-car-diagnostics">European Diagnostics</a>
                     </div>
                 </div>
-                <div class="nav-item-dropdown">
-                    <a href="#">
-                        Common Problems
-                        <i data-lucide="chevron-down" class="nav-caret"></i>
-                    </a>
-                    <div class="nav-dropdown" role="menu">
-                        <a href="#">Car Won't Start</a>
-                        <a href="#">Battery Draining Overnight</a>
-                        <a href="#">Dashboard Warning Lights</a>
-                        <a href="#">Electrical Faults</a>
-                    </div>
-                </div>
-                <a href="mbcod.html" class="nav-european">
+                <a href="/european-car-diagnostics" class="nav-european">
                     European Specialist
                     <span class="nav-european-tag"><i data-lucide="sparkles"></i> Premium</span>
                 </a>
-                <a href="areas.html">Service Areas</a>
-                <a href="#">Case Studies</a>
+                <a href="/areas.html">Service Areas</a>
                 <a href="#why-us">About</a>
-                <a href="#contact">Contact</a>
+                <a href="/contact">Contact</a>
             </div>
-            <a href="tel:+61406642600" class="nav-cta">
+            <a href="#contact" class="nav-cta">
                 Get a Free Quote
             </a>
             <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Open menu">
@@ -1626,21 +1627,19 @@
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <a href="/" class="nav-logo">
-                <img src="assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
+                <img src="/assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
             </a>
             <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
                 <i data-lucide="x"></i>
             </button>
         </div>
         <div class="mobile-menu-links">
-            <a href="index.html" onclick="toggleMobileMenu()">Home</a>
-            <a href="services.html" onclick="toggleMobileMenu()">Services</a>
-            <a href="#" onclick="toggleMobileMenu()">Common Problems</a>
-            <a href="mbcod.html" onclick="toggleMobileMenu()">European Specialist</a>
-            <a href="areas.html" onclick="toggleMobileMenu()">Service Areas</a>
-            <a href="#" onclick="toggleMobileMenu()">Case Studies</a>
+            <a href="/" onclick="toggleMobileMenu()">Home</a>
+            <a href="/services" onclick="toggleMobileMenu()">Services</a>
+            <a href="/european-car-diagnostics" onclick="toggleMobileMenu()">European Specialist</a>
+            <a href="/areas.html" onclick="toggleMobileMenu()">Service Areas</a>
             <a href="#why-us" onclick="toggleMobileMenu()">About</a>
-            <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+            <a href="/contact" onclick="toggleMobileMenu()">Contact</a>
         </div>
         <div class="mobile-menu-cta">
             <a href="tel:+61406642600" class="mob-btn-primary">
@@ -1664,10 +1663,10 @@
                     Mobile Auto Electrician &ndash; <span class="hero-location-wrap"><span class="hero-location" id="heroLocation">Geelong</span></span>
                 </h1>
                 <p class="hero-desc">
-                    <span class="kw">Mobile auto electrical diagnostics</span> in Geelong for <span class="kw">electrical, ECU, and warning light issues</span> in <span class="kw">European and modern vehicles</span>.
+                    <strong>Mobile auto electrical diagnostics</strong> in Geelong for <strong>electrical, ECU, and warning light issues</strong> in <strong>European and modern vehicles</strong>.
                 </p>
                 <div class="hero-buttons">
-                    <a href="tel:+61406642600" class="hero-btn hero-btn-primary">
+                    <a href="#contact" class="hero-btn hero-btn-primary">
                         Get your free quote
                     </a>
                     <a href="#services" class="hero-btn hero-btn-secondary">
@@ -1682,7 +1681,7 @@
                         <div class="collage-img"><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=500&q=80" alt="Auto electrician diagnosing car electrical fault in Geelong" loading="eager"></div>
                         <div class="collage-img">
                             <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500&q=80" aria-label="Auto electrician at work">
-                                <source src="assests/electrician.mp4" type="video/mp4">
+                                <source src="/assests/electrician.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="collage-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=500&q=80" alt="Professional mechanic working on engine wiring" loading="eager"></div>
@@ -1690,7 +1689,7 @@
                         <div class="collage-img"><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=500&q=80" alt="Auto electrician diagnosing car electrical fault" loading="lazy"></div>
                         <div class="collage-img">
                             <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500&q=80" aria-label="Auto electrician at work">
-                                <source src="assests/electrician.mp4" type="video/mp4">
+                                <source src="/assests/electrician.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="collage-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=500&q=80" alt="Mechanic working on engine wiring" loading="lazy"></div>
@@ -1754,7 +1753,7 @@
                 <h2>Complete Vehicle Electrical &amp; Diagnostic Solutions</h2>
             </div>
             <div class="services-desc">
-                <p>We specialise in <span class="kw">advanced fault detection</span> and <span class="kw">system-level diagnostics</span> across modern vehicles.</p>
+                <p>We specialise in <strong>advanced fault detection</strong> and <strong>system-level diagnostics</strong> across modern vehicles.</p>
                 <a href="#services">Explore all services <i data-lucide="chevron-right"></i></a>
             </div>
         </div>
@@ -1764,28 +1763,28 @@
                     <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" alt="Car electrical diagnostics using advanced scan tools in Geelong" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>Car Electrical Diagnostics</h3>
-                        <p><span class="kw">Car diagnostic services</span> using <span class="kw">advanced scan tools</span>, live data analysis, and system testing for accurate fault detection.</p>
+                        <p><strong>Car diagnostic services</strong> using <strong>advanced scan tools</strong>, live data analysis, and system testing for accurate fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card">
                     <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&q=80" alt="European vehicle diagnostics for BMW, Mercedes-Benz, Audi and Volkswagen in Geelong" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>European Vehicle Diagnostics</h3>
-                        <p><span class="kw">European car repair specialist</span> providing diagnostics for <span class="kw">BMW, Mercedes-Benz, Audi, Volkswagen, MINI</span>, and other European vehicles.</p>
+                        <p><strong>European car repair specialist</strong> providing diagnostics for <strong>BMW, Mercedes-Benz, Audi, Volkswagen, MINI</strong>, and other European vehicles.</p>
                     </div>
                 </article>
                 <article class="service-card">
                     <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=600&q=80" alt="Hybrid and electric vehicle high-voltage battery diagnostics" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>Hybrid &amp; EV Diagnostics</h3>
-                        <p><span class="kw">Electrical vehicle repair and diagnostics</span> including high-voltage checks, <span class="kw">hybrid battery testing</span>, EV charging and inverter fault detection.</p>
+                        <p><strong>Electrical vehicle repair and diagnostics</strong> including high-voltage checks, <strong>hybrid battery testing</strong>, EV charging and inverter fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card">
                     <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="ECU programming, BCM and module coding for modern vehicles" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>ECU &amp; Module Systems</h3>
-                        <p><span class="kw">Car ECU programming tools</span> and diagnostics for BCM issues, <span class="kw">immobiliser faults</span>, airbag module resets, and coding support.</p>
+                        <p><strong>Car ECU programming tools</strong> and diagnostics for BCM issues, <strong>immobiliser faults</strong>, airbag module resets, and coding support.</p>
                     </div>
                 </article>
                 <!-- Duplicate set for seamless marquee loop -->
@@ -1793,28 +1792,28 @@
                     <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>Car Electrical Diagnostics</h3>
-                        <p><span class="kw">Car diagnostic services</span> using <span class="kw">advanced scan tools</span>, live data analysis, and system testing for accurate fault detection.</p>
+                        <p><strong>Car diagnostic services</strong> using <strong>advanced scan tools</strong>, live data analysis, and system testing for accurate fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card" aria-hidden="true">
                     <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>European Vehicle Diagnostics</h3>
-                        <p><span class="kw">European car repair specialist</span> providing diagnostics for <span class="kw">BMW, Mercedes-Benz, Audi, Volkswagen, MINI</span>, and other European vehicles.</p>
+                        <p><strong>European car repair specialist</strong> providing diagnostics for <strong>BMW, Mercedes-Benz, Audi, Volkswagen, MINI</strong>, and other European vehicles.</p>
                     </div>
                 </article>
                 <article class="service-card" aria-hidden="true">
                     <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>Hybrid &amp; EV Diagnostics</h3>
-                        <p><span class="kw">Electrical vehicle repair and diagnostics</span> including high-voltage checks, <span class="kw">hybrid battery testing</span>, EV charging and inverter fault detection.</p>
+                        <p><strong>Electrical vehicle repair and diagnostics</strong> including high-voltage checks, <strong>hybrid battery testing</strong>, EV charging and inverter fault detection.</p>
                     </div>
                 </article>
                 <article class="service-card" aria-hidden="true">
                     <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="" loading="lazy">
                     <div class="service-card-overlay">
                         <h3>ECU &amp; Module Systems</h3>
-                        <p><span class="kw">Car ECU programming tools</span> and diagnostics for BCM issues, <span class="kw">immobiliser faults</span>, airbag module resets, and coding support.</p>
+                        <p><strong>Car ECU programming tools</strong> and diagnostics for BCM issues, <strong>immobiliser faults</strong>, airbag module resets, and coding support.</p>
                     </div>
                 </article>
             </div>
@@ -1836,7 +1835,7 @@
                     <div class="bento-feature fade-up">
                         <div class="bento-feature-icon"><i data-lucide="truck"></i></div>
                         <h4>Fully mobile service</h4>
-                        <p>As a trusted <span class="kw">mobile auto electrician Geelong</span> drivers rely on, we come to your home, workplace, or roadside.</p>
+                        <p>As a trusted <strong>mobile auto electrician Geelong</strong> drivers rely on, we come to your home, workplace, or roadside.</p>
                     </div>
                     <div class="bento-feature fade-up">
                         <div class="bento-feature-icon"><i data-lucide="shield-check"></i></div>
@@ -1863,7 +1862,7 @@
         <div class="container">
             <span class="section-label">Testimonials</span>
             <h2>People Trust Us<br>4.9/5 Rating</h2>
-            <a href="#" class="show-reviews">
+            <a href="https://search.google.com/local/reviews?placeid=ChIJDzHajpJH1moRF2-BoDo7YSc" target="_blank" rel="noopener" class="show-reviews">
                 <span class="g-badge">G</span>
                 Show All Reviews
             </a>
@@ -1871,74 +1870,74 @@
         <div class="testimonials-marquee">
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"My BMW had an intermittent electrical fault that two other shops couldn't find. These guys diagnosed it within an hour and had it fixed the same day. Absolute legends."</blockquote>
-                <div class="source">Mark T. <span>— Google Review, Geelong</span></div>
+                <blockquote>"Sani did a great job identifying the electrical fault in my car after water ingress. He thoroughly tested numerous modules to identify and isolate the faulty one. He soon found a replacement module and had my car back together running perfectly."</blockquote>
+                <div class="source">Stuart Sherwood <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Called at 7am when my car wouldn't start before work. He was at my place in Ocean Grove by 8:30, replaced the battery and tested the whole charging system. Couldn't ask for better."</blockquote>
-                <div class="source">Sarah K. <span>— Google Review, Ocean Grove</span></div>
+                <blockquote>"Gun! Came out on a public holiday and got the job done (even though he wasn't feeling well). Can highly recommend!"</blockquote>
+                <div class="source">Nathan Scaglione <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Had a dash cam and reverse camera installed on the work ute. Clean wiring, professional finish, and half the price the dealer quoted. Highly recommend for anyone in Geelong."</blockquote>
-                <div class="source">James R. <span>— Google Review, Armstrong Creek</span></div>
+                <blockquote>"Sani was a saviour, coming just after New Years and fixing our trailer lights before we headed off on holidays. Great communication and a super nice guy!"</blockquote>
+                <div class="source">Brett Polkinghorne <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Fixed the air conditioning and a dodgy interior light in my Mercedes in under two hours. I was skeptical about mobile auto electricians but these guys completely changed my mind."</blockquote>
-                <div class="source">Lisa M. <span>— Google Review, Torquay</span></div>
+                <blockquote>"Excellent service. Prompt and really nice to deal with. He helped fix charging issues affecting my power station in my campervan."</blockquote>
+                <div class="source">James Murdoch <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Needed trailer wiring done before a weekend trip. Booked Tuesday, done Wednesday. 12-pin plug, electric brake controller, all tested and working perfectly. Great value."</blockquote>
-                <div class="source">Dave P. <span>— Google Review, Waurn Ponds</span></div>
+                <blockquote>"Highly recommend Sani Auto service. Sani was prompt in answering the phone. He sounded really nice, punctual at the job and went above and beyond to help me in my distressed state."</blockquote>
+                <div class="source">Maxine <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Came out same morning for a no-start. Diagnosed a faulty starter relay, replaced it on the spot. Fair price, friendly bloke. Will definitely use again for anything electrical."</blockquote>
-                <div class="source">Chris W. <span>— Google Review, Charlemont</span></div>
+                <blockquote>"Definitely will recommend this business for head unit installation. Very neat job done and well priced!"</blockquote>
+                <div class="source">Anthony A. <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Got the ECU coded and a new key programmed for my Audi after losing the spare. Saved me hundreds compared to the dealer. These guys really know European cars inside and out."</blockquote>
-                <div class="source">Tom H. <span>— Google Review, Highton</span></div>
+                <blockquote>"Great work. Easy to contact &mdash; friendly and customer support."</blockquote>
+                <div class="source">Kousihan S. <span>— Google Review</span></div>
             </div>
             <!-- Duplicate all 7 for seamless loop -->
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"My BMW had an intermittent electrical fault that two other shops couldn't find. These guys diagnosed it within an hour and had it fixed the same day. Absolute legends."</blockquote>
-                <div class="source">Mark T. <span>— Google Review, Geelong</span></div>
+                <blockquote>"Sani did a great job identifying the electrical fault in my car after water ingress. He thoroughly tested numerous modules to identify and isolate the faulty one. He soon found a replacement module and had my car back together running perfectly."</blockquote>
+                <div class="source">Stuart Sherwood <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Called at 7am when my car wouldn't start before work. He was at my place in Ocean Grove by 8:30, replaced the battery and tested the whole charging system. Couldn't ask for better."</blockquote>
-                <div class="source">Sarah K. <span>— Google Review, Ocean Grove</span></div>
+                <blockquote>"Gun! Came out on a public holiday and got the job done (even though he wasn't feeling well). Can highly recommend!"</blockquote>
+                <div class="source">Nathan Scaglione <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Had a dash cam and reverse camera installed on the work ute. Clean wiring, professional finish, and half the price the dealer quoted. Highly recommend for anyone in Geelong."</blockquote>
-                <div class="source">James R. <span>— Google Review, Armstrong Creek</span></div>
+                <blockquote>"Sani was a saviour, coming just after New Years and fixing our trailer lights before we headed off on holidays. Great communication and a super nice guy!"</blockquote>
+                <div class="source">Brett Polkinghorne <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Fixed the air conditioning and a dodgy interior light in my Mercedes in under two hours. I was skeptical about mobile auto electricians but these guys completely changed my mind."</blockquote>
-                <div class="source">Lisa M. <span>— Google Review, Torquay</span></div>
+                <blockquote>"Excellent service. Prompt and really nice to deal with. He helped fix charging issues affecting my power station in my campervan."</blockquote>
+                <div class="source">James Murdoch <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Needed trailer wiring done before a weekend trip. Booked Tuesday, done Wednesday. 12-pin plug, electric brake controller, all tested and working perfectly. Great value."</blockquote>
-                <div class="source">Dave P. <span>— Google Review, Waurn Ponds</span></div>
+                <blockquote>"Highly recommend Sani Auto service. Sani was prompt in answering the phone. He sounded really nice, punctual at the job and went above and beyond to help me in my distressed state."</blockquote>
+                <div class="source">Maxine <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Came out same morning for a no-start. Diagnosed a faulty starter relay, replaced it on the spot. Fair price, friendly bloke. Will definitely use again for anything electrical."</blockquote>
-                <div class="source">Chris W. <span>— Google Review, Charlemont</span></div>
+                <blockquote>"Definitely will recommend this business for head unit installation. Very neat job done and well priced!"</blockquote>
+                <div class="source">Anthony A. <span>— Google Review</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars"><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="star-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <blockquote>"Got the ECU coded and a new key programmed for my Audi after losing the spare. Saved me hundreds compared to the dealer. These guys really know European cars inside and out."</blockquote>
-                <div class="source">Tom H. <span>— Google Review, Highton</span></div>
+                <blockquote>"Great work. Easy to contact &mdash; friendly and customer support."</blockquote>
+                <div class="source">Kousihan S. <span>— Google Review</span></div>
             </div>
         </div>
     </section>
@@ -1989,27 +1988,27 @@
                 <div>
                     <span class="section-label">Service Areas</span>
                     <h2>Mobile Auto Electrician Geelong &amp; Bellarine Peninsula</h2>
-                    <p>We provide reliable <span class="kw">mobile car auto electrician Geelong</span> services throughout <span class="kw">Ocean Grove, Torquay, Armstrong Creek, Waurn Ponds, Belmont, Highton</span>, and surrounding suburbs.</p>
+                    <p>We provide reliable <strong>mobile car auto electrician Geelong</strong> services throughout <strong>Ocean Grove, Torquay, Armstrong Creek, Waurn Ponds, Belmont, Highton</strong>, and surrounding suburbs.</p>
                     <div class="area-group-label">Primary Service Areas</div>
                     <div class="area-tags">
-                        <a href="car-electrical-diagnostics-armstrong-creek.html" class="area-tag primary"><i data-lucide="map-pin"></i> Armstrong Creek</a>
-                        <a href="car-electrical-diagnostics-ocean-grove.html" class="area-tag primary"><i data-lucide="map-pin"></i> Ocean Grove</a>
-                        <a href="car-electrical-diagnostics-torquay.html" class="area-tag primary"><i data-lucide="map-pin"></i> Torquay</a>
-                        <a href="car-electrical-diagnostics-waurn-ponds.html" class="area-tag primary"><i data-lucide="map-pin"></i> Waurn Ponds</a>
+                        <a href="/services/car-diagnostics/armstrong-creek" class="area-tag primary"><i data-lucide="map-pin"></i> Armstrong Creek</a>
+                        <a href="/services/car-diagnostics/ocean-grove" class="area-tag primary"><i data-lucide="map-pin"></i> Ocean Grove</a>
+                        <a href="/services/car-diagnostics/torquay" class="area-tag primary"><i data-lucide="map-pin"></i> Torquay</a>
+                        <a href="/services/car-diagnostics/waurn-ponds" class="area-tag primary"><i data-lucide="map-pin"></i> Waurn Ponds</a>
                     </div>
                     <div class="area-group-label">Also Servicing</div>
                     <div class="area-tags">
-                        <a href="areas.html" class="area-tag"><i data-lucide="map-pin"></i> Belmont</a>
-                        <a href="areas.html" class="area-tag"><i data-lucide="map-pin"></i> Highton</a>
-                        <a href="areas.html" class="area-tag"><i data-lucide="map-pin"></i> Charlemont</a>
-                        <a href="areas.html" class="area-tag"><i data-lucide="map-pin"></i> Newtown</a>
-                        <a href="areas.html" class="area-tag"><i data-lucide="map-pin"></i> Surrounding Suburbs</a>
+                        <a href="/areas.html" class="area-tag"><i data-lucide="map-pin"></i> Belmont</a>
+                        <a href="/areas.html" class="area-tag"><i data-lucide="map-pin"></i> Highton</a>
+                        <a href="/areas.html" class="area-tag"><i data-lucide="map-pin"></i> Charlemont</a>
+                        <a href="/areas.html" class="area-tag"><i data-lucide="map-pin"></i> Newtown</a>
+                        <a href="/areas.html" class="area-tag"><i data-lucide="map-pin"></i> Surrounding Suburbs</a>
                     </div>
                 </div>
                 <div class="areas-map-img fade-up">
                     <iframe
-                        src="https://www.google.com/maps?q=Melbourne,+Victoria,+Australia&output=embed&z=9"
-                        title="Melbourne and Geelong service area map"
+                        src="https://www.google.com/maps?q=Geelong,+Victoria,+Australia&output=embed&z=11"
+                        title="Geelong service area map"
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         allowfullscreen></iframe>
@@ -2121,12 +2120,61 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div>
-                    <div class="footer-label">Address</div>
-                    <div class="footer-address">
-                        <h3>Sanicar Tech</h3>
-                        <p>Mobile Service<br>Geelong, VIC 3220</p>
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo-link">
+                        <img src="/assests/Sanicar-logo.png" alt="Sanicar Tech" class="footer-logo">
+                    </a>
+                    <p class="footer-intro">
+                        Experienced mobile auto electrician in Geelong &mdash; vehicle diagnostics, ECU coding, European vehicle services, hybrid &amp; EV diagnostics, and on-site auto electrical repairs.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/sanicartech" target="_blank" rel="noopener" aria-label="Facebook">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sanicar369/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="https://search.google.com/local/reviews?placeid=ChIJDzHajpJH1moRF2-BoDo7YSc" target="_blank" rel="noopener" aria-label="Read our Google Reviews" class="footer-gmb">
+                            <i data-lucide="star"></i>
+                        </a>
                     </div>
+                </div>
+                <div>
+                    <div class="footer-label">Pages</div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/areas.html">Service Areas</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-label">Services</div>
+                    <ul>
+                        <li><a href="/services/car-diagnostics">Car Electrical Diagnostics</a></li>
+                        <li><a href="/services/car-repair">Car Repair Services</a></li>
+                        <li><a href="/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
+                        <li><a href="/european-car-tuning-ecu-coding">ECU Coding</a></li>
+                        <li><a href="/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-label">Contact</div>
+                    <div class="footer-contact-block">
+                        <h4><a href="tel:+61406642600">0406 642 600</a></h4>
+                    </div>
+                    <div class="footer-contact-block">
+                        <a href="mailto:sanicar.369@gmail.com">sanicar.369@gmail.com</a>
+                    </div>
+                    <div class="footer-label" style="margin-top: 28px;">Hours</div>
+                    <ul class="footer-hours">
+                        <li><span>Mon &ndash; Fri</span><span>7:00am &ndash; 5:30pm</span></li>
+                        <li><span>Saturday</span><span>10:00am &ndash; 5:30pm</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
                     <div class="footer-contact-block">
                         <div class="footer-label" style="margin-top:24px;">Phone</div>
                         <h4><a href="tel:+61406642600">0406 642 600</a></h4>
@@ -2140,21 +2188,21 @@
                     <div class="footer-label">Pages</div>
                     <ul>
                         <li><a href="#why-us">About</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="/services">Services</a></li>
                         <li><a href="#areas">Service Areas</a></li>
                         <li><a href="#testimonials">Reviews</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <div class="footer-label">Services</div>
                     <ul>
-                        <li><a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a></li>
-                        <li><a href="service-car-repair.html">Car Repair Services</a></li>
-                        <li><a href="service-ev-hybrid.html">EV &amp; Hybrid</a></li>
-                        <li><a href="service-ecu-coding-programming.html">ECU Coding</a></li>
-                        <li><a href="mbcod.html"><strong>European Diagnostics</strong></a></li>
+                        <li><a href="/services/car-diagnostics">Car Electrical Diagnostics</a></li>
+                        <li><a href="/services/car-repair">Car Repair Services</a></li>
+                        <li><a href="/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
+                        <li><a href="/european-car-tuning-ecu-coding">ECU Coding</a></li>
+                        <li><a href="/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
                     </ul>
                 </div>
             </div>

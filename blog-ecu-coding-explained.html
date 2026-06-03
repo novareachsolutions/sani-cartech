@@ -43,13 +43,15 @@
         .navbar { position: sticky; top: 0; z-index: 1000; padding: 8px 32px; background: transparent; }
         .navbar-inner {
             max-width: 1280px; margin: 0 auto; background: var(--white);
-            border-radius: 100px; padding: 6px 10px 6px 24px;
+            border-radius: 100px; padding: 8px 18px 8px 32px;
             display: flex; align-items: center; justify-content: space-between;
             box-shadow: 0 2px 16px rgba(0,0,0,0.04);
         }
         .nav-logo { display: flex; align-items: center; margin: -60px 0; }
         .nav-logo .logo-img { height: 200px; width: auto; display: block; object-fit: contain; }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links {
+            display: flex; gap: 56px; align-items: center;
+        }
         .nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--navy); transition: var(--transition); }
         .nav-links a:hover { opacity: 0.6; }
         .nav-links a.active { font-weight: 600; }
@@ -82,7 +84,7 @@
             content: '';
             position: absolute; top: 0; left: -120%;
             width: 60%; height: 100%;
-            background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0) 30%, rgba(180,200,255,0.7) 50%, rgba(255,255,255,0) 70%, transparent 100%);
+            background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 70%, transparent 100%);
             transform: skewX(-20deg);
             animation: navTagShine 3.2s ease-in-out infinite;
             pointer-events: none; z-index: 1;
@@ -243,7 +245,30 @@
             border-radius: var(--radius-lg) var(--radius-lg) 0 0;
             padding: 64px 0 32px;
         }
-        .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand { display: flex; flex-direction: column; gap: 18px; }
+        .footer-logo-link { display: inline-block; }
+        .footer-logo { height: 56px; width: auto; }
+        .footer-intro { font-size: 0.92rem; color: var(--navy); opacity: 0.75; line-height: 1.65; max-width: 360px; }
+        .footer-socials { display: flex; gap: 10px; margin-top: 6px; }
+        .footer-socials a { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--white); display: inline-flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .footer-socials a:hover { background: var(--accent-bg); transform: translateY(-2px); }
+        .footer-socials i { width: 18px; height: 18px; }
+        .footer-hours { list-style: none; padding: 0; margin: 0; }
+        .footer-hours li { display: flex; justify-content: space-between; padding: 7px 0; font-size: 0.9rem; color: var(--navy); border-bottom: 1px solid rgba(26,26,46,0.08); }
+        .footer-hours li:last-child { border-bottom: none; }
+        .footer-hours li span:first-child { opacity: 0.7; }
+        @media (max-width: 880px) {
+            .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px; }
+        }
+        @media (max-width: 560px) {
+            .footer-grid { grid-template-columns: 1fr !important; }
+        }
         .footer-label {
             font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
             letter-spacing: 0.12em; color: var(--gray-light); margin-bottom: 16px;
@@ -411,19 +436,17 @@
         .navbar-inner {
             max-width: 1400px !important;
             padding-right: 22px !important;
-            justify-content: flex-start !important;
+            justify-content: space-between !important;
         }
         .nav-cta {
             white-space: nowrap !important;
             padding: 12px 22px !important;
             font-size: 0.85rem !important;
             flex-shrink: 0;
-            margin-left: auto !important;
         }
         .nav-links {
-            gap: 24px !important;
+            gap: 40px !important;
             flex-shrink: 1;
-            margin-left: 50px !important;
         }
         .nav-links > a, .nav-item-dropdown > a, .nav-european {
             white-space: nowrap;
@@ -439,8 +462,6 @@
             align-self: center;
         }
         @media (max-width: 1400px) {
-            .nav-european-tag { display: none; }
-            .nav-links { gap: 20px !important; }
         }
         @media (max-width: 1260px) {
             .nav-links, .nav-cta { display: none !important; }
@@ -475,46 +496,33 @@
 
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="index.html" class="nav-logo">
-                <img src="assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
+            <a href="/" class="nav-logo">
+                <img src="/assests/Sanicar-logo.png" alt="Sanicar Tech" class="logo-img">
             </a>
                         <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="/">Home</a>
                 <div class="nav-item-dropdown">
-                    <a href="services.html">
+                    <a href="/services">
                         Services
                         <i data-lucide="chevron-down" class="nav-caret"></i>
                     </a>
                     <div class="nav-dropdown" role="menu">
-                        <a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a>
-                        <a href="service-car-repair.html">Car Repair Services</a>
-                        <a href="service-ev-hybrid.html">EV / Hybrid Diagnostics</a>
-                        <a href="service-ecu-coding-programming.html">ECU Coding</a>
-                        <a href="mbcod.html">European Diagnostics</a>
+                        <a href="/services/car-diagnostics">Car Electrical Diagnostics</a>
+                        <a href="/services/car-repair">Car Repair Services</a>
+                        <a href="/electric-vehicle-repairs">EV / Hybrid Diagnostics</a>
+                        <a href="/european-car-tuning-ecu-coding">ECU Coding</a>
+                        <a href="/european-car-diagnostics">European Diagnostics</a>
                     </div>
                 </div>
-                <div class="nav-item-dropdown">
-                    <a href="#">
-                        Common Problems
-                        <i data-lucide="chevron-down" class="nav-caret"></i>
-                    </a>
-                    <div class="nav-dropdown" role="menu">
-                        <a href="#">Car Won't Start</a>
-                        <a href="#">Battery Draining Overnight</a>
-                        <a href="#">Dashboard Warning Lights</a>
-                        <a href="#">Electrical Faults</a>
-                    </div>
-                </div>
-                <a href="mbcod.html" class="nav-european">
+                <a href="/european-car-diagnostics" class="nav-european">
                     European Specialist
                     <span class="nav-european-tag"><i data-lucide="sparkles"></i> Premium</span>
                 </a>
-                <a href="areas.html">Service Areas</a>
-                <a href="#">Case Studies</a>
-                <a href="index.html#why-us">About</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="/areas.html">Service Areas</a>
+                <a href="/#why-us">About</a>
+                <a href="/contact">Contact</a>
             </div>
-            <a href="tel:+61406642600" class="nav-cta">Get a Free Quote</a>
+            <a href="/#contact" class="nav-cta">Get a Free Quote</a>
         </div>
     </nav>
 
@@ -566,7 +574,7 @@
         <div class="container">
             <div class="related-head">
                 <h2>More from the blog</h2>
-                <a href="blog.html">View all posts <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></a>
+                <a href="/blog.html">View all posts <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></a>
             </div>
             <div class="related-grid">
                 <a href="blog-european-cars-dealer-vs-specialist.html" class="related-card">
@@ -597,31 +605,80 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div>
-                    <div class="footer-label">Address</div>
-                    <div class="footer-address">
-                        <h3>Sanicar Tech</h3>
-                        <p>Mobile Service<br>Geelong, VIC 3220</p>
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo-link">
+                        <img src="/assests/Sanicar-logo.png" alt="Sanicar Tech" class="footer-logo">
+                    </a>
+                    <p class="footer-intro">
+                        Experienced mobile auto electrician in Geelong &mdash; vehicle diagnostics, ECU coding, European vehicle services, hybrid &amp; EV diagnostics, and on-site auto electrical repairs.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/sanicartech" target="_blank" rel="noopener" aria-label="Facebook">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sanicar369/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="https://search.google.com/local/reviews?placeid=ChIJDzHajpJH1moRF2-BoDo7YSc" target="_blank" rel="noopener" aria-label="Read our Google Reviews" class="footer-gmb">
+                            <i data-lucide="star"></i>
+                        </a>
                     </div>
                 </div>
                 <div>
                     <div class="footer-label">Pages</div>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="mbcod.html">European</a></li>
-                        <li><a href="areas.html">Service Areas</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/areas.html">Service Areas</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <div class="footer-label">Services</div>
                     <ul>
-                        <li><a href="service-car-electrical-diagnostics.html">Car Electrical Diagnostics</a></li>
-                        <li><a href="service-car-repair.html">Car Repair Services</a></li>
-                        <li><a href="service-ev-hybrid.html">EV &amp; Hybrid</a></li>
-                        <li><a href="service-ecu-coding-programming.html">ECU Coding</a></li>
-                        <li><a href="mbcod.html"><strong>European Diagnostics</strong></a></li>
+                        <li><a href="/services/car-diagnostics">Car Electrical Diagnostics</a></li>
+                        <li><a href="/services/car-repair">Car Repair Services</a></li>
+                        <li><a href="/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
+                        <li><a href="/european-car-tuning-ecu-coding">ECU Coding</a></li>
+                        <li><a href="/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-label">Contact</div>
+                    <div class="footer-contact-block">
+                        <h4><a href="tel:+61406642600">0406 642 600</a></h4>
+                    </div>
+                    <div class="footer-contact-block">
+                        <a href="mailto:sanicar.369@gmail.com">sanicar.369@gmail.com</a>
+                    </div>
+                    <div class="footer-label" style="margin-top: 28px;">Hours</div>
+                    <ul class="footer-hours">
+                        <li><span>Mon &ndash; Fri</span><span>7:00am &ndash; 5:30pm</span></li>
+                        <li><span>Saturday</span><span>10:00am &ndash; 5:30pm</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+                </div>
+                <div>
+                    <div class="footer-label">Pages</div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/european-car-diagnostics">European</a></li>
+                        <li><a href="/areas.html">Service Areas</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-label">Services</div>
+                    <ul>
+                        <li><a href="/services/car-diagnostics">Car Electrical Diagnostics</a></li>
+                        <li><a href="/services/car-repair">Car Repair Services</a></li>
+                        <li><a href="/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
+                        <li><a href="/european-car-tuning-ecu-coding">ECU Coding</a></li>
+                        <li><a href="/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
                     </ul>
                 </div>
                 <div>
