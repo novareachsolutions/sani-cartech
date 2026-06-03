@@ -452,6 +452,40 @@
             box-decoration-break: clone;
             -webkit-box-decoration-break: clone;
         }
+
+        /* Services × Areas */
+        .services-by-area { padding: 100px 0 120px; background: var(--white); }
+        .services-by-area-head { text-align: center; max-width: 720px; margin: 0 auto 72px; }
+        .services-by-area-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 18px; }
+        .services-by-area-label i { width: 16px; height: 16px; }
+        .services-by-area-head h2 { font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); color: var(--navy); margin-bottom: 18px; line-height: 1.1; letter-spacing: -0.025em; }
+        .services-by-area-head p { color: var(--gray); font-size: 1.05rem; line-height: 1.65; max-width: 560px; margin: 0 auto; }
+        .services-by-area-list { max-width: 1080px; margin: 0 auto; }
+        .svc-area-row { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: center; padding: 56px 0; border-bottom: 1px solid var(--cream-dark); }
+        .svc-area-row:first-child { padding-top: 0; }
+        .svc-area-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .svc-area-row:nth-child(even) .svc-area-img { grid-column: 2; grid-row: 1; }
+        .svc-area-row:nth-child(even) .svc-area-body { grid-column: 1; grid-row: 1; }
+        .svc-area-img { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 12px 32px rgba(26,26,46,0.08); }
+        .svc-area-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .svc-area-row:hover .svc-area-img img { transform: scale(1.04); }
+        .svc-area-body h3 { font-size: clamp(1.5rem, 2.6vw, 1.9rem); font-weight: 700; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.015em; line-height: 1.2; }
+        .svc-area-body p { font-size: 1rem; color: var(--gray); line-height: 1.65; margin-bottom: 26px; max-width: 48ch; }
+        .svc-area-pills { display: flex; flex-wrap: wrap; gap: 12px; }
+        .svc-area-pills a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; background: var(--cream); border-radius: 100px; font-size: 0.92rem; font-weight: 500; color: var(--navy); border: 1px solid transparent; transition: var(--transition); }
+        .svc-area-pills a:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,26,46,0.15); }
+        .svc-area-pills i { width: 14px; height: 14px; color: var(--gray-light); transition: var(--transition); }
+        .svc-area-pills a:hover i { color: var(--white); }
+        @media (max-width: 880px) {
+            .services-by-area { padding: 64px 0 80px; }
+            .services-by-area-head { margin-bottom: 48px; }
+            .svc-area-row { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
+            .svc-area-row:nth-child(even) .svc-area-img { grid-column: 1; }
+            .svc-area-row:nth-child(even) .svc-area-body { grid-column: 1; grid-row: 2; }
+            .svc-area-img { aspect-ratio: 16/9; }
+            .svc-area-body h3 { margin-bottom: 10px; }
+            .svc-area-body p { margin-bottom: 18px; }
+        }
     </style>
 </head>
 <body>
@@ -497,18 +531,7 @@
                     European Specialist
                     <span class="nav-european-tag"><i data-lucide="sparkles"></i> Premium</span>
                 </a>
-                <div class="nav-item-dropdown">
-                    <a href="areas.html" class="active">
-                        Service Areas
-                        <i data-lucide="chevron-down" class="nav-caret"></i>
-                    </a>
-                    <div class="nav-dropdown" role="menu">
-                        <a href="car-electrical-diagnostics-armstrong-creek.html">Armstrong Creek</a>
-                        <a href="car-electrical-diagnostics-ocean-grove.html">Ocean Grove</a>
-                        <a href="car-electrical-diagnostics-torquay.html">Torquay</a>
-                        <a href="car-electrical-diagnostics-waurn-ponds.html">Waurn Ponds</a>
-                    </div>
-                </div>
+                <a href="areas.html" class="active">Service Areas</a>
                 <a href="#">Case Studies</a>
                 <a href="index.html#why-us">About</a>
                 <a href="index.html#contact">Contact</a>
@@ -525,81 +548,90 @@
         </div>
     </section>
 
-    <section class="areas-section">
+    <!-- Services x Areas -->
+    <section class="services-by-area">
         <div class="container">
-            <div class="areas-grid">
-                <a href="car-electrical-diagnostics-ocean-grove.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=900&q=80" alt="Ocean Grove beach Bellarine Peninsula">
-                        <span class="area-card-name">Ocean Grove</span>
+            <div class="services-by-area-head">
+                <span class="services-by-area-label"><i data-lucide="layers"></i> Find your service</span>
+                <h2>Our services across Geelong &amp; the Bellarine</h2>
+                <p>Each of our services is available across our primary service areas. Click your suburb to jump straight to the local page.</p>
+            </div>
+            <div class="services-by-area-list">
+                <article class="svc-area-row">
+                    <div class="svc-area-img">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900&q=80" alt="Car electrical diagnostics with professional scan tools in Geelong" loading="lazy">
                     </div>
-                    <div class="area-card-body">
-                        Servicing <span class="kw">Ocean Grove and the Bellarine</span> — breakdowns, <span class="kw">no-start diagnosis</span> and <span class="kw">dealer-level coding for European cars</span> without the trip into town.
+                    <div class="svc-area-body">
+                        <h3>Car Electrical Diagnostics</h3>
+                        <p>Warning lights, no-start faults, battery drain, and electronic system diagnosis using professional scan tools and live data analysis.</p>
+                        <div class="svc-area-pills">
+                            <a href="car-electrical-diagnostics-armstrong-creek.html"><i data-lucide="map-pin"></i> Armstrong Creek</a>
+                            <a href="car-electrical-diagnostics-ocean-grove.html"><i data-lucide="map-pin"></i> Ocean Grove</a>
+                            <a href="car-electrical-diagnostics-torquay.html"><i data-lucide="map-pin"></i> Torquay</a>
+                            <a href="car-electrical-diagnostics-waurn-ponds.html"><i data-lucide="map-pin"></i> Waurn Ponds</a>
+                        </div>
                     </div>
-                </a>
-                <a href="car-electrical-diagnostics-torquay.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80" alt="Torquay Surf Coast Australia">
-                        <span class="area-card-name">Torquay</span>
+                </article>
+                <article class="svc-area-row">
+                    <div class="svc-area-img">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=900&q=80" alt="Mobile car repair services in Geelong" loading="lazy">
                     </div>
-                    <div class="area-card-body">
-                        <span class="kw">Trailer wiring, dash cams and full auto electrical</span> for <span class="kw">Torquay, Jan Juc and the Surf Coast</span>. We come to your driveway with everything we need on board.
+                    <div class="svc-area-body">
+                        <h3>Car Repair Services</h3>
+                        <p>Logbook servicing, brake repairs, suspension work, AC repair, dash cam installation &mdash; mobile mechanical work at your driveway.</p>
+                        <div class="svc-area-pills">
+                            <a href="car-repair-services-armstrong-creek.html"><i data-lucide="map-pin"></i> Armstrong Creek</a>
+                            <a href="car-repair-services-ocean-grove.html"><i data-lucide="map-pin"></i> Ocean Grove</a>
+                            <a href="car-repair-services-torquay.html"><i data-lucide="map-pin"></i> Torquay</a>
+                            <a href="car-repair-services-waurn-ponds.html"><i data-lucide="map-pin"></i> Waurn Ponds</a>
+                        </div>
                     </div>
-                </a>
-                <a href="car-electrical-diagnostics-armstrong-creek.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=900&q=80" alt="Armstrong Creek new estate streetscape">
-                        <span class="area-card-name">Armstrong Creek</span>
+                </article>
+                <article class="svc-area-row">
+                    <div class="svc-area-img">
+                        <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=900&q=80" alt="EV and hybrid vehicle high-voltage battery diagnostics" loading="lazy">
                     </div>
-                    <div class="area-card-body">
-                        New-estate <span class="kw">Armstrong Creek</span> owners — <span class="kw">battery, alternator and accessory wiring</span> on-site. We work around school runs and tradie hours.
+                    <div class="svc-area-body">
+                        <h3>EV &amp; Hybrid</h3>
+                        <p>HV-certified diagnostics for Tesla, BYD, Polestar and hybrid vehicles. Battery health analysis, charging system testing, and module-level repair.</p>
+                        <div class="svc-area-pills">
+                            <a href="electric-vehicle-specialist-armstrong-creek.html"><i data-lucide="map-pin"></i> Armstrong Creek</a>
+                            <a href="electric-vehicle-specialist-ocean-grove.html"><i data-lucide="map-pin"></i> Ocean Grove</a>
+                            <a href="electric-vehicle-specialist-torquay.html"><i data-lucide="map-pin"></i> Torquay</a>
+                            <a href="electric-vehicle-specialist-waurn-ponds.html"><i data-lucide="map-pin"></i> Waurn Ponds</a>
+                        </div>
                     </div>
-                </a>
-                <a href="car-electrical-diagnostics-waurn-ponds.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=900&q=80" alt="Belmont Geelong residential street">
-                        <span class="area-card-name">Belmont</span>
+                </article>
+                <article class="svc-area-row">
+                    <div class="svc-area-img">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80" alt="ECU programming, BCM and module coding for modern vehicles" loading="lazy">
                     </div>
-                    <div class="area-card-body">
-                        <span class="kw">Auto electrical for Belmont</span> residents and businesses — from a quick fuse fix to complete <span class="kw">towbar wiring</span> jobs and <span class="kw">ECU programming</span>.
+                    <div class="svc-area-body">
+                        <h3>ECU Coding</h3>
+                        <p>ECU programming, immobiliser repair, BCM diagnostics, and airbag module reset for BMW, Mercedes-Benz, Audi, Volkswagen and more.</p>
+                        <div class="svc-area-pills">
+                            <a href="service-ecu-coding-programming.html"><i data-lucide="map-pin"></i> Armstrong Creek</a>
+                            <a href="service-ecu-coding-programming.html"><i data-lucide="map-pin"></i> Ocean Grove</a>
+                            <a href="service-ecu-coding-programming.html"><i data-lucide="map-pin"></i> Torquay</a>
+                            <a href="service-ecu-coding-programming.html"><i data-lucide="map-pin"></i> Waurn Ponds</a>
+                        </div>
                     </div>
-                </a>
-                <a href="car-electrical-diagnostics-waurn-ponds.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=900&q=80" alt="Highton Geelong leafy street">
-                        <span class="area-card-name">Highton</span>
+                </article>
+                <article class="svc-area-row">
+                    <div class="svc-area-img">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&q=80" alt="European vehicle diagnostics for BMW, Mercedes-Benz, Audi and Volkswagen in Geelong" loading="lazy">
                     </div>
-                    <div class="area-card-body">
-                        <span class="kw">Highton</span> homeowners get the same <span class="kw">dealer-level diagnostics and coding</span> capability — without the dealership trip or premium.
+                    <div class="svc-area-body">
+                        <h3>European Diagnostics</h3>
+                        <p>Dealer-level ISTA / XENTRY / ODIS diagnostics for BMW, Mercedes-Benz, Audi, Volkswagen, Porsche, Mini, Skoda and Volvo.</p>
+                        <div class="svc-area-pills">
+                            <a href="european-car-diagnostics-armstrong-creek.html"><i data-lucide="map-pin"></i> Armstrong Creek</a>
+                            <a href="european-car-diagnostics-ocean-grove.html"><i data-lucide="map-pin"></i> Ocean Grove</a>
+                            <a href="european-car-diagnostics-torquay.html"><i data-lucide="map-pin"></i> Torquay</a>
+                            <a href="european-car-diagnostics-waurn-ponds.html"><i data-lucide="map-pin"></i> Waurn Ponds</a>
+                        </div>
                     </div>
-                </a>
-                <a href="services.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1510797215324-95aa89f43c33?w=900&q=80" alt="Newtown Geelong heritage architecture">
-                        <span class="area-card-name">Newtown</span>
-                    </div>
-                    <div class="area-card-body">
-                        Heritage homes and modern garages alike — <span class="kw">Newtown</span> gets full <span class="kw">auto electrical service</span> at the kerb. Tidy work, factory-grade finish.
-                    </div>
-                </a>
-                <a href="car-electrical-diagnostics-waurn-ponds.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80" alt="Waurn Ponds suburb Geelong">
-                        <span class="area-card-name">Waurn Ponds</span>
-                    </div>
-                    <div class="area-card-body">
-                        Servicing <span class="kw">Waurn Ponds, Grovedale and Wandana Heights</span>. <span class="kw">Diagnostics, batteries and accessory installs</span> — booked online, on time.
-                    </div>
-                </a>
-                <a href="car-electrical-diagnostics-armstrong-creek.html" class="area-card">
-                    <div class="area-card-img">
-                        <img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=900&q=80" alt="Charlemont and surrounds">
-                        <span class="area-card-name">Charlemont</span>
-                    </div>
-                    <div class="area-card-body">
-                        <span class="kw">Charlemont</span> and surrounds — we cover the new estates and the rural pockets between <span class="kw">Geelong and the Bellarine</span>.
-                    </div>
-                </a>
+                </article>
             </div>
         </div>
     </section>
