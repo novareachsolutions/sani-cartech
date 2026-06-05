@@ -198,6 +198,23 @@
             flex-grow: 1;
         }
 
+        /* Additional Areas */
+        .additional-areas { padding: 64px 0; }
+        .additional-areas-inner { background: var(--white); border: 1px solid rgba(26,26,46,0.05); border-radius: var(--radius-lg); padding: 56px 40px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(26,26,46,0.05); }
+        .additional-areas-inner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 0%, rgba(30,58,138,0.07) 0, transparent 35%), radial-gradient(circle at 85% 100%, rgba(30,58,138,0.05) 0, transparent 35%); pointer-events: none; }
+        .additional-areas-inner > * { position: relative; z-index: 1; }
+        .additional-areas-icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--cream); border-radius: 50%; margin-bottom: 18px; color: var(--accent); }
+        .additional-areas-icon i { width: 24px; height: 24px; }
+        .additional-areas-eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 12px; }
+        .additional-areas-inner h2 { font-size: 1.75rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.2; }
+        .additional-areas-inner > p { color: var(--gray); max-width: 520px; margin: 0 auto 26px; font-size: 0.95rem; line-height: 1.6; }
+        .additional-areas-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .additional-areas-list li { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: var(--cream); border-radius: 100px; font-size: 0.88rem; font-weight: 600; color: var(--navy); transition: var(--transition); cursor: default; }
+        .additional-areas-list li:hover { background: var(--accent-bg); color: var(--white); transform: translateY(-2px); }
+        .additional-areas-list li:hover i { color: var(--white); }
+        .additional-areas-list li i { width: 14px; height: 14px; color: var(--gray-light); transition: var(--transition); }
+        @media (max-width: 640px) { .additional-areas-inner { padding: 40px 24px; } .additional-areas-inner h2 { font-size: 1.45rem; } }
+
         /* CTA */
         .areas-cta-wrap { padding: 0 0 80px; }
         .areas-cta {
@@ -683,6 +700,24 @@
         </div>
     </section>
 
+    <section class="additional-areas">
+        <div class="container">
+            <div class="additional-areas-inner">
+                <div class="additional-areas-icon"><i data-lucide="map-pin"></i></div>
+                <span class="additional-areas-eyebrow">More Locations</span>
+                <h2>Additional Areas We Service</h2>
+                <p>Beyond our primary service areas, we also cover the following Geelong suburbs:</p>
+                <ul class="additional-areas-list">
+                    <li><i data-lucide="map-pin"></i> Belmont</li>
+                    <li><i data-lucide="map-pin"></i> Highton</li>
+                    <li><i data-lucide="map-pin"></i> Charlemont</li>
+                    <li><i data-lucide="map-pin"></i> Newtown</li>
+                    <li><i data-lucide="map-pin"></i> Surrounding Geelong suburbs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section class="areas-cta-wrap" id="contact">
         <div class="container">
             <div class="areas-cta">
@@ -745,6 +780,11 @@
                     </div>
                     <div class="footer-contact-block">
                         <a href="mailto:sanicar.369@gmail.com">sanicar.369@gmail.com</a>
+                    </div>
+                    <div class="footer-label" style="margin-top: 28px;">Location</div>
+                    <div class="footer-contact-block">
+                        <p style="display: flex; align-items: center; gap: 8px; margin: 0; color: var(--navy); font-size: 0.95rem; font-weight: 600;"><i data-lucide="map-pin" style="width: 14px; height: 14px; color: var(--accent);"></i> Serving Geelong &amp; Surrounding Suburbs</p>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 4px 0 0 22px;">(Mobile Service)</p>
                     </div>
                     <div class="footer-label" style="margin-top: 28px;">Hours</div>
                     <ul class="footer-hours">
