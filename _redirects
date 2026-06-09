@@ -1,0 +1,10 @@
+# 301 redirects: old root URLs → new /services/ paths
+# Netlify, Cloudflare Pages, Vercel (when copied to vercel.json)
+
+/european-car-diagnostics/*       /services/european-car-diagnostics/:splat       301
+/electric-vehicle-repairs/*       /services/electric-vehicle-repairs/:splat       301
+/european-car-tuning-ecu-coding/* /services/european-car-tuning-ecu-coding/:splat 301
+
+/european-car-diagnostics         /services/european-car-diagnostics              301
+/electric-vehicle-repairs         /services/electric-vehicle-repairs              301
+/european-car-tuning-ecu-coding   /services/european-car-tuning-ecu-coding        301

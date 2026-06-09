@@ -22,7 +22,11 @@
     <meta name="geo.placename" content="Geelong">
     <meta name="geo.position" content="-38.149325;144.359824">
     <meta name="ICBM" content="-38.149325, 144.359824">
-    <!-- LocalBusiness schema: pending — SEO writer flagged "dont update yet, need few more details to fill in" -->
+
+    <!-- LocalBusiness + WebSite Schema -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":["AutoRepair","AutomotiveBusiness"],"@id":"https://www.sanicar.com.au/#business","name":"SaniCar Tech","url":"https://www.sanicar.com.au/","logo":"https://www.sanicar.com.au/assests/Sanicar-logo.png","image":"https://www.sanicar.com.au/assests/mobile-auto-electrician-in-geelong.png","description":"Experienced mobile auto electrician in Geelong with 6 years of expertise providing vehicle diagnostics, ECU coding, European vehicle services, dash cam installations, battery fault diagnosis, and on-site auto electrical repairs.","telephone":"+61 406 642 600","email":"sanicar.369@gmail.com","priceRange":"From $120/hr","address":{"@type":"PostalAddress","streetAddress":"12 Purity Way","addressLocality":"Armstrong Creek","addressRegion":"VIC","postalCode":"3217","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-38.14233306009427,"longitude":144.3533362534193},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5","worstRating":"1","reviewCount":"15"},"areaServed":[{"@type":"City","name":"Geelong"},{"@type":"City","name":"Belmont"},{"@type":"City","name":"Highton"},{"@type":"City","name":"Newtown"},{"@type":"City","name":"Torquay"},{"@type":"City","name":"Charlemont"},{"@type":"City","name":"Ocean Grove"},{"@type":"City","name":"Waurn Ponds"},{"@type":"City","name":"Armstrong Creek"}],"serviceArea":{"@type":"AdministrativeArea","name":"Geelong and surrounding suburbs"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"17:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"17:30"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Mobile Auto Electrical & Diagnostic Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Car Diagnostics","url":"https://www.sanicar.com.au/services/car-diagnostics/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Car Repair and Installation Services","url":"https://www.sanicar.com.au/services/car-repair/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"European Vehicle Diagnostics","url":"https://www.sanicar.com.au/services/european-car-diagnostics/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"ECU Coding & Programming","url":"https://www.sanicar.com.au/services/european-car-tuning-ecu-coding/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Hybrid & EV Diagnostics","url":"https://www.sanicar.com.au/services/electric-vehicle-repairs/"}}]},"sameAs":["https://www.facebook.com/sanicartech","https://www.instagram.com/sanicar369/"]},{"@type":"WebSite","@id":"https://www.sanicar.com.au/#website","url":"https://www.sanicar.com.au/","name":"SaniCar Tech","publisher":{"@id":"https://www.sanicar.com.au/#business"}}]}
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1578,46 +1582,6 @@
         }
     </style>
 
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AutoRepair",
-        "name": "Sanicar Tech",
-        "description": "Mobile auto electrician providing expert car electrical diagnostics, European vehicle specialist services, trailer wiring, and more across Geelong and surrounding areas.",
-        "url": "https://www.sanicar.com.au/",
-        "telephone": "+61406642600",
-        "areaServed": [
-            {"@type": "City", "name": "Geelong"},
-            {"@type": "City", "name": "Ocean Grove"},
-            {"@type": "City", "name": "Torquay"},
-            {"@type": "City", "name": "Armstrong Creek"},
-            {"@type": "City", "name": "Charlemont"},
-            {"@type": "City", "name": "Waurn Ponds"}
-        ],
-        "serviceType": ["Auto Electrician", "Mobile Auto Electrician", "Car Electrical Diagnostics", "European Vehicle Specialist"],
-        "priceRange": "$$",
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -38.1499,
-            "longitude": 144.3617
-        },
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-                "opens": "07:00",
-                "closes": "18:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "08:00",
-                "closes": "14:00"
-            }
-        ]
-    }
-    </script>
 </head>
 <body>
 
@@ -1643,12 +1607,12 @@
                     <div class="nav-dropdown" role="menu">
                         <a href="/services/car-diagnostics">Car Electrical Diagnostics</a>
                         <a href="/services/car-repair">Car Repair Services</a>
-                        <a href="/electric-vehicle-repairs">EV / Hybrid Diagnostics</a>
-                        <a href="/european-car-tuning-ecu-coding">ECU Coding</a>
-                        <a href="/european-car-diagnostics">European Diagnostics</a>
+                        <a href="/services/electric-vehicle-repairs">EV / Hybrid Diagnostics</a>
+                        <a href="/services/european-car-tuning-ecu-coding">ECU Coding</a>
+                        <a href="/services/european-car-diagnostics">European Diagnostics</a>
                     </div>
                 </div>
-                <a href="/european-car-diagnostics" class="nav-european">
+                <a href="/services/european-car-diagnostics" class="nav-european">
                     European Specialist
                     <span class="nav-european-tag"><i data-lucide="sparkles"></i> Premium</span>
                 </a>
@@ -1678,7 +1642,7 @@
         <div class="mobile-menu-links">
             <a href="/" onclick="toggleMobileMenu()">Home</a>
             <a href="/services" onclick="toggleMobileMenu()">Services</a>
-            <a href="/european-car-diagnostics" onclick="toggleMobileMenu()">European Specialist</a>
+            <a href="/services/european-car-diagnostics" onclick="toggleMobileMenu()">European Specialist</a>
             <a href="/serviceareas" onclick="toggleMobileMenu()">Service Areas</a>
             <a href="#why-us" onclick="toggleMobileMenu()">About</a>
             <a href="/contact" onclick="toggleMobileMenu()">Contact</a>
@@ -1788,21 +1752,21 @@
                             <p><strong>Mobile car repair</strong> for <strong>brakes, suspension, electrical faults</strong>, and general servicing &mdash; diagnostics-driven repairs from a trusted Geelong mechanic.</p>
                         </div>
                     </a>
-                    <a href="/electric-vehicle-repairs" class="service-card">
+                    <a href="/services/electric-vehicle-repairs" class="service-card">
                         <img src="/assests/electric-vehicle-repair-geelong.jpg" alt="electric-vehicle-repair-geelong" loading="lazy">
                         <div class="service-card-overlay">
                             <h3>Hybrid &amp; EV Diagnostics</h3>
                             <p><strong>Electrical vehicle repair and diagnostics</strong> including high-voltage checks, <strong>hybrid battery testing</strong>, EV charging and inverter fault detection.</p>
                         </div>
                     </a>
-                    <a href="/european-car-tuning-ecu-coding" class="service-card">
+                    <a href="/services/european-car-tuning-ecu-coding" class="service-card">
                         <img src="/assests/car-ecu-coding-geelong.png" alt="car-ecu-coding-geelong" loading="lazy">
                         <div class="service-card-overlay">
                             <h3>ECU &amp; Module Systems</h3>
                             <p><strong>Car ECU programming tools</strong> and diagnostics for BCM issues, <strong>immobiliser faults</strong>, airbag module resets, and coding support.</p>
                         </div>
                     </a>
-                    <a href="/european-car-diagnostics" class="service-card">
+                    <a href="/services/european-car-diagnostics" class="service-card">
                         <img src="/assests/european-car-diagnosis-geelong.jpg" alt="european-car-diagnosis-geelong" loading="lazy">
                         <div class="service-card-overlay">
                             <h3>European Vehicle Diagnostics</h3>
@@ -2152,9 +2116,9 @@
                     <ul>
                         <li><a href="/services/car-diagnostics">Car Electrical Diagnostics</a></li>
                         <li><a href="/services/car-repair">Car Repair Services</a></li>
-                        <li><a href="/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
-                        <li><a href="/european-car-tuning-ecu-coding">ECU Coding</a></li>
-                        <li><a href="/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
+                        <li><a href="/services/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
+                        <li><a href="/services/european-car-tuning-ecu-coding">ECU Coding</a></li>
+                        <li><a href="/services/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
                     </ul>
                 </div>
                 <div>

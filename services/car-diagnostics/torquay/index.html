@@ -1173,12 +1173,12 @@
             .related-grid { grid-template-columns: 1fr; }
         }
         /* Breadcrumbs */
-        .breadcrumbs { background: rgba(255,255,255,0.55); border-bottom: 1px solid rgba(26,26,46,0.08); padding: 14px 0; font-size: 0.875rem; }
+        .breadcrumbs { background: rgba(255,255,255,0.55); border-bottom: 1px solid rgba(26,26,46,0.08); padding: 14px 0; font-size: 0.875rem; position: relative; z-index: 200; }
         .breadcrumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; }
         .breadcrumbs li { display: inline-flex; align-items: center; color: #6b6b7b; }
         .breadcrumbs li + li::before { content: '/'; margin: 0 10px; opacity: 0.4; }
-        .breadcrumbs a { color: #1a1a2e; opacity: 0.7; text-decoration: none; transition: opacity 0.2s; }
-        .breadcrumbs a:hover { opacity: 1; text-decoration: underline; }
+        .breadcrumbs a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; font-weight: 500; transition: color 0.2s; }
+        .breadcrumbs a:hover { color: #1a1a2e; opacity: 1; }
         .breadcrumbs li:last-child { color: #1a1a2e; font-weight: 600; }
         @media (max-width: 640px) { .breadcrumbs { font-size: 0.8rem; padding: 10px 0; } .breadcrumbs li + li::before { margin: 0 6px; } }
     </style>
@@ -1207,12 +1207,12 @@
                     <div class="nav-dropdown" role="menu">
                         <a href="/services/car-diagnostics">Car Electrical Diagnostics</a>
                         <a href="/services/car-repair">Car Repair Services</a>
-                        <a href="/electric-vehicle-repairs">EV / Hybrid Diagnostics</a>
-                        <a href="/european-car-tuning-ecu-coding">ECU Coding</a>
-                        <a href="/european-car-diagnostics">European Diagnostics</a>
+                        <a href="/services/electric-vehicle-repairs">EV / Hybrid Diagnostics</a>
+                        <a href="/services/european-car-tuning-ecu-coding">ECU Coding</a>
+                        <a href="/services/european-car-diagnostics">European Diagnostics</a>
                     </div>
                 </div>
-                <a href="/european-car-diagnostics" class="nav-european">
+                <a href="/services/european-car-diagnostics" class="nav-european">
                     European Specialist
                     <span class="nav-european-tag"><i data-lucide="sparkles"></i> Premium</span>
                 </a>
@@ -1251,7 +1251,7 @@
                 <div class="mobile-menu-links">
             <a href="/" onclick="toggleMobileMenu()">Home</a>
             <a href="/services" class="active" onclick="toggleMobileMenu()">Services</a>
-            <a href="/european-car-diagnostics" onclick="toggleMobileMenu()">European Specialist</a>
+            <a href="/services/european-car-diagnostics" onclick="toggleMobileMenu()">European Specialist</a>
             <a href="/serviceareas" onclick="toggleMobileMenu()">Service Areas</a>
             <a href="/#why-us" onclick="toggleMobileMenu()">About</a>
             <a href="/contact" onclick="toggleMobileMenu()">Contact</a>
@@ -1303,13 +1303,13 @@
                     <p>Logbook servicing, brake repairs, suspension work, car AC repair, radiator and cooling, dash cam installation &mdash; the mechanical work that diagnostics often leads into.</p>
                     <span class="related-card-link">Car repair in Torquay <i data-lucide="arrow-right"></i></span>
                 </a>
-                <a href="/european-car-diagnostics/torquay" class="related-card fade-up">
+                <a href="/services/european-car-diagnostics/torquay" class="related-card fade-up">
                     <div class="related-card-icon"><i data-lucide="cpu"></i></div>
                     <h3>European Car Diagnostics</h3>
                     <p>BMW, Mercedes-Benz, Audi, Volkswagen, Porsche, Mini, Skoda, Volvo. Dealer-level ISTA/XENTRY/ODIS tooling and proper coding capability for European marques.</p>
                     <span class="related-card-link">European specialist <i data-lucide="arrow-right"></i></span>
                 </a>
-                <a href="/electric-vehicle-repairs/torquay" class="related-card fade-up">
+                <a href="/services/electric-vehicle-repairs/torquay" class="related-card fade-up">
                     <div class="related-card-icon"><i data-lucide="battery-charging"></i></div>
                     <h3>EV &amp; Hybrid Specialist</h3>
                     <p>Tesla, BYD, Polestar and hybrid vehicles. EV battery diagnostics, hybrid battery repair, high-voltage system checks, regenerative braking diagnostics.</p>
@@ -1430,7 +1430,7 @@
             </div>
 
             <div class="diag-services-footnote fade-up">
-                For <strong>hybrid and electric vehicles</strong> in Torquay, some faults require <strong>specialised high-voltage handling</strong>. In such cases, we also support <a href="/electric-vehicle-repairs/torquay">EV &amp; hybrid specialist in Torquay</a> when deeper system issues are detected.
+                For <strong>hybrid and electric vehicles</strong> in Torquay, some faults require <strong>specialised high-voltage handling</strong>. In such cases, we also support <a href="/services/electric-vehicle-repairs/torquay">EV &amp; hybrid specialist in Torquay</a> when deeper system issues are detected.
             </div>
         </div>
     </section>
@@ -1452,7 +1452,7 @@
         <div class="container">
             <div class="why-choose-inner fade-up">
                 <h2>Why Torquay Drivers Choose Sanicar</h2>
-                <p><strong>European vehicles</strong> often require <strong>deeper system-level testing and specialist support</strong>. We also provide <a href="/european-car-diagnostics/torquay">European car diagnostics in Torquay</a> for <strong>complex electrical and ECU-related faults</strong> when additional repair work is needed.</p>
+                <p><strong>European vehicles</strong> often require <strong>deeper system-level testing and specialist support</strong>. We also provide <a href="/services/european-car-diagnostics/torquay">European car diagnostics in Torquay</a> for <strong>complex electrical and ECU-related faults</strong> when additional repair work is needed.</p>
                 <ul class="why-choose-list">
                     <li><i data-lucide="check-circle"></i> Accurate car diagnostic testing &mdash; first time</li>
                     <li><i data-lucide="check-circle"></i> Dealer-level scan tools &amp; equipment in the van</li>
@@ -1531,7 +1531,7 @@
                         Do you offer car diagnostic services for European vehicles in Torquay?
                         <div class="faq-plus"><i data-lucide="plus"></i></div>
                     </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">Yes &mdash; we have a dedicated European specialist division running ISTA, XENTRY, and ODIS for BMW, Mercedes-Benz, Audi, Volkswagen and other European marques. See the <a href="/european-car-diagnostics/torquay">European Diagnostics in Torquay</a> page for full capability.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes &mdash; we have a dedicated European specialist division running ISTA, XENTRY, and ODIS for BMW, Mercedes-Benz, Audi, Volkswagen and other European marques. See the <a href="/services/european-car-diagnostics/torquay">European Diagnostics in Torquay</a> page for full capability.</div></div>
                 </div>
             </div>
         </div>
@@ -1607,9 +1607,9 @@
                     <ul>
                         <li><a href="/services/car-diagnostics">Car Electrical Diagnostics</a></li>
                         <li><a href="/services/car-repair">Car Repair Services</a></li>
-                        <li><a href="/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
-                        <li><a href="/european-car-tuning-ecu-coding">ECU Coding</a></li>
-                        <li><a href="/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
+                        <li><a href="/services/electric-vehicle-repairs">EV &amp; Hybrid</a></li>
+                        <li><a href="/services/european-car-tuning-ecu-coding">ECU Coding</a></li>
+                        <li><a href="/services/european-car-diagnostics"><strong>European Diagnostics</strong></a></li>
                     </ul>
                 </div>
                 <div>

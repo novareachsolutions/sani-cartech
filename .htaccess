@@ -1,0 +1,15 @@
+# 301 redirects: old root URLs → new /services/ paths
+# Apache / cPanel hosting
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Suburb pages (must be before the main category catch-all)
+    RewriteRule ^european-car-diagnostics/(armstrong-creek|ocean-grove|torquay|waurn-ponds)/?$ /services/european-car-diagnostics/$1/ [R=301,L]
+    RewriteRule ^electric-vehicle-repairs/(armstrong-creek|ocean-grove|torquay|waurn-ponds)/?$ /services/electric-vehicle-repairs/$1/ [R=301,L]
+
+    # Main category pages
+    RewriteRule ^european-car-diagnostics/?$        /services/european-car-diagnostics/        [R=301,L]
+    RewriteRule ^electric-vehicle-repairs/?$        /services/electric-vehicle-repairs/        [R=301,L]
+    RewriteRule ^european-car-tuning-ecu-coding/?$  /services/european-car-tuning-ecu-coding/  [R=301,L]
+</IfModule>
