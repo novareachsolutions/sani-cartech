@@ -2236,6 +2236,15 @@
     </footer>
 
     <script>
+        // Force trailing slash visibility on root URL
+        (function() {
+            try {
+                if (location.pathname === '/' && !location.search && !location.hash) {
+                    history.replaceState(history.state, '', location.origin + '/');
+                }
+            } catch (e) {}
+        })();
+
         // Lucide Icons
         lucide.createIcons();
 
