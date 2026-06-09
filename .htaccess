@@ -12,4 +12,7 @@
     RewriteRule ^european-car-diagnostics/?$        /services/european-car-diagnostics/        [R=301,L]
     RewriteRule ^electric-vehicle-repairs/?$        /services/electric-vehicle-repairs/        [R=301,L]
     RewriteRule ^european-car-tuning-ecu-coding/?$  /services/european-car-tuning-ecu-coding/  [R=301,L]
+
+    # Service Areas folder rename
+    RewriteRule ^serviceareas/?$  /service-areas/  [R=301,L]
 </IfModule>

@@ -749,6 +749,15 @@
             display: inline-flex; align-items: center; gap: 6px;
         }
         .footer-back i { width: 14px; height: 14px; }
+        .footer-award-badge { display: flex; align-items: center; gap: 12px; max-width: 560px; margin: 0 auto 28px; background: linear-gradient(135deg, rgba(245,214,139,0.15) 0%, rgba(212,168,71,0.12) 100%); border: 1px solid rgba(212,168,71,0.35); border-radius: 14px; padding: 12px 14px; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .footer-award-badge:hover { border-color: rgba(212,168,71,0.65); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(212,168,71,0.18); }
+        .footer-award-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #f5d68b 0%, #d4a847 100%); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .footer-award-icon i { color: #1a1a2e; width: 18px; height: 18px; }
+        .footer-award-text { flex: 1; min-width: 0; }
+        .footer-award-title { font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 2px; }
+        .footer-award-sub { font-size: 0.7rem; color: rgba(255,255,255,0.7); line-height: 1.35; }
+        .footer-award-score { font-size: 1rem; font-weight: 800; color: #f5d68b; text-align: right; flex-shrink: 0; line-height: 1; }
+        .footer-award-score span { display: block; font-size: 0.58rem; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 980px) {
@@ -824,7 +833,7 @@
                 <a href="#brands">Brands</a>
                 <a href="#capabilities">Capabilities</a>
                 <a href="#why">Why Sanicar</a>
-                <a href="/serviceareas">Areas</a>
+                <a href="/service-areas">Areas</a>
                 <a href="/blogs">Blog</a>
                 <a href="/">Sanicar Tech</a>
             </div>
@@ -1233,6 +1242,15 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
+            
+            <a href="https://qualitybusinessawards.com.au/2026/the-best-Auto-Electrical-Service-in-City-of-Manningham-VIC/Sani-Auto-&amp;-Electrical-Services#winner-showcase" target="_blank" rel="noopener noreferrer" class="footer-award-badge" aria-label="2026 Quality Business Award Winner">
+                <div class="footer-award-icon"><i data-lucide="award"></i></div>
+                <div class="footer-award-text">
+                    <div class="footer-award-title">2026 Quality Business Award Winner</div>
+                    <div class="footer-award-sub">#1 Best Auto Electrical Service in Victoria &middot; Top 1% of Australian Businesses</div>
+                </div>
+                <div class="footer-award-score">95%+<span>Score</span></div>
+            </a>
             <div class="footer-row">
                 <span>&copy; 2026 Sanicar Tech &mdash; European Electronics Specialists, Geelong.</span>
                 <a href="/" class="footer-back">
