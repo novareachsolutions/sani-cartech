@@ -348,7 +348,7 @@
             .mobile-toggle { display: block !important; }
             .navbar { padding: 12px 16px !important; }
             .nav-logo { margin: 0 !important; }
-            .nav-logo .logo-img { height: 56px !important; }
+            .nav-logo .logo-img { height: 80px !important; }
         }
 
         /* MBCOD nav highlight */
@@ -1215,6 +1215,37 @@
         .area-tag i, .area-tag svg { width: 14px; height: 14px; }
         .area-tag.primary { background: var(--accent-bg); color: var(--white); }
         .area-tag.primary i, .area-tag.primary svg { color: var(--white); }
+        .suburb-tag-wrap { position: relative; display: inline-block; }
+        .suburb-tag-wrap > .area-tag { border: none; cursor: pointer; font-family: inherit; }
+        .suburb-tag-wrap > .area-tag .area-tag-caret { transition: transform 0.25s ease; }
+        .suburb-tag-wrap.is-open > .area-tag .area-tag-caret { transform: rotate(180deg); }
+        .suburb-panel {
+            position: absolute; top: calc(100% + 8px); left: 0;
+            min-width: 260px;
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 16px 40px rgba(26,26,46,0.18);
+            border: 1px solid rgba(26,26,46,0.06);
+            padding: 8px;
+            opacity: 0; visibility: hidden; transform: translateY(-4px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+            z-index: 10;
+        }
+        .suburb-tag-wrap.is-open .suburb-panel {
+            opacity: 1; visibility: visible; transform: translateY(0);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .suburb-panel a {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
+            transition: var(--transition);
+        }
+        .suburb-panel a:hover { background: var(--cream); color: var(--accent); }
+        .suburb-panel a i { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
         .areas-map-img {
             border-radius: var(--radius-lg);
             overflow: hidden;
@@ -1537,7 +1568,7 @@
             .navbar { padding: 8px 12px; }
             .navbar-inner { padding: 6px 8px 6px 14px; }
             .nav-logo { margin: 0; }
-            .nav-logo .logo-img { height: 56px; }
+            .nav-logo .logo-img { height: 80px; }
             .mobile-toggle i { width: 24px; height: 24px; }
             .top-banner { padding: 10px 16px; font-size: 0.78rem; line-height: 1.4; }
             .hero { padding: 32px 0 48px; }
@@ -1593,11 +1624,11 @@
             .footer-bottom { flex-direction: column; align-items: flex-start; }
             .mobile-menu { padding: 20px 24px; }
             .mobile-menu-header { margin-bottom: 32px; }
-            .mobile-menu-header .nav-logo .logo-img { height: 56px; }
+            .mobile-menu-header .nav-logo .logo-img { height: 80px; }
             .mobile-menu-links a { font-size: 1.6rem; padding: 10px 0; }
         }
         @media (max-width: 420px) {
-            .nav-logo .logo-img { height: 48px; }
+            .nav-logo .logo-img { height: 64px; }
             .hero h1 { font-size: 1.85rem; }
             .services-header h2 { font-size: 1.9rem; }
             .cta h2 { font-size: 1.8rem; }
@@ -1627,7 +1658,7 @@
     <!-- Top Banner -->
     <div class="top-banner">
         Mobile auto electrician — we come to you across Geelong &amp; surrounds.
-        <a href="tel:+61406642600">Call now</a>
+        <a href="tel:+61406642600">Call Now</a>
     </div>
 
     <!-- Navbar -->
@@ -1688,7 +1719,7 @@
         </div>
         <div class="mobile-menu-cta">
             <a href="tel:+61406642600" class="mob-btn-primary">
-                <i data-lucide="phone" style="width:18px;height:18px;"></i> Call 0406 642 600
+                <i data-lucide="phone" style="width:18px;height:18px;"></i> Call Now
             </a>
             <a href="/contact/" class="mob-btn-secondary" onclick="toggleMobileMenu()">
                 <i data-lucide="calendar" style="width:18px;height:18px;"></i> Book Online
@@ -2031,10 +2062,58 @@
                     <p>We provide reliable <strong>mobile car auto electrician Geelong</strong> services throughout <strong>Ocean Grove, Torquay, Armstrong Creek, Waurn Ponds, Belmont, Highton</strong>, and surrounding suburbs.</p>
                     <div class="area-group-label">Primary Service Areas</div>
                     <div class="area-tags">
-                        <a href="/services/car-diagnostics/armstrong-creek/" class="area-tag primary"><i data-lucide="map-pin"></i> Armstrong Creek</a>
-                        <a href="/services/car-diagnostics/ocean-grove/" class="area-tag primary"><i data-lucide="map-pin"></i> Ocean Grove</a>
-                        <a href="/services/car-diagnostics/torquay/" class="area-tag primary"><i data-lucide="map-pin"></i> Torquay</a>
-                        <a href="/services/car-diagnostics/waurn-ponds/" class="area-tag primary"><i data-lucide="map-pin"></i> Waurn Ponds</a>
+                        <div class="suburb-tag-wrap" data-suburb="armstrong-creek">
+                            <button type="button" class="area-tag primary" aria-expanded="false" aria-haspopup="true">
+                                <i data-lucide="map-pin"></i> Armstrong Creek
+                                <i data-lucide="chevron-down" class="area-tag-caret"></i>
+                            </button>
+                            <div class="suburb-panel" role="menu">
+                                <a href="/services/car-diagnostics/armstrong-creek/"><i data-lucide="zap"></i> Car Electrical Diagnostics</a>
+                                <a href="/services/car-repair/armstrong-creek/"><i data-lucide="wrench"></i> Car Repair &amp; Installations</a>
+                                <a href="/services/european-car-diagnostics/armstrong-creek/"><i data-lucide="car"></i> European Car Diagnostics</a>
+                                <a href="/services/electric-vehicle-repairs/armstrong-creek/"><i data-lucide="battery-charging"></i> EV &amp; Hybrid Diagnostics</a>
+                                <a href="/services/european-car-tuning-ecu-coding/"><i data-lucide="cpu"></i> ECU Coding &amp; Programming</a>
+                            </div>
+                        </div>
+                        <div class="suburb-tag-wrap" data-suburb="ocean-grove">
+                            <button type="button" class="area-tag primary" aria-expanded="false" aria-haspopup="true">
+                                <i data-lucide="map-pin"></i> Ocean Grove
+                                <i data-lucide="chevron-down" class="area-tag-caret"></i>
+                            </button>
+                            <div class="suburb-panel" role="menu">
+                                <a href="/services/car-diagnostics/ocean-grove/"><i data-lucide="zap"></i> Car Electrical Diagnostics</a>
+                                <a href="/services/car-repair/ocean-grove/"><i data-lucide="wrench"></i> Car Repair &amp; Installations</a>
+                                <a href="/services/european-car-diagnostics/ocean-grove/"><i data-lucide="car"></i> European Car Diagnostics</a>
+                                <a href="/services/electric-vehicle-repairs/ocean-grove/"><i data-lucide="battery-charging"></i> EV &amp; Hybrid Diagnostics</a>
+                                <a href="/services/european-car-tuning-ecu-coding/"><i data-lucide="cpu"></i> ECU Coding &amp; Programming</a>
+                            </div>
+                        </div>
+                        <div class="suburb-tag-wrap" data-suburb="torquay">
+                            <button type="button" class="area-tag primary" aria-expanded="false" aria-haspopup="true">
+                                <i data-lucide="map-pin"></i> Torquay
+                                <i data-lucide="chevron-down" class="area-tag-caret"></i>
+                            </button>
+                            <div class="suburb-panel" role="menu">
+                                <a href="/services/car-diagnostics/torquay/"><i data-lucide="zap"></i> Car Electrical Diagnostics</a>
+                                <a href="/services/car-repair/torquay/"><i data-lucide="wrench"></i> Car Repair &amp; Installations</a>
+                                <a href="/services/european-car-diagnostics/torquay/"><i data-lucide="car"></i> European Car Diagnostics</a>
+                                <a href="/services/electric-vehicle-repairs/torquay/"><i data-lucide="battery-charging"></i> EV &amp; Hybrid Diagnostics</a>
+                                <a href="/services/european-car-tuning-ecu-coding/"><i data-lucide="cpu"></i> ECU Coding &amp; Programming</a>
+                            </div>
+                        </div>
+                        <div class="suburb-tag-wrap" data-suburb="waurn-ponds">
+                            <button type="button" class="area-tag primary" aria-expanded="false" aria-haspopup="true">
+                                <i data-lucide="map-pin"></i> Waurn Ponds
+                                <i data-lucide="chevron-down" class="area-tag-caret"></i>
+                            </button>
+                            <div class="suburb-panel" role="menu">
+                                <a href="/services/car-diagnostics/waurn-ponds/"><i data-lucide="zap"></i> Car Electrical Diagnostics</a>
+                                <a href="/services/car-repair/waurn-ponds/"><i data-lucide="wrench"></i> Car Repair &amp; Installations</a>
+                                <a href="/services/european-car-diagnostics/waurn-ponds/"><i data-lucide="car"></i> European Car Diagnostics</a>
+                                <a href="/services/electric-vehicle-repairs/waurn-ponds/"><i data-lucide="battery-charging"></i> EV &amp; Hybrid Diagnostics</a>
+                                <a href="/services/european-car-tuning-ecu-coding/"><i data-lucide="cpu"></i> ECU Coding &amp; Programming</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="area-group-label">Also Servicing</div>
                     <div class="area-tags">
@@ -2118,7 +2197,7 @@
             <div class="cta-buttons">
                 <a href="tel:+61406642600" class="cta-btn cta-btn-dark">
                     <i data-lucide="phone" style="width:18px;height:18px;"></i>
-                    Call 0406 642 600
+                    Call Now
                 </a>
                 <a href="#services" class="cta-btn cta-btn-outline">
                     View Services
@@ -2148,8 +2227,8 @@
                 <div class="trust-card">
                     <div class="trust-card-icon"><i data-lucide="star"></i></div>
                     <div>
-                        <h4>Top Rated 2025</h4>
-                        <p>4.9/5 star Google rating from local Geelong customers.</p>
+                        <h4>Rated 4.9 on Google</h4>
+                        <p>Trusted by Geelong drivers.</p>
                     </div>
                 </div>
             </div>
@@ -2247,6 +2326,35 @@
 
         // Lucide Icons
         lucide.createIcons();
+
+        // Service-area pill dropdowns
+        (function() {
+            var wraps = document.querySelectorAll('.suburb-tag-wrap');
+            if (!wraps.length) return;
+            wraps.forEach(function(wrap) {
+                var btn = wrap.querySelector('button.area-tag');
+                if (!btn) return;
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var isOpen = wrap.classList.contains('is-open');
+                    wraps.forEach(function(w) { w.classList.remove('is-open'); w.querySelector('button.area-tag').setAttribute('aria-expanded', 'false'); });
+                    if (!isOpen) {
+                        wrap.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.suburb-tag-wrap')) {
+                    wraps.forEach(function(w) { w.classList.remove('is-open'); w.querySelector('button.area-tag').setAttribute('aria-expanded', 'false'); });
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    wraps.forEach(function(w) { w.classList.remove('is-open'); w.querySelector('button.area-tag').setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        })();
 
         // Hero location rotator
         (function() {
